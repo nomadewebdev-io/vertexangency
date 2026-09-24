@@ -495,28 +495,42 @@ button {
   z-index: 1;
   padding: 100px 0;
   background: 
-    radial-gradient(circle at 10% 40%, rgba(16, 92, 48, 0.4) 0%, transparent 60%),
-    radial-gradient(circle at 90% 60%, rgba(15, 87, 45, 0.4) 0%, transparent 60%),
+    radial-gradient(circle at 12% 25%, rgba(16, 92, 48, 0.5) 0%, transparent 55%),
+    radial-gradient(circle at 88% 70%, rgba(15, 87, 45, 0.35) 0%, transparent 60%),
     #020814;
 }
 
 .section-header {
-  margin-bottom: 48px;
+  margin-bottom: 44px;
+}
+
+.badge-offres {
+  background: #00DF81;
+  color: #FFFFFF;
+  font-weight: 700;
+  font-size: 0.9rem;
+  padding: 6px 22px;
+  border-radius: var(--radius-pill);
+  box-shadow: 0 0 15px rgba(0, 223, 129, 0.4);
+  display: inline-block;
+  margin-bottom: 16px;
+  letter-spacing: 0.02em;
+  border: none;
 }
 
 .services-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-  gap: 20px;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 16px;
 }
 
 .service-card {
-  background: rgba(10, 24, 20, 0.7);
+  background: rgba(10, 24, 20, 0.75);
   backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
-  border: 1px solid rgba(36, 206, 107, 0.2);
+  border: 1px solid rgba(36, 206, 107, 0.22);
   border-radius: var(--radius-lg);
-  padding: 24px;
+  padding: 22px 18px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -527,45 +541,40 @@ button {
 
 .service-card:hover {
   transform: translateY(-8px);
-  background: rgba(14, 34, 28, 0.85);
+  background: rgba(14, 34, 28, 0.9);
   border-color: #24CE6B;
   box-shadow: 0 15px 35px rgba(0, 0, 0, 0.6), 0 0 25px rgba(36, 206, 107, 0.25);
 }
 
-.service-icon-wrap {
-  width: 44px;
-  height: 44px;
-  border-radius: 10px;
-  background: rgba(36, 206, 107, 0.15);
-  border: 1px solid rgba(36, 206, 107, 0.35);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: #24CE6B;
-  margin-bottom: 20px;
-  font-size: 1.25rem;
+.service-icon-img {
+  width: 32px;
+  height: 32px;
+  object-fit: contain;
+  margin-bottom: 16px;
+  display: block;
+  border-radius: 6px;
 }
 
 .service-title {
-  font-size: 1.15rem;
+  font-size: 1.08rem;
   font-weight: 700;
-  margin-bottom: 10px;
+  margin-bottom: 8px;
   color: var(--text-white);
   line-height: 1.3;
 }
 
 .service-desc {
-  font-size: 0.88rem;
-  color: var(--text-muted);
-  line-height: 1.55;
-  margin-bottom: 20px;
+  font-size: 0.8rem;
+  color: #94A3B8;
+  line-height: 1.5;
+  margin-bottom: 18px;
   flex-grow: 1;
 }
 
 .service-thumb {
   width: 100%;
-  height: 130px;
-  border-radius: var(--radius-sm);
+  height: 125px;
+  border-radius: 10px;
   overflow: hidden;
   border: 1px solid rgba(255, 255, 255, 0.08);
 }
@@ -578,7 +587,7 @@ button {
 }
 
 .service-card:hover .service-thumb img {
-  transform: scale(1.08);
+  transform: scale(1.06);
 }
 
 /* ==========================================================================
@@ -1184,10 +1193,20 @@ button {
 /* ==========================================================================
    RESPONSIVE DESIGN (MEDIA QUERIES)
    ========================================================================== */
+@media (max-width: 1200px) {
+  .services-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
 @media (max-width: 1024px) {
   .hero-grid {
     grid-template-columns: 1fr;
     gap: 48px;
+  }
+
+  .services-grid {
+    grid-template-columns: repeat(2, 1fr);
   }
 
   .portfolio-grid {
