@@ -126,6 +126,11 @@ button {
   display: inline-block;
 }
 
+.text-green {
+  color: #24CE6B;
+  display: inline-block;
+}
+
 /* Section Header Badges */
 .section-badge {
   display: inline-flex;
@@ -223,34 +228,32 @@ button {
 }
 
 .logo-icon-wrap {
-  width: 38px;
-  height: 38px;
+  width: 36px;
+  height: 36px;
   display: flex;
   align-items: center;
   justify-content: center;
-  border-radius: 10px;
-  background: #0A192F;
-  border: 1px solid rgba(36, 206, 107, 0.5);
-  box-shadow: 0 0 15px rgba(36, 206, 107, 0.3);
+  background: transparent;
+  border: none;
 }
 
 .logo-text {
   display: flex;
   flex-direction: column;
-  line-height: 1.1;
+  line-height: 1.05;
 }
 
 .logo-main {
   font-weight: 800;
   color: var(--text-white);
+  font-size: 1.25rem;
 }
 
 .logo-sub {
-  font-size: 0.72rem;
-  font-weight: 600;
-  color: #00FF87;
-  text-transform: uppercase;
-  letter-spacing: 0.1em;
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: #24CE6B;
+  letter-spacing: 0.04em;
 }
 
 /* Nav Links */
@@ -264,9 +267,11 @@ button {
 .nav-link {
   font-size: 0.95rem;
   font-weight: 500;
-  color: rgba(255, 255, 255, 0.85);
+  color: #FFFFFF;
   position: relative;
   padding: 6px 0;
+  opacity: 0.92;
+  transition: opacity var(--transition-fast), color var(--transition-fast);
 }
 
 .nav-link::after {
@@ -281,23 +286,24 @@ button {
   border-radius: 2px;
 }
 
-.nav-link:hover, .nav-link.active {
+.nav-link:hover {
   color: #FFFFFF;
+  opacity: 1;
 }
 
-.nav-link:hover::after, .nav-link.active::after {
+.nav-link:hover::after {
   width: 100%;
 }
 
-/* Nav CTA Button */
+/* Nav CTA Button ("Demander un devis") */
 .btn-nav-cta {
-  background: linear-gradient(135deg, #00FF87 0%, #24CE6B 100%);
-  color: #040914;
+  background: #24CE6B;
+  color: #FFFFFF;
   font-weight: 700;
-  font-size: 0.88rem;
-  padding: 10px 22px;
+  font-size: 0.92rem;
+  padding: 11px 26px;
   border-radius: var(--radius-pill);
-  box-shadow: 0 0 20px rgba(36, 206, 107, 0.4);
+  box-shadow: 0 0 15px rgba(36, 206, 107, 0.35);
   transition: all var(--transition-normal);
   display: inline-flex;
   align-items: center;
@@ -305,9 +311,10 @@ button {
 }
 
 .btn-nav-cta:hover {
+  background: #00DF81;
   transform: translateY(-2px);
-  box-shadow: 0 0 30px rgba(36, 206, 107, 0.7);
-  color: #000;
+  box-shadow: 0 0 25px rgba(36, 206, 107, 0.6);
+  color: #FFFFFF;
 }
 
 /* Mobile Menu Button */
@@ -351,8 +358,7 @@ button {
   align-items: center;
   justify-content: center;
   gap: 10px;
-  padding: 14px 28px;
-  border-radius: var(--radius-pill);
+  padding: 14px 30px;
   font-weight: 700;
   font-size: 0.95rem;
   letter-spacing: -0.01em;
@@ -362,25 +368,31 @@ button {
 }
 
 .btn-primary {
-  background: linear-gradient(135deg, #00FF87 0%, #24CE6B 100%);
-  color: #040914;
-  box-shadow: 0 0 25px rgba(36, 206, 107, 0.4);
+  background: #24CE6B;
+  color: #FFFFFF;
+  border-radius: var(--radius-pill);
+  box-shadow: 0 4px 20px rgba(36, 206, 107, 0.35);
 }
 
 .btn-primary:hover {
-  transform: translateY(-3px) scale(1.02);
-  box-shadow: 0 0 35px rgba(36, 206, 107, 0.7);
+  background: #00DF81;
+  transform: translateY(-2px) scale(1.02);
+  box-shadow: 0 6px 28px rgba(36, 206, 107, 0.6);
+  color: #FFFFFF;
 }
 
 .btn-secondary {
-  background: linear-gradient(135deg, #0144D0 0%, #0D63FC 100%);
+  background: #0144D0;
   color: #FFFFFF;
-  box-shadow: 0 0 25px rgba(13, 99, 252, 0.4);
+  border-radius: 8px; /* Rounded rectangle matching Figma mockup */
+  box-shadow: 0 4px 20px rgba(1, 68, 208, 0.35);
 }
 
 .btn-secondary:hover {
-  transform: translateY(-3px) scale(1.02);
-  box-shadow: 0 0 35px rgba(13, 99, 252, 0.7);
+  background: #0D63FC;
+  transform: translateY(-2px) scale(1.02);
+  box-shadow: 0 6px 28px rgba(13, 99, 252, 0.6);
+  color: #FFFFFF;
 }
 
 /* ==========================================================================
@@ -389,18 +401,17 @@ button {
 .hero-section {
   position: relative;
   z-index: 1;
-  padding: 160px 0 100px;
+  padding: 150px 0 90px;
   overflow: hidden;
   background: 
-    radial-gradient(circle at 80% 25%, rgba(1, 68, 208, 0.45) 0%, transparent 60%),
-    radial-gradient(circle at 15% 45%, rgba(13, 33, 71, 0.6) 0%, transparent 65%),
-    linear-gradient(180deg, #0144D0 0%, #082156 140px, #011130 380px, #030C1E 100%);
+    radial-gradient(circle at 75% 45%, rgba(1, 68, 208, 0.28) 0%, transparent 60%),
+    linear-gradient(180deg, #0144D0 0%, #01226B 140px, #011130 360px, #020919 100%);
 }
 
 .hero-grid {
   display: grid;
   grid-template-columns: 1.15fr 0.85fr;
-  gap: 48px;
+  gap: 36px;
   align-items: center;
 }
 
@@ -410,19 +421,20 @@ button {
 }
 
 .hero-title {
-  font-size: clamp(2.5rem, 5.5vw, 4.25rem);
+  font-size: clamp(2.6rem, 5.2vw, 4.4rem);
   font-weight: 800;
-  line-height: 1.1;
+  line-height: 1.12;
   margin-bottom: 24px;
   letter-spacing: -0.03em;
+  color: #FFFFFF;
 }
 
 .hero-subtitle {
-  font-size: clamp(1.05rem, 1.8vw, 1.2rem);
+  font-size: clamp(1rem, 1.6vw, 1.12rem);
   color: #CBD5E1;
-  line-height: 1.65;
+  line-height: 1.6;
   margin-bottom: 36px;
-  max-width: 540px;
+  max-width: 530px;
 }
 
 .hero-actions {
@@ -433,13 +445,11 @@ button {
   margin-bottom: 48px;
 }
 
-/* Hero Stats (+5 Projets livrés, 98% Satisfaction, +4 ans D'expérience) */
+/* Hero Stats exacts de la maquette */
 .hero-stats {
   display: flex;
-  align-items: center;
-  gap: 40px;
-  padding-top: 32px;
-  border-top: 1px solid rgba(255, 255, 255, 0.12);
+  align-items: flex-start;
+  gap: 52px;
 }
 
 .stat-item {
@@ -449,17 +459,16 @@ button {
 
 .stat-number {
   font-family: var(--font-family);
-  font-size: clamp(1.75rem, 3vw, 2.25rem);
+  font-size: clamp(2.2rem, 3.5vw, 2.75rem);
   font-weight: 800;
   color: #24CE6B;
   line-height: 1;
-  margin-bottom: 6px;
-  text-shadow: 0 0 15px rgba(36, 206, 107, 0.4);
+  margin-bottom: 8px;
 }
 
 .stat-label {
-  font-size: 0.85rem;
-  color: #CBD5E1;
+  font-size: 0.92rem;
+  color: #FFFFFF;
   font-weight: 500;
 }
 
@@ -474,17 +483,19 @@ button {
 .hero-image-wrapper {
   position: relative;
   width: 100%;
-  border-radius: var(--radius-xl);
-  overflow: hidden;
-  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.7), 0 0 40px rgba(1, 68, 208, 0.35);
-  border: 1px solid rgba(255, 255, 255, 0.15);
-  background: #0A1424;
+  max-width: 490px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .hero-img {
   width: 100%;
   height: auto;
-  object-fit: cover;
+  object-fit: contain;
+  filter: drop-shadow(0 20px 40px rgba(0, 0, 0, 0.5));
+  mask-image: linear-gradient(to right, transparent 0%, black 16px, black 96%, transparent 100%);
+  -webkit-mask-image: linear-gradient(to right, transparent 0%, black 16px, black 96%, transparent 100%);
 }
 
 /* ==========================================================================
