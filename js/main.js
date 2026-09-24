@@ -1,14 +1,12 @@
 /**
  * VERTEX AGENCY - INTERACTIVE SCRIPTS
- * Features: Mobile Nav, Smooth Scroll, Active Spy, Project Lightbox Modal,
- * Stats Counter Animation, Form Validation & Success Toast/Confetti, Card Tilt
+ * Modules: Navigation, Smooth Scroll, Stats Counter,
+ * Project Lightbox Modal (Placeholders neutres), Form Validation & Toast Notification
  */
 
 document.addEventListener('DOMContentLoaded', () => {
-  // Initialize all modules
   initNavigation();
   initStatsCounter();
-  initPortfolioFilters();
   initProjectModal();
   initContactForm();
   initScrollEffects();
@@ -81,7 +79,7 @@ function initNavigation() {
 }
 
 /* ==========================================================================
-   STATS COUNTER ANIMATION
+   STATS COUNTER ANIMATION (+5, 98%, +4 ans)
    ========================================================================== */
 function initStatsCounter() {
   const statNumbers = document.querySelectorAll('.stat-number');
@@ -98,8 +96,8 @@ function initStatsCounter() {
           const prefix = stat.getAttribute('data-prefix') || '';
           const suffix = stat.getAttribute('data-suffix') || '';
           let count = 0;
-          const duration = 1800; // ms
-          const stepTime = 30;
+          const duration = 1200; // ms
+          const stepTime = 40;
           const totalSteps = duration / stepTime;
           const increment = target / totalSteps;
 
@@ -121,71 +119,32 @@ function initStatsCounter() {
 }
 
 /* ==========================================================================
-   PORTFOLIO FILTERS
-   ========================================================================== */
-function initPortfolioFilters() {
-  const filterBtns = document.querySelectorAll('.filter-btn');
-  const projectCards = document.querySelectorAll('.portfolio-card');
-
-  filterBtns.forEach(btn => {
-    btn.addEventListener('click', () => {
-      filterBtns.forEach(b => b.classList.remove('active'));
-      btn.classList.add('active');
-
-      const filterValue = btn.getAttribute('data-filter');
-
-      projectCards.forEach(card => {
-        const category = card.getAttribute('data-category');
-        if (filterValue === 'all' || category.includes(filterValue)) {
-          card.style.display = 'flex';
-          card.style.animation = 'fadeInUp 0.4s ease forwards';
-        } else {
-          card.style.display = 'none';
-        }
-      });
-    });
-  });
-}
-
-/* ==========================================================================
-   PROJECT DETAILS MODAL
+   PROJECT DETAILS MODAL (Placeholders neutres)
    ========================================================================== */
 const projectData = {
-  saas: {
-    title: "Quantum Analytics SaaS Platform",
-    category: "Next.js • Tailwind CSS • Dashboard • TypeScript",
+  "1": {
+    title: "Nom du projet",
+    category: "Projet 01",
     image: "assets/images/project_saas.jpg",
-    description: "Plateforme B2B d'analyse prédictive et de visualisation de données en temps réel. Dotée d'un moteur d'apprentissage automatique pour l'optimisation des taux de conversion et d'une interface ultra-réactive conçue pour les équipes produit.",
-    deliverables: ["Dashboard temps réel avec Websockets", "Architecture micro-frontend Next.js 14", "Intégration d'API GraphQL & Stripe Billing", "Dark mode natif et composants modulaires"],
-    client: "Quantum Tech Corp",
-    year: "2026"
+    description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam."
   },
-  ecommerce: {
-    title: "Aurelia Luxe E-Commerce",
-    category: "Shopify Plus • Webflow • UI/UX Design",
+  "2": {
+    title: "Nom du projet",
+    category: "Projet 02",
     image: "assets/images/project_ecommerce.jpg",
-    description: "Expérience shopping immersive et épurée pour une maison de haute maroquinerie et joaillerie. Optimisation globale des parcours d'achat ayant entraîné une progression de 78% des commandes internationales.",
-    deliverables: ["Design UI/UX sur mesure sous Figma", "Boutique headless Shopify Storefront API", "Panier dynamique tiroir et checkout 1-clic", "Optimisation des performances (score 99/100)"],
-    client: "Maison Aurelia Paris",
-    year: "2026"
+    description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam."
   },
-  fintech: {
-    title: "Hexa Fintech & Crypto Ecosystem",
-    category: "React Native • Node.js • Web3 API",
+  "3": {
+    title: "Nom du projet",
+    category: "Projet 03",
     image: "assets/images/project_fintech.jpg",
-    description: "Application mobile bancaire nouvelle génération avec intégration de portefeuilles multi-devises, transferts instantanés sans frais et tableau de bord d'investissement en temps réel.",
-    deliverables: ["Application mobile hybride iOS / Android", "Système d'authentification biométrique sécurisé", "Graphiques financiers haute fréquence", "Conformité réglementaire bancaire"],
-    client: "Hexa Financial Ltd",
-    year: "2025"
+    description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam."
   },
-  realestate: {
-    title: "Emerald Estates Luxury Portal",
-    category: "Vue.js • Real Estate • Interactive Maps",
+  "4": {
+    title: "Nom du projet",
+    category: "Projet 04",
     image: "assets/images/project_realestate.jpg",
-    description: "Portail immobilier de prestige offrant des visites virtuelles interactives 3D, un système de cartographie géolocalisée et un module de prise de rendez-vous avec conseillers privés.",
-    deliverables: ["Visites virtuelles 360° interactives", "Filtres géolocalisés haute performance", "CRM de gestion des mandats et leads", "Design ultra-luxe orienté conversion"],
-    client: "Emerald Global Real Estate",
-    year: "2025"
+    description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam."
   }
 };
 
@@ -198,30 +157,26 @@ function initProjectModal() {
   if (!modalBackdrop || !modalContent) return;
 
   function openModal(projectId) {
-    const data = projectData[projectId];
-    if (!data) return;
+    const data = projectData[projectId] || {
+      title: "Nom du projet",
+      category: "Portfolio",
+      image: "assets/images/project_saas.jpg",
+      description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit."
+    };
 
     modalContent.innerHTML = `
       <div style="margin-bottom: 20px;">
         <span class="section-badge badge-green">${data.category}</span>
         <h2 style="font-size: 1.8rem; color: #FFF; margin: 10px 0;">${data.title}</h2>
-        <div style="font-size: 0.85rem; color: #94A3B8; display: flex; gap: 16px; margin-bottom: 16px;">
-          <span><strong>Client :</strong> ${data.client}</span>
-          <span><strong>Année :</strong> ${data.year}</span>
-        </div>
       </div>
-      <div style="border-radius: 14px; overflow: hidden; margin-bottom: 24px; border: 1px solid rgba(255,255,255,0.1); max-height: 320px;">
+      <div style="border-radius: 14px; overflow: hidden; margin-bottom: 24px; border: 1px solid rgba(255,255,255,0.1); max-height: 320px; background: #FFF;">
         <img src="${data.image}" alt="${data.title}" style="width:100%; height:100%; object-fit:cover;">
       </div>
-      <p style="color: #E2E8F0; line-height: 1.6; margin-bottom: 20px; font-size: 0.95rem;">
+      <p style="color: #CBD5E1; line-height: 1.6; margin-bottom: 24px; font-size: 0.95rem;">
         ${data.description}
       </p>
-      <h4 style="color: #00FF87; font-size: 1.05rem; margin-bottom: 12px;">Points clés du projet :</h4>
-      <ul style="list-style: none; margin-bottom: 24px; display: grid; grid-template-columns: 1fr; gap: 8px;">
-        ${data.deliverables.map(item => `<li style="display: flex; align-items: center; gap: 10px; color: #94A3B8; font-size: 0.9rem;"><span style="color:#00DF81;">✔</span> ${item}</li>`).join('')}
-      </ul>
       <div style="display: flex; gap: 12px; flex-wrap: wrap;">
-        <a href="#contact" class="btn btn-primary" onclick="closeProjectModal()">Lancer un projet similaire →</a>
+        <a href="#contact" class="btn btn-primary" onclick="closeProjectModal()">Démarrer un projet →</a>
       </div>
     `;
 
@@ -271,10 +226,9 @@ function initContactForm() {
     const submitBtn = form.querySelector('.btn-form-submit');
     const nameInput = document.getElementById('fullName');
     const emailInput = document.getElementById('email');
-    const projectType = document.getElementById('projectType');
     const messageInput = document.getElementById('message');
 
-    // Simple validation
+    // Validation
     if (!nameInput.value.trim() || !emailInput.value.trim() || !messageInput.value.trim()) {
       showToast("Veuillez remplir tous les champs obligatoires.", "error");
       return;
@@ -297,15 +251,15 @@ function initContactForm() {
       Envoi en cours...
     `;
 
-    // Simulate API network request
+    // Simulated API response
     setTimeout(() => {
       submitBtn.disabled = false;
       submitBtn.innerHTML = originalText;
       form.reset();
 
-      showToast(`Merci ${nameInput.value.trim()} ! Votre message a été transmis avec succès. Notre équipe vous recontactera sous 24h.`);
+      showToast(`Merci ! Votre message a été transmis avec succès.`);
       triggerConfetti();
-    }, 1200);
+    }, 1000);
   });
 }
 
@@ -335,10 +289,9 @@ function showToast(message, type = "success") {
   }, 4500);
 }
 
-/* Confetti Celebration */
 function triggerConfetti() {
-  const colors = ['#00FF87', '#00DF81', '#0066FF', '#38BDF8', '#FFFFFF'];
-  for (let i = 0; i < 40; i++) {
+  const colors = ['#00FF87', '#24CE6B', '#0D63FC', '#0144D0', '#FFFFFF'];
+  for (let i = 0; i < 35; i++) {
     const confetti = document.createElement('div');
     confetti.style.position = 'fixed';
     confetti.style.width = `${Math.random() * 8 + 6}px`;
@@ -362,7 +315,6 @@ function triggerConfetti() {
   }
 }
 
-/* Subtle Scroll Animations */
 function initScrollEffects() {
   const elements = document.querySelectorAll('.service-card, .portfolio-card, .testimonial-card');
   const observer = new IntersectionObserver((entries) => {

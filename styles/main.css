@@ -1,34 +1,32 @@
 /* ==========================================================================
    VERTEX AGENCY - MAIN STYLESHEET
-   Design System: DIN Pro Typography, Dark Modern Aesthetic,
-   Vibrant Emerald Green & Electric Blue Accents, Glassmorphism
+   Palette Figma exacte :
+   - Bleu_01: #0144D0 / #0D63FC
+   - Bleu_Foncé: #010F2E / #011130 / #082156
+   - Vert: #24CE6B / #00DF81 / #00FF87
+   - Dégradés riches bleu foncé & vert néon
+   - Police principale : DIN Pro (fallbacks web : Space Grotesk, Plus Jakarta Sans)
    ========================================================================== */
 
 @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@500;600;700&display=swap');
 
 /* --- CSS Variables / Tokens --- */
 :root {
-  /* Color Palette */
-  --bg-dark: #040914;
-  --bg-darker: #02050b;
-  --bg-card: rgba(10, 20, 36, 0.75);
-  --bg-card-solid: #0A1424;
-  --bg-card-hover: rgba(15, 29, 53, 0.85);
-  --bg-input: rgba(6, 14, 28, 0.8);
+  /* Exact Figma Brand Colors */
+  --color-blue-header: #0144D0;
+  --color-blue-01: #0D63FC;
+  --color-blue-deep: #010F2E;
+  --color-blue-navy: #011130;
+  --color-blue-darker: #000B21;
 
-  /* Brand Accents */
-  --color-green: #00DF81;
-  --color-green-light: #00FF87;
-  --color-green-glow: rgba(0, 223, 129, 0.3);
-  --color-green-subtle: rgba(0, 223, 129, 0.12);
+  --color-green: #24CE6B;
+  --color-green-neon: #00FF87;
+  --color-green-glow: rgba(36, 206, 107, 0.35);
 
-  --color-blue-01: #0066FF;
-  --color-blue-primary: #1D4ED8;
-  --color-blue-deep: #0A192F;
-  --color-blue-glow: rgba(0, 102, 255, 0.25);
-  --color-blue-subtle: rgba(0, 102, 255, 0.12);
-
-  --color-cyan: #38BDF8;
+  --bg-dark: #020712;
+  --bg-card: rgba(8, 18, 36, 0.85);
+  --bg-card-hover: rgba(14, 28, 54, 0.95);
+  --bg-input: rgba(4, 11, 24, 0.9);
 
   /* Text Colors */
   --text-white: #FFFFFF;
@@ -36,14 +34,14 @@
   --text-muted: #94A3B8;
   --text-dim: #64748B;
 
-  /* Borders & Dividers */
-  --border-subtle: rgba(255, 255, 255, 0.09);
+  /* Borders */
+  --border-subtle: rgba(255, 255, 255, 0.1);
   --border-card: rgba(255, 255, 255, 0.08);
-  --border-green: rgba(0, 223, 129, 0.4);
-  --border-blue: rgba(0, 102, 255, 0.4);
+  --border-green: rgba(36, 206, 107, 0.4);
+  --border-blue: rgba(13, 99, 252, 0.4);
 
   /* Typography */
-  --font-family: 'DIN Pro', 'DIN Alternate', 'Space Grotesk', 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --font-family: 'DIN Pro', 'DIN Alternate', 'Space Grotesk', 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
   --font-body: 'Plus Jakarta Sans', 'DIN Pro', -apple-system, BlinkMacSystemFont, sans-serif;
 
   /* Transitions */
@@ -55,13 +53,8 @@
   --radius-sm: 8px;
   --radius-md: 14px;
   --radius-lg: 20px;
-  --radius-xl: 28px;
+  --radius-xl: 24px;
   --radius-pill: 9999px;
-
-  /* Shadows */
-  --shadow-green-glow: 0 0 25px rgba(0, 223, 129, 0.35);
-  --shadow-blue-glow: 0 0 25px rgba(0, 102, 255, 0.35);
-  --shadow-card: 0 10px 30px -5px rgba(0, 0, 0, 0.5), 0 0 1px 1px rgba(255, 255, 255, 0.05);
 }
 
 /* --- Global Reset & Base Styles --- */
@@ -127,14 +120,7 @@ button {
 }
 
 .text-gradient-green {
-  background: linear-gradient(135deg, #00FF87 0%, #00DF81 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  display: inline-block;
-}
-
-.text-gradient-blue {
-  background: linear-gradient(135deg, #38BDF8 0%, #0066FF 100%);
+  background: linear-gradient(135deg, #00FF87 0%, #24CE6B 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   display: inline-block;
@@ -145,7 +131,7 @@ button {
   display: inline-flex;
   align-items: center;
   gap: 8px;
-  padding: 6px 16px;
+  padding: 6px 18px;
   border-radius: var(--radius-pill);
   font-size: 0.8rem;
   font-weight: 700;
@@ -155,17 +141,17 @@ button {
 }
 
 .badge-green {
-  background: rgba(0, 223, 129, 0.12);
-  color: var(--color-green-light);
-  border: 1px solid rgba(0, 223, 129, 0.35);
-  box-shadow: 0 0 15px rgba(0, 223, 129, 0.15);
+  background: rgba(36, 206, 107, 0.15);
+  color: #24CE6B;
+  border: 1px solid rgba(36, 206, 107, 0.4);
+  box-shadow: 0 0 15px rgba(36, 206, 107, 0.2);
 }
 
 .badge-blue {
-  background: rgba(0, 102, 255, 0.15);
+  background: rgba(13, 99, 252, 0.2);
   color: #60A5FA;
-  border: 1px solid rgba(0, 102, 255, 0.35);
-  box-shadow: 0 0 15px rgba(0, 102, 255, 0.15);
+  border: 1px solid rgba(13, 99, 252, 0.4);
+  box-shadow: 0 0 15px rgba(13, 99, 252, 0.2);
 }
 
 .section-title {
@@ -178,48 +164,6 @@ button {
   font-size: 1.05rem;
   color: var(--text-muted);
   max-width: 600px;
-}
-
-/* Background Ambient Lighting Orbs */
-.ambient-glow {
-  position: fixed;
-  border-radius: 50%;
-  filter: blur(120px);
-  pointer-events: none;
-  z-index: 0;
-  opacity: 0.45;
-}
-
-.glow-top-right {
-  top: -100px;
-  right: -100px;
-  width: 600px;
-  height: 600px;
-  background: radial-gradient(circle, rgba(0, 102, 255, 0.4) 0%, transparent 70%);
-}
-
-.glow-mid-left {
-  top: 35%;
-  left: -200px;
-  width: 700px;
-  height: 700px;
-  background: radial-gradient(circle, rgba(0, 223, 129, 0.3) 0%, transparent 70%);
-}
-
-.glow-mid-right {
-  top: 60%;
-  right: -150px;
-  width: 650px;
-  height: 650px;
-  background: radial-gradient(circle, rgba(0, 102, 255, 0.35) 0%, transparent 70%);
-}
-
-.glow-bottom {
-  bottom: 0;
-  left: 30%;
-  width: 600px;
-  height: 500px;
-  background: radial-gradient(circle, rgba(0, 223, 129, 0.25) 0%, transparent 70%);
 }
 
 /* Subtle Grid Background Pattern */
@@ -238,7 +182,7 @@ button {
 }
 
 /* ==========================================================================
-   NAVIGATION BAR
+   NAVIGATION BAR (Bleu_01 / #0144D0 comme dans Figma)
    ========================================================================== */
 .navbar {
   position: fixed;
@@ -247,16 +191,17 @@ button {
   right: 0;
   z-index: 1000;
   padding: 18px 0;
+  background: #0144D0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.12);
   transition: all var(--transition-normal);
 }
 
 .navbar.scrolled {
   padding: 12px 0;
-  background: rgba(5, 11, 20, 0.85);
+  background: rgba(1, 46, 141, 0.95);
   backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
-  border-bottom: 1px solid var(--border-subtle);
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+  box-shadow: 0 6px 25px rgba(0, 0, 0, 0.5);
 }
 
 .nav-container {
@@ -284,9 +229,9 @@ button {
   align-items: center;
   justify-content: center;
   border-radius: 10px;
-  background: linear-gradient(135deg, rgba(0, 223, 129, 0.15), rgba(0, 102, 255, 0.15));
-  border: 1px solid rgba(0, 223, 129, 0.3);
-  box-shadow: 0 0 15px rgba(0, 223, 129, 0.2);
+  background: #0A192F;
+  border: 1px solid rgba(36, 206, 107, 0.5);
+  box-shadow: 0 0 15px rgba(36, 206, 107, 0.3);
 }
 
 .logo-text {
@@ -303,7 +248,7 @@ button {
 .logo-sub {
   font-size: 0.72rem;
   font-weight: 600;
-  color: var(--color-green);
+  color: #00FF87;
   text-transform: uppercase;
   letter-spacing: 0.1em;
 }
@@ -319,7 +264,7 @@ button {
 .nav-link {
   font-size: 0.95rem;
   font-weight: 500;
-  color: var(--text-muted);
+  color: rgba(255, 255, 255, 0.85);
   position: relative;
   padding: 6px 0;
 }
@@ -331,13 +276,13 @@ button {
   left: 0;
   width: 0;
   height: 2px;
-  background: var(--color-green);
+  background: #24CE6B;
   transition: width var(--transition-fast);
   border-radius: 2px;
 }
 
 .nav-link:hover, .nav-link.active {
-  color: var(--text-white);
+  color: #FFFFFF;
 }
 
 .nav-link:hover::after, .nav-link.active::after {
@@ -346,13 +291,13 @@ button {
 
 /* Nav CTA Button */
 .btn-nav-cta {
-  background: linear-gradient(135deg, #00FF87 0%, #00DF81 100%);
+  background: linear-gradient(135deg, #00FF87 0%, #24CE6B 100%);
   color: #040914;
   font-weight: 700;
   font-size: 0.88rem;
   padding: 10px 22px;
   border-radius: var(--radius-pill);
-  box-shadow: 0 0 20px rgba(0, 223, 129, 0.35);
+  box-shadow: 0 0 20px rgba(36, 206, 107, 0.4);
   transition: all var(--transition-normal);
   display: inline-flex;
   align-items: center;
@@ -361,7 +306,7 @@ button {
 
 .btn-nav-cta:hover {
   transform: translateY(-2px);
-  box-shadow: 0 0 30px rgba(0, 223, 129, 0.6);
+  box-shadow: 0 0 30px rgba(36, 206, 107, 0.7);
   color: #000;
 }
 
@@ -417,47 +362,39 @@ button {
 }
 
 .btn-primary {
-  background: linear-gradient(135deg, #00FF87 0%, #00DF81 100%);
+  background: linear-gradient(135deg, #00FF87 0%, #24CE6B 100%);
   color: #040914;
-  box-shadow: 0 0 25px rgba(0, 223, 129, 0.35);
+  box-shadow: 0 0 25px rgba(36, 206, 107, 0.4);
 }
 
 .btn-primary:hover {
   transform: translateY(-3px) scale(1.02);
-  box-shadow: 0 0 35px rgba(0, 223, 129, 0.6);
+  box-shadow: 0 0 35px rgba(36, 206, 107, 0.7);
 }
 
 .btn-secondary {
-  background: linear-gradient(135deg, #1D4ED8 0%, #0066FF 100%);
+  background: linear-gradient(135deg, #0144D0 0%, #0D63FC 100%);
   color: #FFFFFF;
-  box-shadow: 0 0 25px rgba(0, 102, 255, 0.35);
+  box-shadow: 0 0 25px rgba(13, 99, 252, 0.4);
 }
 
 .btn-secondary:hover {
   transform: translateY(-3px) scale(1.02);
-  box-shadow: 0 0 35px rgba(0, 102, 255, 0.6);
-}
-
-.btn-outline-green {
-  background: rgba(0, 223, 129, 0.1);
-  color: var(--color-green-light);
-  border: 1px solid var(--border-green);
-}
-
-.btn-outline-green:hover {
-  background: rgba(0, 223, 129, 0.2);
-  transform: translateY(-2px);
-  box-shadow: 0 0 20px rgba(0, 223, 129, 0.3);
+  box-shadow: 0 0 35px rgba(13, 99, 252, 0.7);
 }
 
 /* ==========================================================================
-   HERO SECTION
+   HERO SECTION (Dominante Bleu Foncé comme dans Figma)
    ========================================================================== */
 .hero-section {
   position: relative;
   z-index: 1;
   padding: 160px 0 100px;
   overflow: hidden;
+  background: 
+    radial-gradient(circle at 80% 25%, rgba(1, 68, 208, 0.45) 0%, transparent 60%),
+    radial-gradient(circle at 15% 45%, rgba(13, 33, 71, 0.6) 0%, transparent 65%),
+    linear-gradient(180deg, #0144D0 0%, #082156 140px, #011130 380px, #030C1E 100%);
 }
 
 .hero-grid {
@@ -482,7 +419,7 @@ button {
 
 .hero-subtitle {
   font-size: clamp(1.05rem, 1.8vw, 1.2rem);
-  color: var(--text-muted);
+  color: #CBD5E1;
   line-height: 1.65;
   margin-bottom: 36px;
   max-width: 540px;
@@ -496,13 +433,13 @@ button {
   margin-bottom: 48px;
 }
 
-/* Hero Stats */
+/* Hero Stats (+5 Projets livrés, 98% Satisfaction, +4 ans D'expérience) */
 .hero-stats {
   display: flex;
   align-items: center;
   gap: 40px;
   padding-top: 32px;
-  border-top: 1px solid var(--border-subtle);
+  border-top: 1px solid rgba(255, 255, 255, 0.12);
 }
 
 .stat-item {
@@ -514,15 +451,15 @@ button {
   font-family: var(--font-family);
   font-size: clamp(1.75rem, 3vw, 2.25rem);
   font-weight: 800;
-  color: var(--color-green-light);
+  color: #24CE6B;
   line-height: 1;
   margin-bottom: 6px;
-  text-shadow: 0 0 15px rgba(0, 223, 129, 0.4);
+  text-shadow: 0 0 15px rgba(36, 206, 107, 0.4);
 }
 
 .stat-label {
   font-size: 0.85rem;
-  color: var(--text-muted);
+  color: #CBD5E1;
   font-weight: 500;
 }
 
@@ -539,14 +476,9 @@ button {
   width: 100%;
   border-radius: var(--radius-xl);
   overflow: hidden;
-  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.7), 0 0 40px rgba(0, 223, 129, 0.2);
-  border: 1px solid rgba(255, 255, 255, 0.12);
-  background: var(--bg-card);
-  transition: transform var(--transition-normal);
-}
-
-.hero-image-wrapper:hover {
-  transform: translateY(-5px) scale(1.01);
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.7), 0 0 40px rgba(1, 68, 208, 0.35);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  background: #0A1424;
 }
 
 .hero-img {
@@ -555,86 +487,17 @@ button {
   object-fit: cover;
 }
 
-/* Floating Glass Badges on Hero */
-.floating-badge {
-  position: absolute;
-  padding: 12px 18px;
-  border-radius: var(--radius-md);
-  background: rgba(10, 20, 36, 0.85);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-  border: 1px solid rgba(255, 255, 255, 0.15);
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  z-index: 3;
-  animation: floatSlow 6s ease-in-out infinite alternate;
-}
-
-.badge-top {
-  top: -15px;
-  right: -15px;
-  border-color: rgba(0, 223, 129, 0.4);
-  box-shadow: 0 10px 30px rgba(0, 223, 129, 0.25);
-}
-
-.badge-bottom {
-  bottom: -20px;
-  left: -20px;
-  border-color: rgba(0, 102, 255, 0.4);
-  box-shadow: 0 10px 30px rgba(0, 102, 255, 0.25);
-  animation-delay: -3s;
-}
-
-.badge-icon {
-  width: 36px;
-  height: 36px;
-  border-radius: 8px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 1.1rem;
-}
-
-.badge-icon-green {
-  background: rgba(0, 223, 129, 0.2);
-  color: var(--color-green);
-}
-
-.badge-icon-blue {
-  background: rgba(0, 102, 255, 0.2);
-  color: #60A5FA;
-}
-
-.badge-title {
-  font-size: 0.85rem;
-  font-weight: 700;
-  color: var(--text-white);
-  line-height: 1.2;
-}
-
-.badge-sub {
-  font-size: 0.72rem;
-  color: var(--text-muted);
-}
-
-@keyframes floatSlow {
-  0% {
-    transform: translateY(0px);
-  }
-  100% {
-    transform: translateY(-12px);
-  }
-}
-
 /* ==========================================================================
-   SERVICES SECTION
+   SERVICES SECTION (Ambiance Vert foncé / Noir de la maquette)
    ========================================================================== */
 .services-section {
   position: relative;
   z-index: 1;
   padding: 100px 0;
+  background: 
+    radial-gradient(circle at 10% 40%, rgba(16, 92, 48, 0.4) 0%, transparent 60%),
+    radial-gradient(circle at 90% 60%, rgba(15, 87, 45, 0.4) 0%, transparent 60%),
+    #020814;
 }
 
 .section-header {
@@ -648,10 +511,10 @@ button {
 }
 
 .service-card {
-  background: var(--bg-card);
+  background: rgba(10, 24, 20, 0.7);
   backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
-  border: 1px solid var(--border-card);
+  border: 1px solid rgba(36, 206, 107, 0.2);
   border-radius: var(--radius-lg);
   padding: 24px;
   display: flex;
@@ -662,39 +525,23 @@ button {
   overflow: hidden;
 }
 
-.service-card::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  height: 3px;
-  background: linear-gradient(90deg, transparent, var(--color-green), transparent);
-  opacity: 0;
-  transition: opacity var(--transition-fast);
-}
-
 .service-card:hover {
   transform: translateY(-8px);
-  background: var(--bg-card-hover);
-  border-color: var(--border-green);
-  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.6), 0 0 25px rgba(0, 223, 129, 0.2);
-}
-
-.service-card:hover::before {
-  opacity: 1;
+  background: rgba(14, 34, 28, 0.85);
+  border-color: #24CE6B;
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.6), 0 0 25px rgba(36, 206, 107, 0.25);
 }
 
 .service-icon-wrap {
   width: 44px;
   height: 44px;
   border-radius: 10px;
-  background: rgba(0, 223, 129, 0.15);
-  border: 1px solid rgba(0, 223, 129, 0.3);
+  background: rgba(36, 206, 107, 0.15);
+  border: 1px solid rgba(36, 206, 107, 0.35);
   display: flex;
   align-items: center;
   justify-content: center;
-  color: var(--color-green-light);
+  color: #24CE6B;
   margin-bottom: 20px;
   font-size: 1.25rem;
 }
@@ -736,11 +583,19 @@ button {
 
 /* ==========================================================================
    PORTFOLIO (NOS RÉALISATIONS) SECTION
+   DOMINANTE BLEU FONCÉ & CARTES FIGMA EXACTES
    ========================================================================== */
 .portfolio-section {
   position: relative;
   z-index: 1;
   padding: 100px 0;
+  background: 
+    radial-gradient(circle at 10% 25%, rgba(1, 46, 141, 0.8) 0%, transparent 55%),
+    radial-gradient(circle at 90% 75%, rgba(0, 47, 146, 0.8) 0%, transparent 55%),
+    radial-gradient(circle at 85% 15%, rgba(13, 99, 252, 0.45) 0%, transparent 50%),
+    linear-gradient(180deg, #010F2E 0%, #001A4E 40%, #00133B 75%, #010A1C 100%);
+  border-top: 1px solid rgba(13, 99, 252, 0.25);
+  border-bottom: 1px solid rgba(13, 99, 252, 0.25);
 }
 
 .portfolio-header-wrap {
@@ -761,51 +616,19 @@ button {
   gap: 8px;
   padding: 8px 16px;
   border-radius: var(--radius-pill);
-  background: rgba(255, 255, 255, 0.05);
-  border: 1px solid var(--border-subtle);
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.15);
   transition: all var(--transition-fast);
 }
 
 .link-view-all:hover {
-  background: rgba(0, 223, 129, 0.15);
-  border-color: var(--border-green);
-  color: var(--color-green-light);
+  background: rgba(36, 206, 107, 0.15);
+  border-color: #24CE6B;
+  color: #24CE6B;
   transform: translateX(4px);
 }
 
-/* Portfolio Filters */
-.portfolio-filters {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  flex-wrap: wrap;
-  margin-bottom: 32px;
-}
-
-.filter-btn {
-  background: rgba(255, 255, 255, 0.05);
-  color: var(--text-muted);
-  border: 1px solid var(--border-subtle);
-  padding: 8px 18px;
-  border-radius: var(--radius-pill);
-  font-size: 0.85rem;
-  font-weight: 600;
-  transition: all var(--transition-fast);
-}
-
-.filter-btn:hover {
-  color: var(--text-white);
-  border-color: rgba(255, 255, 255, 0.2);
-}
-
-.filter-btn.active {
-  background: rgba(0, 223, 129, 0.15);
-  color: var(--color-green-light);
-  border-color: var(--border-green);
-  box-shadow: 0 0 15px rgba(0, 223, 129, 0.2);
-}
-
-/* Portfolio Grid */
+/* Portfolio Grid : 2x2 cartes simples et fidèles au Figma */
 .portfolio-grid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
@@ -813,29 +636,31 @@ button {
 }
 
 .portfolio-card {
-  background: var(--bg-card);
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
-  border: 1px solid var(--border-card);
   border-radius: var(--radius-xl);
   overflow: hidden;
-  transition: all var(--transition-normal);
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.6);
+  border: 1px solid rgba(255, 255, 255, 0.1);
   display: flex;
   flex-direction: column;
+  transition: transform var(--transition-normal), box-shadow var(--transition-normal);
+  background: #FFFFFF;
 }
 
 .portfolio-card:hover {
-  transform: translateY(-8px);
-  border-color: var(--border-green);
-  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.6), 0 0 30px rgba(0, 223, 129, 0.2);
+  transform: translateY(-6px);
+  box-shadow: 0 25px 50px rgba(0, 0, 0, 0.7), 0 0 30px rgba(36, 206, 107, 0.25);
 }
 
+/* Zone supérieure de la carte : preview blanche / image comme dans Figma */
 .portfolio-preview {
   position: relative;
   width: 100%;
-  height: 280px;
+  height: 270px;
+  background: #FFFFFF;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   overflow: hidden;
-  background: #060e1d;
 }
 
 .portfolio-img {
@@ -846,19 +671,13 @@ button {
 }
 
 .portfolio-card:hover .portfolio-img {
-  transform: scale(1.05);
+  transform: scale(1.03);
 }
 
-.portfolio-overlay {
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(180deg, transparent 40%, rgba(4, 9, 20, 0.9) 100%);
-  pointer-events: none;
-}
-
+/* Barre inférieure verte exacte Figma (#24CE6B) */
 .portfolio-content {
-  padding: 24px;
-  background: linear-gradient(180deg, rgba(0, 223, 129, 0.9) 0%, #00DF81 100%);
+  padding: 16px 24px;
+  background: #24CE6B;
   color: #040914;
   display: flex;
   align-items: center;
@@ -866,32 +685,22 @@ button {
   gap: 16px;
 }
 
-.portfolio-info {
-  display: flex;
-  flex-direction: column;
-}
-
 .portfolio-title {
-  font-size: 1.25rem;
-  font-weight: 800;
+  font-size: 1.15rem;
+  font-weight: 700;
   color: #040914;
-  margin-bottom: 4px;
+  margin: 0;
 }
 
-.portfolio-category {
-  font-size: 0.85rem;
-  font-weight: 600;
-  color: rgba(4, 9, 20, 0.8);
-}
-
+/* Bouton bleu exact Figma (#0D63FC) */
 .btn-project-cta {
-  background: #0066FF;
+  background: #0D63FC;
   color: #FFFFFF;
   font-size: 0.85rem;
   font-weight: 700;
-  padding: 10px 20px;
+  padding: 9px 20px;
   border-radius: var(--radius-pill);
-  box-shadow: 0 4px 15px rgba(0, 102, 255, 0.4);
+  box-shadow: 0 4px 15px rgba(13, 99, 252, 0.35);
   transition: all var(--transition-fast);
   white-space: nowrap;
   display: inline-flex;
@@ -900,17 +709,22 @@ button {
 }
 
 .btn-project-cta:hover {
-  background: #1D4ED8;
+  background: #0144D0;
   transform: scale(1.05);
 }
 
 /* ==========================================================================
    TESTIMONIALS (CE QUE DISENT NOS CLIENTS) SECTION
+   Placeholders neutres exacts
    ========================================================================== */
 .testimonials-section {
   position: relative;
   z-index: 1;
   padding: 100px 0;
+  background: 
+    radial-gradient(circle at 10% 30%, rgba(17, 93, 49, 0.35) 0%, transparent 55%),
+    radial-gradient(circle at 90% 70%, rgba(17, 93, 49, 0.35) 0%, transparent 55%),
+    #020814;
 }
 
 .testimonials-grid {
@@ -920,10 +734,10 @@ button {
 }
 
 .testimonial-card {
-  background: var(--bg-card);
+  background: rgba(10, 24, 20, 0.65);
   backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
-  border: 1px solid var(--border-card);
+  border: 1px solid rgba(36, 206, 107, 0.18);
   border-radius: var(--radius-lg);
   padding: 28px;
   display: flex;
@@ -934,17 +748,17 @@ button {
 
 .testimonial-card:hover {
   transform: translateY(-6px);
-  border-color: var(--border-green);
-  background: var(--bg-card-hover);
-  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.5), 0 0 20px rgba(0, 223, 129, 0.15);
+  border-color: #24CE6B;
+  background: rgba(14, 34, 28, 0.85);
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.5), 0 0 20px rgba(36, 206, 107, 0.2);
 }
 
 .testimonial-stars {
-  color: var(--color-green);
+  color: #24CE6B;
   font-size: 1.15rem;
   letter-spacing: 2px;
   margin-bottom: 16px;
-  text-shadow: 0 0 10px rgba(0, 223, 129, 0.5);
+  text-shadow: 0 0 10px rgba(36, 206, 107, 0.5);
 }
 
 .testimonial-quote {
@@ -959,7 +773,7 @@ button {
   display: flex;
   align-items: center;
   gap: 14px;
-  border-top: 1px solid var(--border-subtle);
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
   padding-top: 18px;
 }
 
@@ -968,9 +782,12 @@ button {
   height: 46px;
   border-radius: 50%;
   overflow: hidden;
-  border: 2px solid var(--color-green);
-  box-shadow: 0 0 10px rgba(0, 223, 129, 0.3);
+  border: 2px solid #24CE6B;
+  box-shadow: 0 0 10px rgba(36, 206, 107, 0.3);
   flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .author-avatar img {
@@ -1003,6 +820,10 @@ button {
   position: relative;
   z-index: 1;
   padding: 100px 0;
+  background: 
+    radial-gradient(circle at 10% 40%, rgba(1, 46, 142, 0.55) 0%, transparent 55%),
+    radial-gradient(circle at 75% 60%, rgba(32, 69, 47, 0.45) 0%, transparent 55%),
+    #020712;
 }
 
 .contact-grid {
@@ -1083,24 +904,14 @@ button {
 
 /* Contact Form Card */
 .contact-form-card {
-  background: var(--bg-card);
+  background: rgba(8, 18, 36, 0.85);
   backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
-  border: 1px solid var(--border-card);
+  border: 1px solid rgba(255, 255, 255, 0.1);
   border-radius: var(--radius-xl);
   padding: 36px;
-  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.6), 0 0 30px rgba(0, 223, 129, 0.1);
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.6), 0 0 30px rgba(36, 206, 107, 0.1);
   position: relative;
-}
-
-.contact-form-card::after {
-  content: '';
-  position: absolute;
-  inset: -1px;
-  border-radius: var(--radius-xl);
-  background: linear-gradient(135deg, rgba(0, 223, 129, 0.3), transparent 60%, rgba(0, 102, 255, 0.2));
-  z-index: -1;
-  pointer-events: none;
 }
 
 .form-grid-2 {
@@ -1139,8 +950,8 @@ button {
 }
 
 .form-input:focus, .form-select:focus, .form-textarea:focus {
-  border-color: var(--color-green);
-  box-shadow: 0 0 15px rgba(0, 223, 129, 0.3);
+  border-color: #24CE6B;
+  box-shadow: 0 0 15px rgba(36, 206, 107, 0.3);
   background: rgba(10, 24, 46, 0.9);
 }
 
@@ -1164,13 +975,13 @@ button {
 
 .btn-form-submit {
   width: 100%;
-  background: linear-gradient(135deg, #00FF87 0%, #00DF81 100%);
+  background: linear-gradient(135deg, #00FF87 0%, #24CE6B 100%);
   color: #040914;
   font-weight: 800;
   font-size: 1rem;
   padding: 16px;
   border-radius: var(--radius-pill);
-  box-shadow: 0 0 25px rgba(0, 223, 129, 0.4);
+  box-shadow: 0 0 25px rgba(36, 206, 107, 0.4);
   transition: all var(--transition-normal);
   display: flex;
   align-items: center;
@@ -1180,7 +991,7 @@ button {
 
 .btn-form-submit:hover:not(:disabled) {
   transform: translateY(-2px);
-  box-shadow: 0 0 35px rgba(0, 223, 129, 0.7);
+  box-shadow: 0 0 35px rgba(36, 206, 107, 0.7);
   color: #000;
 }
 
@@ -1195,7 +1006,10 @@ button {
 .footer {
   position: relative;
   z-index: 1;
-  background: #02060E;
+  background: 
+    radial-gradient(circle at 85% 10%, rgba(1, 55, 169, 0.45) 0%, transparent 50%),
+    radial-gradient(circle at 15% 90%, rgba(11, 65, 34, 0.45) 0%, transparent 50%),
+    #01050F;
   border-top: 1px solid var(--border-subtle);
   padding: 80px 0 32px;
 }
@@ -1241,7 +1055,7 @@ button {
 }
 
 .footer-link:hover {
-  color: var(--color-green-light);
+  color: #24CE6B;
   transform: translateX(3px);
 }
 
@@ -1267,7 +1081,7 @@ button {
 }
 
 /* ==========================================================================
-   MODAL / LIGHTBOX (PROJECT DETAILS & SUCCESS NOTIFICATION)
+   MODAL / LIGHTBOX
    ========================================================================== */
 .modal-backdrop {
   position: fixed;
@@ -1292,14 +1106,14 @@ button {
 
 .modal-box {
   background: #0A1424;
-  border: 1px solid var(--border-green);
+  border: 1px solid #24CE6B;
   border-radius: var(--radius-xl);
   width: 100%;
   max-width: 700px;
   max-height: 90vh;
   overflow-y: auto;
   padding: 32px;
-  box-shadow: 0 25px 60px rgba(0, 0, 0, 0.8), 0 0 40px rgba(0, 223, 129, 0.25);
+  box-shadow: 0 25px 60px rgba(0, 0, 0, 0.8), 0 0 40px rgba(36, 206, 107, 0.25);
   transform: scale(0.9) translateY(20px);
   transition: all var(--transition-bounce);
   position: relative;
@@ -1344,11 +1158,11 @@ button {
 
 .toast {
   background: #0A1424;
-  border: 1px solid var(--color-green);
+  border: 1px solid #24CE6B;
   color: var(--text-white);
   padding: 16px 24px;
   border-radius: var(--radius-md);
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.8), 0 0 20px rgba(0, 223, 129, 0.3);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.8), 0 0 20px rgba(36, 206, 107, 0.3);
   display: flex;
   align-items: center;
   gap: 12px;
@@ -1370,18 +1184,10 @@ button {
 /* ==========================================================================
    RESPONSIVE DESIGN (MEDIA QUERIES)
    ========================================================================== */
-
-/* Tablet (max-width: 1024px) */
 @media (max-width: 1024px) {
   .hero-grid {
     grid-template-columns: 1fr;
     gap: 48px;
-    text-align: left;
-  }
-
-  .hero-visual {
-    max-width: 650px;
-    margin: 0 auto;
   }
 
   .portfolio-grid {
@@ -1403,7 +1209,6 @@ button {
   }
 }
 
-/* Mobile Devices (max-width: 768px) */
 @media (max-width: 768px) {
   .navbar {
     padding: 14px 0;
@@ -1420,8 +1225,8 @@ button {
     width: 80%;
     max-width: 320px;
     height: 100vh;
-    background: #050B14;
-    border-left: 1px solid var(--border-subtle);
+    background: #011130;
+    border-left: 1px solid rgba(255, 255, 255, 0.15);
     flex-direction: column;
     justify-content: center;
     gap: 24px;
