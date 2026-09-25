@@ -1,11 +1,9 @@
 /* ==========================================================================
    VERTEX AGENCY - MAIN STYLESHEET
-   Palette Figma exacte :
-   - Bleu_01: #0144D0 / #0D63FC
-   - Bleu_Foncé: #010F2E / #011130 / #082156
-   - Vert: #24CE6B / #00DF81 / #00FF87
-   - Dégradés riches bleu foncé & vert néon
-   - Police principale : DIN Pro (fallbacks web : Space Grotesk, Plus Jakarta Sans)
+   Palette exacte :
+   - Bleu principal (CTA, accents) : #0d63fc
+   - Bleu foncé (fonds, dégradés, header) : #0144d0
+   - Vert (accents secondaires, badges) : #24ce6b
    ========================================================================== */
 
 @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@500;600;700&display=swap');
@@ -13,14 +11,16 @@
 /* --- CSS Variables / Tokens --- */
 :root {
   /* Exact Figma Brand Colors */
+  --color-blue-primary: #0D63FC; /* Bleu principal (CTA, accents) */
+  --color-blue-dark: #0144D0;    /* Bleu foncé (fonds, dégradés, header) */
+  --color-green: #24CE6B;        /* Vert (accents secondaires, badges) */
+
   --color-blue-header: #0144D0;
   --color-blue-01: #0D63FC;
   --color-blue-deep: #010F2E;
   --color-blue-navy: #011130;
   --color-blue-darker: #000B21;
 
-  --color-green: #24CE6B;
-  --color-green-neon: #00FF87;
   --color-green-glow: rgba(36, 206, 107, 0.35);
 
   --bg-dark: #020712;
@@ -120,9 +120,7 @@ button {
 }
 
 .text-gradient-green {
-  background: linear-gradient(135deg, #00FF87 0%, #24CE6B 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
+  color: #24CE6B;
   display: inline-block;
 }
 
@@ -153,8 +151,8 @@ button {
 }
 
 .badge-blue {
-  background: rgba(13, 99, 252, 0.2);
-  color: #60A5FA;
+  background: rgba(13, 99, 252, 0.18);
+  color: #0D63FC;
   border: 1px solid rgba(13, 99, 252, 0.4);
   box-shadow: 0 0 15px rgba(13, 99, 252, 0.2);
 }
@@ -187,7 +185,7 @@ button {
 }
 
 /* ==========================================================================
-   NAVIGATION BAR (Bleu_01 / #0144D0 comme dans Figma)
+   NAVIGATION BAR (Bleu foncé / #0144D0 comme dans Figma)
    ========================================================================== */
 .navbar {
   position: fixed;
@@ -195,7 +193,7 @@ button {
   left: 0;
   right: 0;
   z-index: 1000;
-  padding: 18px 0;
+  padding: 16px 0;
   background: #0144D0;
   border-bottom: 1px solid rgba(255, 255, 255, 0.12);
   transition: all var(--transition-normal);
@@ -203,10 +201,10 @@ button {
 
 .navbar.scrolled {
   padding: 12px 0;
-  background: rgba(1, 46, 141, 0.95);
+  background: rgba(1, 68, 208, 0.95);
   backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
-  box-shadow: 0 6px 25px rgba(0, 0, 0, 0.5);
+  box-shadow: 0 6px 25px rgba(0, 0, 0, 0.45);
 }
 
 .nav-container {
@@ -219,41 +217,19 @@ button {
 .logo {
   display: flex;
   align-items: center;
-  gap: 12px;
-  font-family: var(--font-family);
-  font-weight: 800;
-  font-size: 1.35rem;
-  letter-spacing: -0.02em;
-  color: var(--text-white);
+  text-decoration: none;
 }
 
-.logo-icon-wrap {
-  width: 36px;
-  height: 36px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background: transparent;
-  border: none;
+.logo-brand-img {
+  display: block;
+  height: 40px;
+  width: auto;
+  object-fit: contain;
+  transition: transform var(--transition-fast);
 }
 
-.logo-text {
-  display: flex;
-  flex-direction: column;
-  line-height: 1.05;
-}
-
-.logo-main {
-  font-weight: 800;
-  color: var(--text-white);
-  font-size: 1.25rem;
-}
-
-.logo-sub {
-  font-size: 0.85rem;
-  font-weight: 700;
-  color: #24CE6B;
-  letter-spacing: 0.04em;
+.logo:hover .logo-brand-img {
+  transform: scale(1.03);
 }
 
 /* Nav Links */
@@ -297,23 +273,24 @@ button {
 
 /* Nav CTA Button ("Demander un devis") */
 .btn-nav-cta {
-  background: #24CE6B;
+  background: #0D63FC;
   color: #FFFFFF;
   font-weight: 700;
   font-size: 0.92rem;
-  padding: 11px 26px;
+  padding: 10px 24px;
   border-radius: var(--radius-pill);
-  box-shadow: 0 0 15px rgba(36, 206, 107, 0.35);
+  box-shadow: 0 4px 15px rgba(13, 99, 252, 0.35);
   transition: all var(--transition-normal);
   display: inline-flex;
   align-items: center;
   gap: 8px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
 }
 
 .btn-nav-cta:hover {
-  background: #00DF81;
+  background: #0144D0;
   transform: translateY(-2px);
-  box-shadow: 0 0 25px rgba(36, 206, 107, 0.6);
+  box-shadow: 0 6px 22px rgba(13, 99, 252, 0.55);
   color: #FFFFFF;
 }
 
@@ -368,30 +345,32 @@ button {
 }
 
 .btn-primary {
-  background: #24CE6B;
+  background: #0D63FC;
   color: #FFFFFF;
   border-radius: var(--radius-pill);
-  box-shadow: 0 4px 20px rgba(36, 206, 107, 0.35);
+  box-shadow: 0 4px 20px rgba(13, 99, 252, 0.4);
 }
 
 .btn-primary:hover {
-  background: #00DF81;
+  background: #0144D0;
   transform: translateY(-2px) scale(1.02);
-  box-shadow: 0 6px 28px rgba(36, 206, 107, 0.6);
+  box-shadow: 0 6px 28px rgba(13, 99, 252, 0.6);
   color: #FFFFFF;
 }
 
 .btn-secondary {
-  background: #0144D0;
+  background: rgba(1, 68, 208, 0.25);
   color: #FFFFFF;
+  border: 1.5px solid #24CE6B;
   border-radius: 8px; /* Rounded rectangle matching Figma mockup */
-  box-shadow: 0 4px 20px rgba(1, 68, 208, 0.35);
+  box-shadow: 0 4px 20px rgba(1, 68, 208, 0.25);
 }
 
 .btn-secondary:hover {
-  background: #0D63FC;
+  background: #0144D0;
+  border-color: #24CE6B;
   transform: translateY(-2px) scale(1.02);
-  box-shadow: 0 6px 28px rgba(13, 99, 252, 0.6);
+  box-shadow: 0 6px 25px rgba(36, 206, 107, 0.35);
   color: #FFFFFF;
 }
 
@@ -404,7 +383,8 @@ button {
   padding: 150px 0 90px;
   overflow: hidden;
   background: 
-    radial-gradient(circle at 75% 45%, rgba(1, 68, 208, 0.28) 0%, transparent 60%),
+    radial-gradient(circle at 75% 45%, rgba(13, 99, 252, 0.3) 0%, transparent 60%),
+    radial-gradient(circle at 20% 80%, rgba(36, 206, 107, 0.15) 0%, transparent 55%),
     linear-gradient(180deg, #0144D0 0%, #01226B 140px, #011130 360px, #020919 100%);
 }
 
@@ -506,8 +486,8 @@ button {
   z-index: 1;
   padding: 100px 0;
   background: 
-    radial-gradient(circle at 12% 25%, rgba(16, 92, 48, 0.5) 0%, transparent 55%),
-    radial-gradient(circle at 88% 70%, rgba(15, 87, 45, 0.35) 0%, transparent 60%),
+    radial-gradient(circle at 12% 25%, rgba(1, 68, 208, 0.28) 0%, transparent 55%),
+    radial-gradient(circle at 88% 70%, rgba(36, 206, 107, 0.18) 0%, transparent 60%),
     #020814;
 }
 
@@ -516,17 +496,17 @@ button {
 }
 
 .badge-offres {
-  background: #00DF81;
-  color: #FFFFFF;
+  background: rgba(36, 206, 107, 0.15);
+  color: #24CE6B;
   font-weight: 700;
   font-size: 0.9rem;
   padding: 6px 22px;
   border-radius: var(--radius-pill);
-  box-shadow: 0 0 15px rgba(0, 223, 129, 0.4);
+  border: 1px solid rgba(36, 206, 107, 0.4);
+  box-shadow: 0 0 15px rgba(36, 206, 107, 0.2);
   display: inline-block;
   margin-bottom: 16px;
   letter-spacing: 0.02em;
-  border: none;
 }
 
 .services-grid {
@@ -536,7 +516,7 @@ button {
 }
 
 .service-card {
-  background: rgba(10, 24, 20, 0.75);
+  background: rgba(8, 18, 36, 0.85);
   backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
   border: 1px solid rgba(36, 206, 107, 0.22);
@@ -552,7 +532,7 @@ button {
 
 .service-card:hover {
   transform: translateY(-8px);
-  background: rgba(14, 34, 28, 0.9);
+  background: rgba(14, 28, 54, 0.95);
   border-color: #24CE6B;
   box-shadow: 0 15px 35px rgba(0, 0, 0, 0.6), 0 0 25px rgba(36, 206, 107, 0.25);
 }
@@ -603,19 +583,17 @@ button {
 
 /* ==========================================================================
    PORTFOLIO (NOS RÉALISATIONS) SECTION
-   DOMINANTE BLEU FONCÉ & CARTES FIGMA EXACTES
+   BACKGROUND BG_PROJECT.PNG & CARTES FIGMA EXACTES
    ========================================================================== */
 .portfolio-section {
   position: relative;
   z-index: 1;
   padding: 100px 0;
   background: 
-    radial-gradient(circle at 10% 25%, rgba(1, 46, 141, 0.8) 0%, transparent 55%),
-    radial-gradient(circle at 90% 75%, rgba(0, 47, 146, 0.8) 0%, transparent 55%),
-    radial-gradient(circle at 85% 15%, rgba(13, 99, 252, 0.45) 0%, transparent 50%),
-    linear-gradient(180deg, #010F2E 0%, #001A4E 40%, #00133B 75%, #010A1C 100%);
-  border-top: 1px solid rgba(13, 99, 252, 0.25);
-  border-bottom: 1px solid rgba(13, 99, 252, 0.25);
+    linear-gradient(180deg, rgba(1, 15, 46, 0.82) 0%, rgba(1, 68, 208, 0.6) 50%, rgba(1, 15, 46, 0.92) 100%),
+    url('../assets/images/BG_Project.png') center/cover no-repeat;
+  border-top: 1px solid rgba(13, 99, 252, 0.3);
+  border-bottom: 1px solid rgba(13, 99, 252, 0.3);
 }
 
 .portfolio-header-wrap {
@@ -742,8 +720,8 @@ button {
   z-index: 1;
   padding: 100px 0;
   background: 
-    radial-gradient(circle at 10% 30%, rgba(17, 93, 49, 0.35) 0%, transparent 55%),
-    radial-gradient(circle at 90% 70%, rgba(17, 93, 49, 0.35) 0%, transparent 55%),
+    radial-gradient(circle at 10% 30%, rgba(1, 68, 208, 0.25) 0%, transparent 55%),
+    radial-gradient(circle at 90% 70%, rgba(36, 206, 107, 0.18) 0%, transparent 55%),
     #020814;
 }
 
@@ -754,7 +732,7 @@ button {
 }
 
 .testimonial-card {
-  background: rgba(10, 24, 20, 0.65);
+  background: rgba(8, 18, 36, 0.75);
   backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
   border: 1px solid rgba(36, 206, 107, 0.18);
@@ -841,8 +819,8 @@ button {
   z-index: 1;
   padding: 100px 0;
   background: 
-    radial-gradient(circle at 10% 40%, rgba(1, 46, 142, 0.55) 0%, transparent 55%),
-    radial-gradient(circle at 75% 60%, rgba(32, 69, 47, 0.45) 0%, transparent 55%),
+    radial-gradient(circle at 10% 40%, rgba(1, 68, 208, 0.4) 0%, transparent 55%),
+    radial-gradient(circle at 75% 60%, rgba(36, 206, 107, 0.2) 0%, transparent 55%),
     #020712;
 }
 
@@ -885,26 +863,16 @@ button {
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 1.25rem;
   flex-shrink: 0;
+  background: rgba(1, 68, 208, 0.15);
+  border: 1px solid rgba(13, 99, 252, 0.35);
+  box-shadow: 0 4px 12px rgba(1, 68, 208, 0.2);
 }
 
-.icon-pink {
-  background: rgba(236, 72, 153, 0.15);
-  border: 1px solid rgba(236, 72, 153, 0.3);
-  color: #F472B6;
-}
-
-.icon-orange {
-  background: rgba(249, 115, 22, 0.15);
-  border: 1px solid rgba(249, 115, 22, 0.3);
-  color: #FB923C;
-}
-
-.icon-purple {
-  background: rgba(168, 85, 247, 0.15);
-  border: 1px solid rgba(168, 85, 247, 0.3);
-  color: #C084FC;
+.contact-icon-img {
+  width: 22px;
+  height: 22px;
+  object-fit: contain;
 }
 
 .contact-item-label {
@@ -970,8 +938,8 @@ button {
 }
 
 .form-input:focus, .form-select:focus, .form-textarea:focus {
-  border-color: #24CE6B;
-  box-shadow: 0 0 15px rgba(36, 206, 107, 0.3);
+  border-color: #0D63FC;
+  box-shadow: 0 0 15px rgba(13, 99, 252, 0.35);
   background: rgba(10, 24, 46, 0.9);
 }
 
@@ -995,13 +963,13 @@ button {
 
 .btn-form-submit {
   width: 100%;
-  background: linear-gradient(135deg, #00FF87 0%, #24CE6B 100%);
-  color: #040914;
+  background: #0D63FC;
+  color: #FFFFFF;
   font-weight: 800;
   font-size: 1rem;
   padding: 16px;
   border-radius: var(--radius-pill);
-  box-shadow: 0 0 25px rgba(36, 206, 107, 0.4);
+  box-shadow: 0 4px 25px rgba(13, 99, 252, 0.45);
   transition: all var(--transition-normal);
   display: flex;
   align-items: center;
@@ -1010,9 +978,10 @@ button {
 }
 
 .btn-form-submit:hover:not(:disabled) {
+  background: #0144D0;
   transform: translateY(-2px);
-  box-shadow: 0 0 35px rgba(36, 206, 107, 0.7);
-  color: #000;
+  box-shadow: 0 6px 35px rgba(13, 99, 252, 0.65);
+  color: #FFFFFF;
 }
 
 .btn-form-submit:disabled {
@@ -1027,8 +996,8 @@ button {
   position: relative;
   z-index: 1;
   background: 
-    radial-gradient(circle at 85% 10%, rgba(1, 55, 169, 0.45) 0%, transparent 50%),
-    radial-gradient(circle at 15% 90%, rgba(11, 65, 34, 0.45) 0%, transparent 50%),
+    radial-gradient(circle at 85% 10%, rgba(1, 68, 208, 0.35) 0%, transparent 50%),
+    radial-gradient(circle at 15% 90%, rgba(36, 206, 107, 0.18) 0%, transparent 50%),
     #01050F;
   border-top: 1px solid var(--border-subtle);
   padding: 80px 0 32px;

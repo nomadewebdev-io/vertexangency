@@ -290,7 +290,7 @@ function showToast(message, type = "success") {
 }
 
 function triggerConfetti() {
-  const colors = ['#00FF87', '#24CE6B', '#0D63FC', '#0144D0', '#FFFFFF'];
+  const colors = ['#24CE6B', '#0D63FC', '#0144D0', '#FFFFFF'];
   for (let i = 0; i < 35; i++) {
     const confetti = document.createElement('div');
     confetti.style.position = 'fixed';
