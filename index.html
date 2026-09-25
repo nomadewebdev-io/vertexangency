@@ -50,7 +50,7 @@
       <ul class="nav-menu" id="navMenu">
         <li><a href="#hero" class="nav-link active">Accueil</a></li>
         <li><a href="#services" class="nav-link">Services</a></li>
-        <li><a href="#portfolio" class="nav-link">Portfolio</a></li>
+        <li><a href="portfolio.html" class="nav-link">Portfolio</a></li>
         <li><a href="#a-propos" class="nav-link">À propos</a></li>
         <li><a href="#contact" class="nav-link">Contact</a></li>
         <li class="nav-cta-item">
@@ -92,7 +92,7 @@
       <span class="bottom-nav-label">Services</span>
     </a>
 
-    <a href="#portfolio" class="bottom-nav-link" data-section="portfolio" id="bottomNavPortfolio">
+    <a href="portfolio.html" class="bottom-nav-link" data-section="portfolio" id="bottomNavPortfolio">
       <svg class="bottom-nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
         <rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect>
         <path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path>
@@ -142,7 +142,7 @@
           <a href="#contact" class="btn btn-primary" id="heroCtaStart">
             Démarrer un projet →
           </a>
-          <a href="#portfolio" class="btn btn-secondary" id="heroCtaPortfolio">
+          <a href="portfolio.html" class="btn btn-secondary" id="heroCtaPortfolio">
             Voir notre portfolio
           </a>
         </div>
@@ -267,7 +267,7 @@
           <span class="section-badge badge-green">PORTFOLIO</span>
           <h2 class="section-title">Nos <span class="text-gradient-green">réalisations</span></h2>
         </div>
-        <a href="#contact" class="link-view-all">
+        <a href="portfolio.html" class="link-view-all">
           Voir tous les projets
           <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
             <line x1="5" y1="12" x2="19" y2="12"></line>
@@ -276,73 +276,73 @@
         </a>
       </div>
 
-      <!-- Project Grid (2x2) simple et fidèle à la maquette Figma -->
-      <div class="portfolio-grid">
+      <!-- Project Grid (2x2) alimenté dynamiquement par data/projects.js -->
+      <div class="portfolio-grid" id="portfolioGrid">
         <!-- Project 1 -->
         <div class="portfolio-card" data-id="1">
-          <div class="portfolio-preview">
+          <div class="portfolio-preview" tabindex="0" role="button" aria-label="Aperçu de Nom du projet">
             <img src="assets/images/project_saas.jpg" alt="Nom du projet" class="portfolio-img" loading="lazy">
           </div>
           <div class="portfolio-content">
             <h3 class="portfolio-title">Nom du projet</h3>
-            <button class="btn-project-cta" aria-label="Voir le projet">
+            <a href="https://example.com" class="btn-project-cta" target="_blank" rel="noopener noreferrer" aria-label="Voir le projet Nom du projet">
               Voir le projet
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true">
                 <line x1="5" y1="12" x2="19" y2="12"></line>
                 <polyline points="12 5 19 12 12 19"></polyline>
               </svg>
-            </button>
+            </a>
           </div>
         </div>
 
         <!-- Project 2 -->
         <div class="portfolio-card" data-id="2">
-          <div class="portfolio-preview">
+          <div class="portfolio-preview" tabindex="0" role="button" aria-label="Aperçu de Nom du projet">
             <img src="assets/images/project_ecommerce.jpg" alt="Nom du projet" class="portfolio-img" loading="lazy">
           </div>
           <div class="portfolio-content">
             <h3 class="portfolio-title">Nom du projet</h3>
-            <button class="btn-project-cta" aria-label="Voir le projet">
+            <a href="https://example.com" class="btn-project-cta" target="_blank" rel="noopener noreferrer" aria-label="Voir le projet Nom du projet">
               Voir le projet
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true">
                 <line x1="5" y1="12" x2="19" y2="12"></line>
                 <polyline points="12 5 19 12 12 19"></polyline>
               </svg>
-            </button>
+            </a>
           </div>
         </div>
 
         <!-- Project 3 -->
         <div class="portfolio-card" data-id="3">
-          <div class="portfolio-preview">
+          <div class="portfolio-preview" tabindex="0" role="button" aria-label="Aperçu de Nom du projet">
             <img src="assets/images/project_fintech.jpg" alt="Nom du projet" class="portfolio-img" loading="lazy">
           </div>
           <div class="portfolio-content">
             <h3 class="portfolio-title">Nom du projet</h3>
-            <button class="btn-project-cta" aria-label="Voir le projet">
+            <a href="https://example.com" class="btn-project-cta" target="_blank" rel="noopener noreferrer" aria-label="Voir le projet Nom du projet">
               Voir le projet
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true">
                 <line x1="5" y1="12" x2="19" y2="12"></line>
                 <polyline points="12 5 19 12 12 19"></polyline>
               </svg>
-            </button>
+            </a>
           </div>
         </div>
 
         <!-- Project 4 -->
         <div class="portfolio-card" data-id="4">
-          <div class="portfolio-preview">
+          <div class="portfolio-preview" tabindex="0" role="button" aria-label="Aperçu de Nom du projet">
             <img src="assets/images/project_realestate.jpg" alt="Nom du projet" class="portfolio-img" loading="lazy">
           </div>
           <div class="portfolio-content">
             <h3 class="portfolio-title">Nom du projet</h3>
-            <button class="btn-project-cta" aria-label="Voir le projet">
+            <a href="https://example.com" class="btn-project-cta" target="_blank" rel="noopener noreferrer" aria-label="Voir le projet Nom du projet">
               Voir le projet
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true">
                 <line x1="5" y1="12" x2="19" y2="12"></line>
                 <polyline points="12 5 19 12 12 19"></polyline>
               </svg>
-            </button>
+            </a>
           </div>
         </div>
       </div>
@@ -598,7 +598,7 @@
           <ul class="footer-links">
             <li><a href="#hero" class="footer-link">Accueil</a></li>
             <li><a href="#services" class="footer-link">Nos Services</a></li>
-            <li><a href="#portfolio" class="footer-link">Portfolio</a></li>
+            <li><a href="portfolio.html" class="footer-link">Portfolio</a></li>
             <li><a href="#a-propos" class="footer-link">À propos</a></li>
             <li><a href="#contact" class="footer-link">Contact</a></li>
           </ul>

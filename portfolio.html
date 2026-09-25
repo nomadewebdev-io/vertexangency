@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Portfolio | Nos Réalisations sur mesure - Vertex Agency</title>
+
+  <!-- SEO Meta Tags -->
+  <meta name="description"
+    content="Découvrez l'ensemble des réalisations et projets de Vertex Agency : création de sites internet, applications web et mobiles, et plateformes SaaS sur mesure.">
+  <meta name="keywords"
+    content="portfolio vertex agency, réalisations web dakar, projets web, développement sur mesure, showcase digital">
+  <meta name="author" content="Vertex Agency">
+
+  <!-- Open Graph / Social Media -->
+  <meta property="og:title" content="Portfolio | Nos Réalisations sur mesure - Vertex Agency">
+  <meta property="og:description"
+    content="Découvrez l'ensemble de nos réalisations : sites vitrines, applications web haute performance et plateformes sur mesure.">
+  <meta property="og:image" content="assets/images/hero_tech.jpg">
+  <meta property="og:type" content="website">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="assets/icons/Favi_Bleu.png">
+
+  <!-- Main Stylesheet -->
+  <link rel="stylesheet" href="styles/main.css">
+</head>
+
+<body>
+
+  <!-- Ambient Glowing Orbs Background -->
+  <div class="ambient-glow glow-top-right"></div>
+  <div class="ambient-glow glow-mid-left"></div>
+  <div class="ambient-glow glow-mid-right"></div>
+  <div class="ambient-glow glow-bottom"></div>
+  <div class="bg-grid-overlay"></div>
+
+  <!-- ==========================================================================
+       HEADER / NAVBAR (Capsule flottante)
+       ========================================================================== -->
+  <header class="navbar" id="navbar">
+    <div class="container nav-container">
+      <!-- Logo -->
+      <a href="index.html#hero" class="logo" id="navLogo" aria-label="Retour à l'accueil Vertex Agency">
+        <img src="assets/icons/Logo_Vertex_Agency.png" alt="Vertex Agency" class="logo-brand-img" height="40">
+      </a>
+
+      <!-- Navigation Menu (Desktop & Tablet) -->
+      <ul class="nav-menu" id="navMenu">
+        <li><a href="index.html#hero" class="nav-link">Accueil</a></li>
+        <li><a href="index.html#services" class="nav-link">Services</a></li>
+        <li><a href="portfolio.html" class="nav-link active">Portfolio</a></li>
+        <li><a href="index.html#a-propos" class="nav-link">À propos</a></li>
+        <li><a href="index.html#contact" class="nav-link">Contact</a></li>
+        <li class="nav-cta-item">
+          <a href="index.html#contact" class="btn-nav-cta">Demander un devis</a>
+        </li>
+      </ul>
+
+      <!-- Mobile Header CTA Button -->
+      <a href="index.html#contact" class="btn-nav-cta-mobile" id="navCtaMobile">Demander un devis</a>
+
+      <!-- Mobile Hamburger Button -->
+      <button class="menu-toggle" id="menuToggle" aria-label="Ouvrir le menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+  </header>
+
+  <!-- ==========================================================================
+       MOBILE BOTTOM NAVIGATION BAR
+       ========================================================================== -->
+  <nav class="bottom-nav" id="bottomNav" aria-label="Navigation principale mobile">
+    <a href="index.html#hero" class="bottom-nav-link" id="bottomNavHero">
+      <svg class="bottom-nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+        <polyline points="9 22 9 12 15 12 15 22"></polyline>
+      </svg>
+      <span class="bottom-nav-label">Accueil</span>
+    </a>
+
+    <a href="index.html#services" class="bottom-nav-link" id="bottomNavServices">
+      <svg class="bottom-nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <rect x="2" y="2" width="8" height="8" rx="2"></rect>
+        <rect x="14" y="2" width="8" height="8" rx="2"></rect>
+        <rect x="2" y="14" width="8" height="8" rx="2"></rect>
+        <rect x="14" y="14" width="8" height="8" rx="2"></rect>
+      </svg>
+      <span class="bottom-nav-label">Services</span>
+    </a>
+
+    <a href="portfolio.html" class="bottom-nav-link active" id="bottomNavPortfolio">
+      <svg class="bottom-nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect>
+        <path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path>
+      </svg>
+      <span class="bottom-nav-label">Portfolio</span>
+    </a>
+
+    <a href="index.html#a-propos" class="bottom-nav-link" id="bottomNavAbout">
+      <svg class="bottom-nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+        <circle cx="12" cy="7" r="4"></circle>
+      </svg>
+      <span class="bottom-nav-label">À propos</span>
+    </a>
+
+    <a href="index.html#contact" class="bottom-nav-link" id="bottomNavContact">
+      <svg class="bottom-nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
+      </svg>
+      <span class="bottom-nav-label">Contact</span>
+    </a>
+  </nav>
+
+  <!-- ==========================================================================
+       HERO BANNER - PORTFOLIO PAGE
+       ========================================================================== -->
+  <section class="portfolio-hero-section">
+    <div class="container">
+      <div class="portfolio-hero-content">
+        <span class="section-badge badge-green">NOTRE PORTFOLIO</span>
+        <h1 class="portfolio-hero-title">
+          Toutes nos <span class="text-green">réalisations</span>
+        </h1>
+        <p class="portfolio-hero-subtitle">
+          Explorez l'intégralité de nos projets digitaux : plateformes web, applications interactives et expériences sur mesure conçues pour propulser nos partenaires.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       TOUS LES PROJETS (Grille 2 colonnes desktop, 1 colonne mobile)
+       ========================================================================== -->
+  <section class="portfolio-page-section">
+    <div class="container">
+      <!-- Conteneur dynamique alimenté par data/projects.js -->
+      <div class="portfolio-grid" id="portfolioAllGrid">
+        <!-- Rendu automatique via js/main.js -->
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       CTA BANNER - DÉMARRER UN PROJET
+       ========================================================================== -->
+  <section class="portfolio-cta-section">
+    <div class="container">
+      <div class="portfolio-cta-card">
+        <h2>Prêt à donner vie à votre <span class="text-green">prochain projet</span> ?</h2>
+        <p>
+          Discutons de vos objectifs et recevez un accompagnement stratégique et technique personnalisé sous 24h.
+        </p>
+        <a href="index.html#contact" class="btn btn-primary">
+          Demander un devis gratuit →
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       FOOTER
+       ========================================================================== -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-top">
+        <div class="footer-brand">
+          <a href="index.html#hero" class="footer-logo">
+            <img src="assets/icons/Logo_Vertex_Agency.png" alt="Vertex Agency Logo" class="logo-brand-img" height="36">
+          </a>
+          <p class="footer-desc">
+            L'agence digitale de référence pour concevoir des sites web captivants, des applications mobiles agiles et
+            des expériences numériques sur mesure.
+          </p>
+        </div>
+
+        <div class="footer-col">
+          <h4 class="footer-title">Navigation</h4>
+          <ul class="footer-links">
+            <li><a href="index.html#hero" class="footer-link">Accueil</a></li>
+            <li><a href="index.html#services" class="footer-link">Nos Services</a></li>
+            <li><a href="portfolio.html" class="footer-link">Portfolio</a></li>
+            <li><a href="index.html#a-propos" class="footer-link">À propos</a></li>
+            <li><a href="index.html#contact" class="footer-link">Contact</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4 class="footer-title">Nos Services</h4>
+          <ul class="footer-links">
+            <li><a href="index.html#services" class="footer-link">Création de sites web</a></li>
+            <li><a href="index.html#services" class="footer-link">Design UI/UX sur mesure</a></li>
+            <li><a href="index.html#services" class="footer-link">Référencement SEO & Marketing</a></li>
+            <li><a href="index.html#services" class="footer-link">Applications mobiles iOS & Android</a></li>
+            <li><a href="index.html#services" class="footer-link">Création de SaaS & Plateformes</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4 class="footer-title">Contact</h4>
+          <ul class="footer-contact-info">
+            <li style="color: var(--text-muted); font-size: 0.9rem;">📍 Dakar, Sénégal</li>
+            <li style="color: var(--text-muted); font-size: 0.9rem;">📞 +221 77 000 00 00</li>
+            <li style="color: var(--text-muted); font-size: 0.9rem;">✉️ contact@vertexagency.com</li>
+            <li style="color: var(--color-green-light); font-size: 0.85rem; font-weight: 600; margin-top: 8px;">🟢
+              Disponibles pour nouveaux projets</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p class="footer-copy">
+          &copy; 2026 Vertex Agency. Tous droits réservés.
+        </p>
+        <div class="footer-legal">
+          <a href="#" class="footer-legal-link">Mentions Légales</a>
+          <a href="#" class="footer-legal-link">Politique de Confidentialité</a>
+          <a href="#" class="footer-legal-link">Conditions Générales</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ==========================================================================
+       MODAL / LIGHTBOX (PROJECT DETAILS)
+       ========================================================================== -->
+  <div class="modal-backdrop" id="projectModal" role="dialog" aria-modal="true">
+    <div class="modal-box">
+      <button class="modal-close-btn" aria-label="Fermer la modal">&times;</button>
+      <div id="modalDetails">
+        <!-- Rempli dynamiquement au clic sur un projet -->
+      </div>
+    </div>
+  </div>
+
+  <!-- Main JavaScript File -->
+  <script type="module" src="js/main.js"></script>
+</body>
+
+</html>

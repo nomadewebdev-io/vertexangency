@@ -1,16 +1,57 @@
 /**
  * VERTEX AGENCY - INTERACTIVE SCRIPTS
- * Modules: Navigation, Smooth Scroll, Stats Counter,
- * Project Lightbox Modal (Placeholders neutres), Form Validation & Toast Notification
+ * Modules: Centralized Projects Rendering, Navigation, Smooth Scroll, Stats Counter,
+ * Project Lightbox Modal, Form Validation & Toast Notification
  */
 
+import { projects } from '../data/projects.js';
+
 document.addEventListener('DOMContentLoaded', () => {
+  initProjects();
   initNavigation();
   initStatsCounter();
   initProjectModal();
   initContactForm();
   initScrollEffects();
 });
+
+/* ==========================================================================
+   DYNAMIC PROJECTS RENDERING (CENTRALIZED DATA)
+   ========================================================================== */
+function initProjects() {
+  const landingGrid = document.getElementById('portfolioGrid');
+  if (landingGrid) {
+    // Landing page: afficher uniquement les 4 premiers projets (ou 4 plus récents)
+    renderProjectCards(landingGrid, projects.slice(0, 4));
+  }
+
+  const allGrid = document.getElementById('portfolioAllGrid');
+  if (allGrid) {
+    // Page Portfolio: afficher TOUS les projets de la base de données
+    renderProjectCards(allGrid, projects);
+  }
+}
+
+function renderProjectCards(container, list) {
+  if (!container || !list || !list.length) return;
+  container.innerHTML = list.map(project => `
+    <div class="portfolio-card" data-id="${project.id}">
+      <div class="portfolio-preview" tabindex="0" role="button" aria-label="Aperçu de ${project.title}">
+        <img src="${project.image}" alt="${project.title}" class="portfolio-img" loading="lazy">
+      </div>
+      <div class="portfolio-content">
+        <h3 class="portfolio-title">${project.title}</h3>
+        <a href="${project.link || '#'}" class="btn-project-cta" target="_blank" rel="noopener noreferrer" aria-label="Voir le projet ${project.title}">
+          Voir le projet
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true">
+            <line x1="5" y1="12" x2="19" y2="12"></line>
+            <polyline points="12 5 19 12 12 19"></polyline>
+          </svg>
+        </a>
+      </div>
+    </div>
+  `).join('');
+}
 
 /* ==========================================================================
    NAVIGATION & BOTTOM NAV (DESKTOP & MOBILE)
@@ -59,47 +100,55 @@ function initNavigation() {
   }
 
   // Active Section Tracker (Scroll Spy)
-  const sections = document.querySelectorAll('section[id]');
-
-  function setActiveSection(targetId) {
+  const isPortfolioPage = window.location.pathname.endsWith('portfolio.html');
+  if (isPortfolioPage) {
     allNavLinks.forEach(l => l.classList.remove('active'));
-    const matchedLinks = document.querySelectorAll(`.nav-link[href="#${targetId}"], .bottom-nav-link[href="#${targetId}"]`);
-    matchedLinks.forEach(l => l.classList.add('active'));
-  }
+    document.querySelectorAll('.nav-link[href="portfolio.html"], .bottom-nav-link[href="portfolio.html"]').forEach(l => l.classList.add('active'));
+  } else {
+    const sections = document.querySelectorAll('section[id]');
 
-  function updateActiveLinkSpy() {
-    const scrollY = window.pageYOffset;
-    const windowHeight = window.innerHeight;
-    const docHeight = document.documentElement.scrollHeight;
-
-    // Contact is active when near page bottom
-    if (scrollY + windowHeight >= docHeight - 70) {
-      setActiveSection('contact');
-      return;
+    function setActiveSection(targetId) {
+      allNavLinks.forEach(l => l.classList.remove('active'));
+      const matchedLinks = document.querySelectorAll(
+        `.nav-link[href="#${targetId}"], .bottom-nav-link[href="#${targetId}"], .nav-link[href="${targetId}.html"], .bottom-nav-link[href="${targetId}.html"]`
+      );
+      matchedLinks.forEach(l => l.classList.add('active'));
     }
 
-    // Hero is active when near page top
-    if (scrollY < 180) {
-      setActiveSection('hero');
-      return;
-    }
+    function updateActiveLinkSpy() {
+      const scrollY = window.pageYOffset;
+      const windowHeight = window.innerHeight;
+      const docHeight = document.documentElement.scrollHeight;
 
-    let currentSectionId = '';
-    sections.forEach(section => {
-      const sectionTop = section.offsetTop - 140;
-      const sectionHeight = section.offsetHeight;
-      if (scrollY >= sectionTop && scrollY < sectionTop + sectionHeight) {
-        currentSectionId = section.getAttribute('id');
+      // Contact is active when near page bottom
+      if (scrollY + windowHeight >= docHeight - 70) {
+        setActiveSection('contact');
+        return;
       }
-    });
 
-    if (currentSectionId) {
-      setActiveSection(currentSectionId);
+      // Hero is active when near page top
+      if (scrollY < 180) {
+        setActiveSection('hero');
+        return;
+      }
+
+      let currentSectionId = '';
+      sections.forEach(section => {
+        const sectionTop = section.offsetTop - 140;
+        const sectionHeight = section.offsetHeight;
+        if (scrollY >= sectionTop && scrollY < sectionTop + sectionHeight) {
+          currentSectionId = section.getAttribute('id');
+        }
+      });
+
+      if (currentSectionId) {
+        setActiveSection(currentSectionId);
+      }
     }
-  }
 
-  window.addEventListener('scroll', updateActiveLinkSpy, { passive: true });
-  updateActiveLinkSpy();
+    window.addEventListener('scroll', updateActiveLinkSpy, { passive: true });
+    updateActiveLinkSpy();
+  }
 
   // Smooth scroll and active state on bottom nav click
   bottomNavLinks.forEach(link => {
@@ -114,7 +163,9 @@ function initNavigation() {
             top: targetOffset,
             behavior: 'smooth'
           });
-          setActiveSection(targetHref.substring(1));
+          allNavLinks.forEach(l => l.classList.remove('active'));
+          const matched = document.querySelectorAll(`.nav-link[href="${targetHref}"], .bottom-nav-link[href="${targetHref}"]`);
+          matched.forEach(l => l.classList.add('active'));
         }
       }
     });
@@ -162,49 +213,22 @@ function initStatsCounter() {
 }
 
 /* ==========================================================================
-   PROJECT DETAILS MODAL (Placeholders neutres)
+   PROJECT DETAILS MODAL (CENTRALISÉ VIA DATA/PROJECTS.JS)
    ========================================================================== */
-const projectData = {
-  "1": {
-    title: "Nom du projet",
-    category: "Projet 01",
-    image: "assets/images/project_saas.jpg",
-    description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam."
-  },
-  "2": {
-    title: "Nom du projet",
-    category: "Projet 02",
-    image: "assets/images/project_ecommerce.jpg",
-    description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam."
-  },
-  "3": {
-    title: "Nom du projet",
-    category: "Projet 03",
-    image: "assets/images/project_fintech.jpg",
-    description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam."
-  },
-  "4": {
-    title: "Nom du projet",
-    category: "Projet 04",
-    image: "assets/images/project_realestate.jpg",
-    description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam."
-  }
-};
-
 function initProjectModal() {
   const modalBackdrop = document.getElementById('projectModal');
   const modalContent = document.getElementById('modalDetails');
   const closeBtn = document.querySelector('.modal-close-btn');
-  const triggerBtns = document.querySelectorAll('.btn-project-cta, .portfolio-preview');
 
   if (!modalBackdrop || !modalContent) return;
 
   function openModal(projectId) {
-    const data = projectData[projectId] || {
+    const data = projects.find(p => String(p.id) === String(projectId)) || {
       title: "Nom du projet",
       category: "Portfolio",
       image: "assets/images/project_saas.jpg",
-      description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit."
+      description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+      link: "#"
     };
 
     modalContent.innerHTML = `
@@ -212,14 +236,15 @@ function initProjectModal() {
         <span class="section-badge badge-green">${data.category}</span>
         <h2 style="font-size: 1.8rem; color: #FFF; margin: 10px 0;">${data.title}</h2>
       </div>
-      <div style="border-radius: 14px; overflow: hidden; margin-bottom: 24px; border: 1px solid rgba(255,255,255,0.1); max-height: 320px; background: #FFF;">
+      <div style="border-radius: 14px; overflow: hidden; margin-bottom: 24px; border: 1px solid rgba(255,255,255,0.1); max-height: 320px; background: #0A1424;">
         <img src="${data.image}" alt="${data.title}" style="width:100%; height:100%; object-fit:cover;">
       </div>
       <p style="color: #CBD5E1; line-height: 1.6; margin-bottom: 24px; font-size: 0.95rem;">
         ${data.description}
       </p>
       <div style="display: flex; gap: 12px; flex-wrap: wrap;">
-        <a href="#contact" class="btn btn-primary" onclick="closeProjectModal()">Démarrer un projet →</a>
+        <a href="${data.link || '#'}" class="btn btn-primary" target="_blank" rel="noopener noreferrer">Visiter le site en direct →</a>
+        <button type="button" class="btn btn-secondary" onclick="closeProjectModal()">Fermer</button>
       </div>
     `;
 
@@ -232,15 +257,17 @@ function initProjectModal() {
     document.body.style.overflow = '';
   };
 
-  triggerBtns.forEach(btn => {
-    btn.addEventListener('click', (e) => {
+  // Délégation d'événement sur tout le document pour les cartes générées dynamiquement
+  document.addEventListener('click', (e) => {
+    const preview = e.target.closest('.portfolio-preview');
+    if (preview) {
       e.preventDefault();
-      const card = btn.closest('.portfolio-card');
+      const card = preview.closest('.portfolio-card');
       if (card) {
         const projectId = card.getAttribute('data-id');
         openModal(projectId);
       }
-    });
+    }
   });
 
   if (closeBtn) closeBtn.addEventListener('click', window.closeProjectModal);
