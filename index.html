@@ -1,18 +1,22 @@
 <!DOCTYPE html>
 <html lang="fr">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Vertex Agency | Sites web professionnels sur mesure & Solutions Digitales</title>
-  
+
   <!-- SEO Meta Tags -->
-  <meta name="description" content="Vertex Agency conçoit et développe des sites web professionnels sur mesure, applications mobiles et solutions digitales haute performance pour propulser votre entreprise.">
-  <meta name="keywords" content="agence web dakar, création site internet, développement web sur mesure, UI UX design, application mobile, SEO">
+  <meta name="description"
+    content="Vertex Agency conçoit et développe des sites web professionnels sur mesure, applications mobiles et solutions digitales haute performance pour propulser votre entreprise.">
+  <meta name="keywords"
+    content="agence web dakar, création site internet, développement web sur mesure, UI UX design, application mobile, SEO">
   <meta name="author" content="Vertex Agency">
-  
+
   <!-- Open Graph / Social Media -->
   <meta property="og:title" content="Vertex Agency | Sites web professionnels sur mesure">
-  <meta property="og:description" content="Agence digitale spécialisée dans la création de sites web haute performance, design UI/UX et applications sur mesure.">
+  <meta property="og:description"
+    content="Agence digitale spécialisée dans la création de sites web haute performance, design UI/UX et applications sur mesure.">
   <meta property="og:image" content="assets/images/hero_tech.jpg">
   <meta property="og:type" content="website">
 
@@ -22,6 +26,7 @@
   <!-- Main Stylesheet -->
   <link rel="stylesheet" href="styles/main.css">
 </head>
+
 <body>
 
   <!-- Ambient Glowing Orbs Background -->
@@ -41,7 +46,7 @@
         <img src="assets/icons/Logo_Vertex_Agency.png" alt="Vertex Agency" class="logo-brand-img" height="40">
       </a>
 
-      <!-- Navigation Menu -->
+      <!-- Navigation Menu (Desktop & Tablet) -->
       <ul class="nav-menu" id="navMenu">
         <li><a href="#hero" class="nav-link active">Accueil</a></li>
         <li><a href="#services" class="nav-link">Services</a></li>
@@ -53,7 +58,10 @@
         </li>
       </ul>
 
-      <!-- Mobile Hamburger Button -->
+      <!-- Mobile Header CTA Button -->
+      <a href="#contact" class="btn-nav-cta-mobile" id="navCtaMobile">Demander un devis</a>
+
+      <!-- Mobile Hamburger Button (remplacé par la Bottom Nav sur mobile) -->
       <button class="menu-toggle" id="menuToggle" aria-label="Ouvrir le menu">
         <span></span>
         <span></span>
@@ -61,6 +69,52 @@
       </button>
     </div>
   </header>
+
+  <!-- ==========================================================================
+       MOBILE BOTTOM NAVIGATION BAR (Style application mobile)
+       ========================================================================== -->
+  <nav class="bottom-nav" id="bottomNav" aria-label="Navigation principale mobile">
+    <a href="#hero" class="bottom-nav-link active" data-section="hero" id="bottomNavHero">
+      <svg class="bottom-nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+        <polyline points="9 22 9 12 15 12 15 22"></polyline>
+      </svg>
+      <span class="bottom-nav-label">Accueil</span>
+    </a>
+
+    <a href="#services" class="bottom-nav-link" data-section="services" id="bottomNavServices">
+      <svg class="bottom-nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <rect x="2" y="2" width="8" height="8" rx="2"></rect>
+        <rect x="14" y="2" width="8" height="8" rx="2"></rect>
+        <rect x="2" y="14" width="8" height="8" rx="2"></rect>
+        <rect x="14" y="14" width="8" height="8" rx="2"></rect>
+      </svg>
+      <span class="bottom-nav-label">Services</span>
+    </a>
+
+    <a href="#portfolio" class="bottom-nav-link" data-section="portfolio" id="bottomNavPortfolio">
+      <svg class="bottom-nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect>
+        <path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path>
+      </svg>
+      <span class="bottom-nav-label">Portfolio</span>
+    </a>
+
+    <a href="#a-propos" class="bottom-nav-link" data-section="a-propos" id="bottomNavAbout">
+      <svg class="bottom-nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+        <circle cx="12" cy="7" r="4"></circle>
+      </svg>
+      <span class="bottom-nav-label">À propos</span>
+    </a>
+
+    <a href="#contact" class="bottom-nav-link" data-section="contact" id="bottomNavContact">
+      <svg class="bottom-nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
+      </svg>
+      <span class="bottom-nav-label">Contact</span>
+    </a>
+  </nav>
 
   <!-- ==========================================================================
        HERO SECTION (Intégration fluide de l'illustration en arrière-plan)
@@ -126,10 +180,12 @@
         <!-- Service 1: Développement Web -->
         <div class="service-card">
           <div>
-            <img src="assets/icons/Creation_site_web.png" alt="Développement Web" class="service-icon-img" width="34" height="34">
-            <h3 class="service-title">Développement Web</h3>
+            <img src="assets/icons/Creation_site_web.png" alt="Développement Web" class="service-icon-img" width="34"
+              height="34">
+            <h3 class="service-title">Création de sites web</h3>
             <p class="service-desc">
-              Des sites sur mesure (vitrine, e-commerce ou réservation), rapides, responsives et pensés pour transformer vos visiteurs en clients.
+              Des sites sur mesure (vitrine, e-commerce ou réservation), rapides, responsives et pensés pour transformer
+              vos visiteurs en clients.
             </p>
           </div>
           <div class="service-thumb">
@@ -154,10 +210,12 @@
         <!-- Service 3: Référencement SEO & Marketing -->
         <div class="service-card">
           <div>
-            <img src="assets/icons/Seo_Performance.png" alt="Référencement SEO & Marketing" class="service-icon-img" width="34" height="34">
+            <img src="assets/icons/Seo_Performance.png" alt="Référencement SEO & Marketing" class="service-icon-img"
+              width="34" height="34">
             <h3 class="service-title">Référencement SEO & Marketing</h3>
             <p class="service-desc">
-              Plus de visibilité sur Google et des pages qui chargent vite, pour mieux vous classer et convertir davantage.
+              Plus de visibilité sur Google et des pages qui chargent vite, pour mieux vous classer et convertir
+              davantage.
             </p>
           </div>
           <div class="service-thumb">
@@ -168,7 +226,8 @@
         <!-- Service 4: Création d'application mobile -->
         <div class="service-card">
           <div>
-            <img src="assets/icons/Application_Mobile.png" alt="Création d'application mobile" class="service-icon-img" width="34" height="34">
+            <img src="assets/icons/Application_Mobile.png" alt="Création d'application mobile" class="service-icon-img"
+              width="34" height="34">
             <h3 class="service-title">Création d'application mobile</h3>
             <p class="service-desc">
               Des applications iOS et Android fluides, de la conception jusqu'à la publication sur les stores.
@@ -182,10 +241,12 @@
         <!-- Service 5: Maintenance & Sécurité -->
         <div class="service-card">
           <div>
-            <img src="assets/icons/Saas.png" alt="Maintenance & Sécurité" class="service-icon-img" width="34" height="34">
-            <h3 class="service-title">Maintenance & Sécurité</h3>
+            <img src="assets/icons/Saas.png" alt="Maintenance & Sécurité" class="service-icon-img" width="34"
+              height="34">
+            <h3 class="service-title">Création de Saas</h3>
             <p class="service-desc">
-              De l'idée au MVP puis à une plateforme évolutive, avec les comptes, les abonnements et les tableaux de bord.
+              De l'idée au MVP puis à une plateforme évolutive, avec les comptes, les abonnements et les tableaux de
+              bord.
             </p>
           </div>
           <div class="service-thumb">
@@ -306,7 +367,8 @@
         <div class="testimonial-card">
           <div class="testimonial-stars">★★★★★</div>
           <p class="testimonial-quote">
-            "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam."
+            "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et
+            dolore magna aliqua. Ut enim ad minim veniam."
           </p>
           <div class="testimonial-author">
             <div class="author-avatar">
@@ -323,7 +385,8 @@
         <div class="testimonial-card">
           <div class="testimonial-stars">★★★★★</div>
           <p class="testimonial-quote">
-            "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam."
+            "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et
+            dolore magna aliqua. Ut enim ad minim veniam."
           </p>
           <div class="testimonial-author">
             <div class="author-avatar">
@@ -340,7 +403,8 @@
         <div class="testimonial-card">
           <div class="testimonial-stars">★★★★★</div>
           <p class="testimonial-quote">
-            "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam."
+            "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et
+            dolore magna aliqua. Ut enim ad minim veniam."
           </p>
           <div class="testimonial-author">
             <div class="author-avatar">
@@ -357,7 +421,8 @@
         <div class="testimonial-card">
           <div class="testimonial-stars">★★★★★</div>
           <p class="testimonial-quote">
-            "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam."
+            "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et
+            dolore magna aliqua. Ut enim ad minim veniam."
           </p>
           <div class="testimonial-author">
             <div class="author-avatar">
@@ -374,7 +439,8 @@
         <div class="testimonial-card">
           <div class="testimonial-stars">★★★★★</div>
           <p class="testimonial-quote">
-            "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam."
+            "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et
+            dolore magna aliqua. Ut enim ad minim veniam."
           </p>
           <div class="testimonial-author">
             <div class="author-avatar">
@@ -391,7 +457,8 @@
         <div class="testimonial-card">
           <div class="testimonial-stars">★★★★★</div>
           <p class="testimonial-quote">
-            "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam."
+            "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et
+            dolore magna aliqua. Ut enim ad minim veniam."
           </p>
           <div class="testimonial-author">
             <div class="author-avatar">
@@ -418,7 +485,8 @@
           <span class="section-badge badge-green">CONTACT</span>
           <h2 class="section-title">Démarrons votre projet ensemble</h2>
           <p class="contact-info-desc">
-            Vous avez un projet en tête ou souhaitez moderniser votre présence numérique ? Remplissez ce formulaire et notre équipe vous recontactera sous 24h avec une proposition sur mesure.
+            Vous avez un projet en tête ou souhaitez moderniser votre présence numérique ? Remplissez ce formulaire et
+            notre équipe vous recontactera sous 24h avec une proposition sur mesure.
           </p>
 
           <div class="contact-items">
@@ -490,7 +558,8 @@
 
             <div class="form-group">
               <label for="message" class="form-label">Message & Détails du projet *</label>
-              <textarea id="message" class="form-textarea" placeholder="Parlez-nous de vos besoins, budget et délais envisagés..." required></textarea>
+              <textarea id="message" class="form-textarea"
+                placeholder="Parlez-nous de vos besoins, budget et délais envisagés..." required></textarea>
             </div>
 
             <button type="submit" class="btn-form-submit" id="submitContactBtn">
@@ -518,7 +587,8 @@
             <img src="assets/icons/Logo_Vertex_Agency.png" alt="Vertex Agency Logo" class="logo-brand-img" height="36">
           </a>
           <p class="footer-desc">
-            L'agence digitale de référence pour concevoir des sites web captivants, des applications mobiles agiles et des expériences numériques sur mesure.
+            L'agence digitale de référence pour concevoir des sites web captivants, des applications mobiles agiles et
+            des expériences numériques sur mesure.
           </p>
         </div>
 
@@ -553,7 +623,8 @@
             <li style="color: var(--text-muted); font-size: 0.9rem;">📍 Dakar, Sénégal</li>
             <li style="color: var(--text-muted); font-size: 0.9rem;">📞 +221 77 000 00 00</li>
             <li style="color: var(--text-muted); font-size: 0.9rem;">✉️ contact@vertexagency.com</li>
-            <li style="color: var(--color-green-light); font-size: 0.85rem; font-weight: 600; margin-top: 8px;">🟢 Disponibles pour nouveaux projets</li>
+            <li style="color: var(--color-green-light); font-size: 0.85rem; font-weight: 600; margin-top: 8px;">🟢
+              Disponibles pour nouveaux projets</li>
           </ul>
         </div>
       </div>
@@ -586,4 +657,5 @@
   <!-- Main JavaScript File -->
   <script type="module" src="js/main.js"></script>
 </body>
+
 </html>

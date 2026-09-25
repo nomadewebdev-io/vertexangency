@@ -13,24 +13,25 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 /* ==========================================================================
-   NAVIGATION & MOBILE MENU
+   NAVIGATION & BOTTOM NAV (DESKTOP & MOBILE)
    ========================================================================== */
 function initNavigation() {
   const navbar = document.querySelector('.navbar');
   const menuToggle = document.querySelector('.menu-toggle');
   const navMenu = document.querySelector('.nav-menu');
-  const navLinks = document.querySelectorAll('.nav-link');
+  const allNavLinks = document.querySelectorAll('.nav-link, .bottom-nav-link');
+  const bottomNavLinks = document.querySelectorAll('.bottom-nav-link');
 
   // Sticky Navbar Scroll Effect
   window.addEventListener('scroll', () => {
     if (window.scrollY > 40) {
-      navbar.classList.add('scrolled');
+      navbar?.classList.add('scrolled');
     } else {
-      navbar.classList.remove('scrolled');
+      navbar?.classList.remove('scrolled');
     }
-  });
+  }, { passive: true });
 
-  // Mobile Menu Toggle
+  // Mobile Menu Toggle (fallback si présent)
   if (menuToggle && navMenu) {
     menuToggle.addEventListener('click', () => {
       menuToggle.classList.toggle('active');
@@ -39,7 +40,7 @@ function initNavigation() {
     });
 
     // Close menu when clicking link
-    navLinks.forEach(link => {
+    document.querySelectorAll('.nav-link').forEach(link => {
       link.addEventListener('click', () => {
         menuToggle.classList.remove('active');
         navMenu.classList.remove('active');
@@ -57,21 +58,63 @@ function initNavigation() {
     });
   }
 
-  // Active Link Spy on Scroll
+  // Active Section Tracker (Scroll Spy)
   const sections = document.querySelectorAll('section[id]');
-  window.addEventListener('scroll', () => {
-    const scrollY = window.pageYOffset + 200;
 
+  function setActiveSection(targetId) {
+    allNavLinks.forEach(l => l.classList.remove('active'));
+    const matchedLinks = document.querySelectorAll(`.nav-link[href="#${targetId}"], .bottom-nav-link[href="#${targetId}"]`);
+    matchedLinks.forEach(l => l.classList.add('active'));
+  }
+
+  function updateActiveLinkSpy() {
+    const scrollY = window.pageYOffset;
+    const windowHeight = window.innerHeight;
+    const docHeight = document.documentElement.scrollHeight;
+
+    // Contact is active when near page bottom
+    if (scrollY + windowHeight >= docHeight - 70) {
+      setActiveSection('contact');
+      return;
+    }
+
+    // Hero is active when near page top
+    if (scrollY < 180) {
+      setActiveSection('hero');
+      return;
+    }
+
+    let currentSectionId = '';
     sections.forEach(section => {
+      const sectionTop = section.offsetTop - 140;
       const sectionHeight = section.offsetHeight;
-      const sectionTop = section.offsetTop;
-      const sectionId = section.getAttribute('id');
-      const targetLink = document.querySelector(`.nav-link[href="#${sectionId}"]`);
+      if (scrollY >= sectionTop && scrollY < sectionTop + sectionHeight) {
+        currentSectionId = section.getAttribute('id');
+      }
+    });
 
-      if (targetLink) {
-        if (scrollY > sectionTop && scrollY <= sectionTop + sectionHeight) {
-          navLinks.forEach(l => l.classList.remove('active'));
-          targetLink.classList.add('active');
+    if (currentSectionId) {
+      setActiveSection(currentSectionId);
+    }
+  }
+
+  window.addEventListener('scroll', updateActiveLinkSpy, { passive: true });
+  updateActiveLinkSpy();
+
+  // Smooth scroll and active state on bottom nav click
+  bottomNavLinks.forEach(link => {
+    link.addEventListener('click', (e) => {
+      const targetHref = link.getAttribute('href');
+      if (targetHref && targetHref.startsWith('#')) {
+        const targetSection = document.querySelector(targetHref);
+        if (targetSection) {
+          e.preventDefault();
+          const targetOffset = targetHref === '#hero' ? 0 : targetSection.offsetTop - 50;
+          window.scrollTo({
+            top: targetOffset,
+            behavior: 'smooth'
+          });
+          setActiveSection(targetHref.substring(1));
         }
       }
     });

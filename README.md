@@ -3,7 +3,7 @@
 Landing page moderne, réactive et performante pour l'agence digitale **Vertex Agency**.
 
 ## 🚀 Fonctionnalités & Sections
-- **Header / Navigation** : Menu responsive avec drawer animé sur mobile, effet sticky blur au scroll et liens d'ancrage fluides.
+- **Header / Navigation** : Header flottant en capsule sur desktop, barre de navigation fixe en bas sur mobile (Bottom Nav style application mobile), effet sticky blur au scroll et liens d'ancrage fluides.
 - **Hero Section** : Accroche percutante *"Sites web professionnels sur mesure"*, CTA interactifs, badges technologiques et compteurs animés de statistiques.
 - **Nos Services** : 5 cartes de services avec visuels immersifs, micro-interactions et effets de survol.
 - **Portfolio** : Filtres interactifs par catégorie et fenêtre modale dynamique détaillée pour chaque projet.

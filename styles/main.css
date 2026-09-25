@@ -304,6 +304,16 @@ button {
   color: #FFFFFF;
 }
 
+/* Mobile Header CTA Button (Caché sur desktop) */
+.btn-nav-cta-mobile {
+  display: none;
+}
+
+/* Mobile Bottom Navigation Bar (Cachée sur desktop & tablette) */
+.bottom-nav {
+  display: none;
+}
+
 /* Mobile Menu Button */
 .menu-toggle {
   display: none;
@@ -1257,41 +1267,113 @@ button {
   }
 
   .menu-toggle {
-    display: flex;
-    z-index: 1002;
+    display: none !important;
   }
 
   .nav-menu {
+    display: none !important;
+  }
+
+  .btn-nav-cta-mobile {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background: #0D63FC;
+    color: #FFFFFF;
+    font-weight: 700;
+    font-size: 0.82rem;
+    padding: 7px 16px;
+    border-radius: var(--radius-pill);
+    box-shadow: 0 3px 12px rgba(13, 99, 252, 0.35);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    text-decoration: none;
+    transition: all var(--transition-fast);
+    white-space: nowrap;
+  }
+
+  .btn-nav-cta-mobile:hover, .btn-nav-cta-mobile:active {
+    background: #0144D0;
+    color: #FFFFFF;
+    transform: translateY(-1px);
+  }
+
+  /* Mobile Bottom Navigation Bar */
+  .bottom-nav {
+    display: flex;
     position: fixed;
-    top: 0;
-    right: -100%;
-    width: 80%;
-    max-width: 320px;
-    height: 100vh;
-    background: #011130;
-    border-left: 1px solid rgba(82, 168, 255, 0.2);
-    flex-direction: column;
-    justify-content: center;
-    gap: 24px;
-    padding: 40px;
-    box-shadow: -10px 0 35px rgba(0, 0, 0, 0.85);
-    transition: right var(--transition-normal);
-    z-index: 1001;
-  }
-
-  .nav-menu.active {
+    bottom: 0;
+    left: 0;
     right: 0;
+    width: 100%;
+    height: calc(62px + env(safe-area-inset-bottom, 0px));
+    padding: 6px 4px calc(6px + env(safe-area-inset-bottom, 0px));
+    background: rgba(1, 15, 42, 0.94);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border-top: 1px solid rgba(82, 168, 255, 0.22);
+    box-shadow: 0 -4px 25px rgba(0, 0, 0, 0.65), 0 -1px 12px rgba(13, 99, 252, 0.25);
+    z-index: 2000;
+    justify-content: space-around;
+    align-items: center;
   }
 
-  .nav-cta-item {
-    display: block;
-    width: 100%;
-    margin-top: 16px;
-  }
-
-  .btn-nav-cta {
-    width: 100%;
+  .bottom-nav-link {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     justify-content: center;
+    gap: 3px;
+    flex: 1;
+    height: 100%;
+    text-decoration: none;
+    color: #94A3B8;
+    transition: all var(--transition-fast);
+    position: relative;
+    padding: 4px 2px;
+    border-radius: var(--radius-sm);
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  .bottom-nav-icon {
+    width: 22px;
+    height: 22px;
+    transition: transform var(--transition-fast), filter var(--transition-fast), stroke var(--transition-fast);
+  }
+
+  .bottom-nav-label {
+    font-size: 0.68rem;
+    font-weight: 500;
+    letter-spacing: 0.01em;
+    transition: color var(--transition-fast), font-weight var(--transition-fast);
+  }
+
+  .bottom-nav-link:hover {
+    color: #FFFFFF;
+  }
+
+  .bottom-nav-link.active {
+    color: #24CE6B;
+  }
+
+  .bottom-nav-link.active .bottom-nav-icon {
+    transform: translateY(-1px) scale(1.06);
+    filter: drop-shadow(0 0 8px rgba(36, 206, 107, 0.55));
+  }
+
+  .bottom-nav-link.active .bottom-nav-label {
+    font-weight: 700;
+    color: #24CE6B;
+  }
+
+  .bottom-nav-link.active::before {
+    content: '';
+    position: absolute;
+    top: -2px;
+    width: 18px;
+    height: 3px;
+    background: #24CE6B;
+    border-radius: 3px;
+    box-shadow: 0 0 10px #24CE6B, 0 0 16px rgba(36, 206, 107, 0.5);
   }
 
   .hero-section {
@@ -1353,5 +1435,33 @@ button {
     flex-direction: column;
     align-items: flex-start;
     gap: 12px;
+  }
+
+  /* Padding pour que la bottom nav ne recouvre aucun contenu sur mobile */
+  .footer {
+    padding-bottom: calc(96px + env(safe-area-inset-bottom, 0px)) !important;
+  }
+
+  .toast-container {
+    bottom: calc(76px + env(safe-area-inset-bottom, 0px));
+    right: 16px;
+    left: 16px;
+  }
+}
+
+/* Écrans mobiles ultra-compacts (ex: iPhone SE) */
+@media (max-width: 380px) {
+  .btn-nav-cta-mobile {
+    padding: 6px 11px;
+    font-size: 0.75rem;
+  }
+
+  .bottom-nav-label {
+    font-size: 0.62rem;
+  }
+
+  .bottom-nav-icon {
+    width: 20px;
+    height: 20px;
   }
 }
