@@ -185,29 +185,39 @@ button {
 }
 
 /* ==========================================================================
-   NAVIGATION BAR (Bleu foncé / #0144D0 comme dans Figma)
+   NAVIGATION BAR (Barre arrondie flottante / Pill Shape avec lueur bleu clair)
    ========================================================================== */
 .navbar {
   position: fixed;
-  top: 0;
+  top: 20px;
   left: 0;
   right: 0;
+  margin: 0 auto;
+  width: calc(100% - 48px);
+  max-width: 1200px;
   z-index: 1000;
-  padding: 16px 0;
-  background: #0144D0;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+  padding: 10px 28px;
+  background: rgba(1, 68, 208, 0.92);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border-radius: var(--radius-pill);
+  border: 1.5px solid rgba(82, 168, 255, 0.55);
+  box-shadow: 0 10px 32px rgba(0, 5, 20, 0.45), 0 0 20px rgba(13, 99, 252, 0.35), inset 0 1px 1px rgba(255, 255, 255, 0.2);
   transition: all var(--transition-normal);
 }
 
 .navbar.scrolled {
-  padding: 12px 0;
-  background: rgba(1, 68, 208, 0.95);
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
-  box-shadow: 0 6px 25px rgba(0, 0, 0, 0.45);
+  top: 20px;
+  padding: 8px 28px;
+  background: rgba(1, 68, 208, 0.96);
+  border-color: rgba(110, 190, 255, 0.7);
+  box-shadow: 0 14px 40px rgba(0, 0, 0, 0.6), 0 0 25px rgba(13, 99, 252, 0.5), inset 0 1px 1px rgba(255, 255, 255, 0.25);
 }
 
-.nav-container {
+.navbar .nav-container {
+  width: 100%;
+  max-width: 100%;
+  padding: 0;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -1225,11 +1235,30 @@ button {
 
 @media (max-width: 768px) {
   .navbar {
-    padding: 14px 0;
+    top: 14px;
+    width: calc(100% - 28px);
+    padding: 8px 18px;
+    background: #0144D0;
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
+    border-radius: var(--radius-pill);
+    border: 1.5px solid rgba(82, 168, 255, 0.55);
+    box-shadow: 0 8px 25px rgba(0, 5, 20, 0.5), 0 0 16px rgba(13, 99, 252, 0.35);
+  }
+
+  .navbar.scrolled {
+    top: 14px;
+    padding: 8px 18px;
+    background: #0144D0;
+  }
+
+  .logo-brand-img {
+    height: 32px;
   }
 
   .menu-toggle {
     display: flex;
+    z-index: 1002;
   }
 
   .nav-menu {
@@ -1240,14 +1269,14 @@ button {
     max-width: 320px;
     height: 100vh;
     background: #011130;
-    border-left: 1px solid rgba(255, 255, 255, 0.15);
+    border-left: 1px solid rgba(82, 168, 255, 0.2);
     flex-direction: column;
     justify-content: center;
     gap: 24px;
     padding: 40px;
-    box-shadow: -10px 0 30px rgba(0, 0, 0, 0.8);
+    box-shadow: -10px 0 35px rgba(0, 0, 0, 0.85);
     transition: right var(--transition-normal);
-    z-index: 1000;
+    z-index: 1001;
   }
 
   .nav-menu.active {
