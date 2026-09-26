@@ -41,22 +41,25 @@
        ========================================================================== -->
   <header class="navbar" id="navbar">
     <div class="container nav-container">
-      <!-- Logo -->
-      <a href="#hero" class="logo" id="navLogo">
-        <img src="assets/icons/Logo_Vertex_Agency.png" alt="Vertex Agency" class="logo-brand-img" height="40">
-      </a>
+      <!-- Zone 1 : Logo (gauche) -->
+      <div class="nav-logo-zone">
+        <a href="#hero" class="logo" id="navLogo" aria-label="Accueil Vertex Agency">
+          <img src="assets/icons/Logo_Vertex_Agency.png" alt="Vertex Agency" class="logo-brand-img" height="40">
+        </a>
+      </div>
 
-      <!-- Navigation Menu (Desktop & Tablet) -->
+      <!-- Zone 2 : Menu de navigation centré -->
       <ul class="nav-menu" id="navMenu">
         <li><a href="#hero" class="nav-link active">Accueil</a></li>
         <li><a href="#services" class="nav-link">Services</a></li>
         <li><a href="portfolio.html" class="nav-link">Portfolio</a></li>
-        <li><a href="#a-propos" class="nav-link">À propos</a></li>
         <li><a href="#contact" class="nav-link">Contact</a></li>
-        <li class="nav-cta-item">
-          <a href="#contact" class="btn-nav-cta">Demander un devis</a>
-        </li>
       </ul>
+
+      <!-- Zone 3 : Bouton CTA (droite) -->
+      <div class="nav-cta-zone">
+        <a href="#contact" class="btn-nav-cta">Demander un devis</a>
+      </div>
 
       <!-- Mobile Header CTA Button -->
       <a href="#contact" class="btn-nav-cta-mobile" id="navCtaMobile">Demander un devis</a>
@@ -75,7 +78,8 @@
        ========================================================================== -->
   <nav class="bottom-nav" id="bottomNav" aria-label="Navigation principale mobile">
     <a href="#hero" class="bottom-nav-link active" data-section="hero" id="bottomNavHero">
-      <svg class="bottom-nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+      <svg class="bottom-nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+        stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
         <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
         <polyline points="9 22 9 12 15 12 15 22"></polyline>
       </svg>
@@ -83,7 +87,8 @@
     </a>
 
     <a href="#services" class="bottom-nav-link" data-section="services" id="bottomNavServices">
-      <svg class="bottom-nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+      <svg class="bottom-nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+        stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
         <rect x="2" y="2" width="8" height="8" rx="2"></rect>
         <rect x="14" y="2" width="8" height="8" rx="2"></rect>
         <rect x="2" y="14" width="8" height="8" rx="2"></rect>
@@ -93,7 +98,8 @@
     </a>
 
     <a href="portfolio.html" class="bottom-nav-link" data-section="portfolio" id="bottomNavPortfolio">
-      <svg class="bottom-nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+      <svg class="bottom-nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+        stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
         <rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect>
         <path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path>
       </svg>
@@ -101,7 +107,8 @@
     </a>
 
     <a href="#a-propos" class="bottom-nav-link" data-section="a-propos" id="bottomNavAbout">
-      <svg class="bottom-nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+      <svg class="bottom-nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+        stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
         <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
         <circle cx="12" cy="7" r="4"></circle>
       </svg>
@@ -109,7 +116,8 @@
     </a>
 
     <a href="#contact" class="bottom-nav-link" data-section="contact" id="bottomNavContact">
-      <svg class="bottom-nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+      <svg class="bottom-nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+        stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
         <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
       </svg>
       <span class="bottom-nav-label">Contact</span>
@@ -285,9 +293,11 @@
           </div>
           <div class="portfolio-content">
             <h3 class="portfolio-title">Nom du projet</h3>
-            <a href="https://example.com" class="btn-project-cta" target="_blank" rel="noopener noreferrer" aria-label="Voir le projet Nom du projet">
+            <a href="https://example.com" class="btn-project-cta" target="_blank" rel="noopener noreferrer"
+              aria-label="Voir le projet Nom du projet">
               Voir le projet
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+                aria-hidden="true">
                 <line x1="5" y1="12" x2="19" y2="12"></line>
                 <polyline points="12 5 19 12 12 19"></polyline>
               </svg>
@@ -302,9 +312,11 @@
           </div>
           <div class="portfolio-content">
             <h3 class="portfolio-title">Nom du projet</h3>
-            <a href="https://example.com" class="btn-project-cta" target="_blank" rel="noopener noreferrer" aria-label="Voir le projet Nom du projet">
+            <a href="https://example.com" class="btn-project-cta" target="_blank" rel="noopener noreferrer"
+              aria-label="Voir le projet Nom du projet">
               Voir le projet
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+                aria-hidden="true">
                 <line x1="5" y1="12" x2="19" y2="12"></line>
                 <polyline points="12 5 19 12 12 19"></polyline>
               </svg>
@@ -319,9 +331,11 @@
           </div>
           <div class="portfolio-content">
             <h3 class="portfolio-title">Nom du projet</h3>
-            <a href="https://example.com" class="btn-project-cta" target="_blank" rel="noopener noreferrer" aria-label="Voir le projet Nom du projet">
+            <a href="https://example.com" class="btn-project-cta" target="_blank" rel="noopener noreferrer"
+              aria-label="Voir le projet Nom du projet">
               Voir le projet
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+                aria-hidden="true">
                 <line x1="5" y1="12" x2="19" y2="12"></line>
                 <polyline points="12 5 19 12 12 19"></polyline>
               </svg>
@@ -336,9 +350,11 @@
           </div>
           <div class="portfolio-content">
             <h3 class="portfolio-title">Nom du projet</h3>
-            <a href="https://example.com" class="btn-project-cta" target="_blank" rel="noopener noreferrer" aria-label="Voir le projet Nom du projet">
+            <a href="https://example.com" class="btn-project-cta" target="_blank" rel="noopener noreferrer"
+              aria-label="Voir le projet Nom du projet">
               Voir le projet
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+                aria-hidden="true">
                 <line x1="5" y1="12" x2="19" y2="12"></line>
                 <polyline points="12 5 19 12 12 19"></polyline>
               </svg>
