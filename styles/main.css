@@ -6,7 +6,36 @@
    - Vert (accents secondaires, badges) : #24ce6b
    ========================================================================== */
 
-@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@500;600;700&display=swap');
+/* Official Fonts Import */
+@import '../assets/fonts/retro-86/stylesheet.css';
+
+/* DIN Pro Official Font-Faces (woff2 primary, otf fallback) */
+@font-face {
+  font-family: 'DIN Pro';
+  src: url('../assets/fonts/din-pro/dinpro.woff2') format('woff2'),
+       url('../assets/fonts/din-pro/dinpro.otf') format('opentype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'DIN Pro';
+  src: url('../assets/fonts/din-pro/dinpro_medium.woff2') format('woff2'),
+       url('../assets/fonts/din-pro/dinpro_medium.otf') format('opentype');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'DIN Pro';
+  src: url('../assets/fonts/din-pro/dinpro_bold.woff2') format('woff2'),
+       url('../assets/fonts/din-pro/dinpro_bold.otf') format('opentype');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
 
 /* --- CSS Variables / Tokens --- */
 :root {
@@ -40,9 +69,13 @@
   --border-green: rgba(36, 206, 107, 0.4);
   --border-blue: rgba(13, 99, 252, 0.4);
 
-  /* Typography */
-  --font-family: 'DIN Pro', 'DIN Alternate', 'Space Grotesk', 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
-  --font-body: 'Plus Jakarta Sans', 'DIN Pro', -apple-system, BlinkMacSystemFont, sans-serif;
+  /* Official Typography Tokens */
+  --font-heading: 'RETRO-86', sans-serif;
+  --font-ui: 'DIN Pro', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --font-body: 'Charter', 'Bitstream Charter', 'Sitka Text', 'Cambria', serif;
+
+  /* Aliases for backward compatibility */
+  --font-family: var(--font-heading);
 
   /* Transitions */
   --transition-fast: 0.2s cubic-bezier(0.4, 0, 0.2, 1);
@@ -82,10 +115,14 @@ body {
 }
 
 h1, h2, h3, h4, h5, h6, .font-heading {
-  font-family: var(--font-family);
-  font-weight: 700;
+  font-family: var(--font-heading);
+  font-weight: 500;
   color: var(--text-white);
-  letter-spacing: -0.02em;
+  letter-spacing: 0;
+}
+
+p, .hero-subtitle, .section-subtitle, .service-desc, .testimonial-quote, .contact-desc, .footer-desc {
+  font-family: var(--font-body);
 }
 
 a {
@@ -101,7 +138,7 @@ img {
 }
 
 button, input, textarea, select {
-  font-family: inherit;
+  font-family: var(--font-ui);
   font-size: inherit;
   border: none;
   outline: none;
@@ -131,13 +168,14 @@ button {
 
 /* Section Header Badges */
 .section-badge {
+  font-family: var(--font-ui);
   display: inline-flex;
   align-items: center;
   gap: 8px;
   padding: 6px 18px;
   border-radius: var(--radius-pill);
   font-size: 0.8rem;
-  font-weight: 700;
+  font-weight: 500; /* DIN Pro Medium */
   text-transform: uppercase;
   letter-spacing: 0.08em;
   margin-bottom: 16px;
@@ -158,12 +196,15 @@ button {
 }
 
 .section-title {
+  font-family: var(--font-heading);
+  font-weight: 500; /* RETRO-86 Medium */
   font-size: clamp(2rem, 4vw, 2.75rem);
   line-height: 1.2;
   margin-bottom: 12px;
 }
 
 .section-subtitle {
+  font-family: var(--font-body); /* Charter */
   font-size: 1.05rem;
   color: var(--text-muted);
   max-width: 600px;
@@ -265,8 +306,9 @@ button {
 }
 
 .nav-link {
+  font-family: var(--font-ui);
   font-size: 0.95rem;
-  font-weight: 500;
+  font-weight: 400; /* DIN Pro Regular */
   color: #FFFFFF;
   position: relative;
   padding: 6px 0;
@@ -309,9 +351,10 @@ button {
 }
 
 .btn-nav-cta {
+  font-family: var(--font-ui);
   background: #0D63FC;
   color: #FFFFFF;
-  font-weight: 700;
+  font-weight: 500; /* DIN Pro Medium */
   font-size: 0.92rem;
   padding: 10px 24px;
   border-radius: var(--radius-pill);
@@ -379,14 +422,15 @@ button {
    BUTTONS (Shared Styles)
    ========================================================================== */
 .btn {
+  font-family: var(--font-ui);
   display: inline-flex;
   align-items: center;
   justify-content: center;
   gap: 10px;
   padding: 14px 30px;
-  font-weight: 700;
+  font-weight: 500; /* DIN Pro Medium */
   font-size: 0.95rem;
-  letter-spacing: -0.01em;
+  letter-spacing: 0;
   transition: all var(--transition-normal);
   position: relative;
   overflow: hidden;
@@ -486,12 +530,19 @@ button {
 }
 
 .hero-title {
-  font-size: clamp(2.6rem, 5.2vw, 4.4rem);
-  font-weight: 800;
-  line-height: 1.12;
+  font-family: var(--font-heading);
+  font-size: clamp(2.5rem, 6.5vw, 96px);
+  font-weight: 500; /* RETRO-86 Medium */
+  line-height: 1; /* 100% */
   margin-bottom: 24px;
-  letter-spacing: -0.03em;
+  letter-spacing: 0; /* 0% */
   color: #FFFFFF;
+}
+
+@media (min-width: 1025px) {
+  .hero-title {
+    font-size: 96px;
+  }
 }
 
 .hero-subtitle {
@@ -523,18 +574,19 @@ button {
 }
 
 .stat-number {
-  font-family: var(--font-family);
+  font-family: var(--font-heading);
   font-size: clamp(2.2rem, 3.5vw, 2.75rem);
-  font-weight: 800;
+  font-weight: 500; /* RETRO-86 Medium */
   color: #24CE6B;
   line-height: 1;
   margin-bottom: 8px;
 }
 
 .stat-label {
+  font-family: var(--font-ui);
   font-size: 0.92rem;
   color: #FFFFFF;
-  font-weight: 500;
+  font-weight: 400; /* DIN Pro Regular */
 }
 
 /* ==========================================================================
@@ -557,9 +609,10 @@ button {
 }
 
 .badge-offres {
+  font-family: var(--font-ui);
   background: rgba(36, 206, 107, 0.15);
   color: #24CE6B;
-  font-weight: 700;
+  font-weight: 500; /* DIN Pro Medium */
   font-size: 0.9rem;
   padding: 6px 22px;
   border-radius: var(--radius-pill);
@@ -610,8 +663,9 @@ button {
 }
 
 .service-title {
-  font-size: 1.08rem;
-  font-weight: 700;
+  font-family: var(--font-heading);
+  font-size: 1.15rem;
+  font-weight: 500; /* RETRO-86 Medium */
   margin-bottom: 8px;
   color: var(--text-white);
   line-height: 1.3;
@@ -619,7 +673,8 @@ button {
 }
 
 .service-desc {
-  font-size: 0.8rem;
+  font-family: var(--font-body); /* Charter */
+  font-size: 0.85rem;
   color: #CBD5E1;
   line-height: 1.5;
   margin-bottom: 18px;
@@ -750,18 +805,20 @@ button {
 }
 
 .portfolio-title {
+  font-family: var(--font-heading);
   font-size: 1.15rem;
-  font-weight: 700;
+  font-weight: 500; /* RETRO-86 Medium */
   color: #040914;
   margin: 0;
 }
 
 /* Bouton bleu exact Figma (#0D63FC) */
 .btn-project-cta {
+  font-family: var(--font-ui);
   background: #0D63FC;
   color: #FFFFFF;
   font-size: 0.85rem;
-  font-weight: 700;
+  font-weight: 500; /* DIN Pro Medium */
   padding: 9px 20px;
   border-radius: var(--radius-pill);
   box-shadow: 0 4px 15px rgba(13, 99, 252, 0.35);
@@ -801,15 +858,17 @@ button {
 }
 
 .portfolio-hero-title {
+  font-family: var(--font-heading);
   font-size: clamp(2.4rem, 5vw, 3.8rem);
-  font-weight: 800;
+  font-weight: 500; /* RETRO-86 Medium */
   line-height: 1.15;
   margin-bottom: 20px;
-  letter-spacing: -0.02em;
+  letter-spacing: 0;
   color: #FFFFFF;
 }
 
 .portfolio-hero-subtitle {
+  font-family: var(--font-body); /* Charter */
   font-size: clamp(1.02rem, 1.6vw, 1.18rem);
   color: var(--text-muted);
   line-height: 1.65;
@@ -840,12 +899,15 @@ button {
 }
 
 .portfolio-cta-card h2 {
+  font-family: var(--font-heading);
+  font-weight: 500; /* RETRO-86 Medium */
   font-size: clamp(1.8rem, 3.5vw, 2.5rem);
   margin-bottom: 16px;
   color: #FFFFFF;
 }
 
 .portfolio-cta-card p {
+  font-family: var(--font-body); /* Charter */
   color: var(--text-muted);
   max-width: 580px;
   margin: 0 auto 32px;
@@ -943,14 +1005,17 @@ button {
 }
 
 .author-name {
+  font-family: var(--font-ui);
   font-size: 0.95rem;
-  font-weight: 700;
+  font-weight: 500; /* DIN Pro Medium */
   color: var(--text-white);
   line-height: 1.2;
 }
 
 .author-role {
+  font-family: var(--font-ui);
   font-size: 0.8rem;
+  font-weight: 400; /* DIN Pro Regular */
   color: var(--text-muted);
 }
 
@@ -1028,8 +1093,9 @@ button {
 }
 
 .contact-item-value {
+  font-family: var(--font-ui);
   font-size: 1rem;
-  font-weight: 600;
+  font-weight: 500; /* DIN Pro Medium */
   color: var(--text-white);
 }
 
@@ -1064,12 +1130,14 @@ button {
 }
 
 .form-label {
+  font-family: var(--font-ui);
   font-size: 0.85rem;
-  font-weight: 600;
+  font-weight: 400; /* DIN Pro Regular */
   color: var(--text-body);
 }
 
 .form-input, .form-select, .form-textarea {
+  font-family: var(--font-ui);
   width: 100%;
   background: var(--bg-input);
   border: 1px solid rgba(255, 255, 255, 0.1);
@@ -1105,10 +1173,11 @@ button {
 }
 
 .btn-form-submit {
+  font-family: var(--font-ui);
   width: 100%;
   background: #0D63FC;
   color: #FFFFFF;
-  font-weight: 800;
+  font-weight: 500; /* DIN Pro Medium */
   font-size: 1rem;
   padding: 16px;
   border-radius: var(--radius-pill);
@@ -1160,15 +1229,17 @@ button {
 }
 
 .footer-desc {
+  font-family: var(--font-body); /* Charter */
   font-size: 0.9rem;
   color: var(--text-muted);
   line-height: 1.6;
   max-width: 320px;
 }
 
-.footer-col-title {
-  font-size: 1rem;
-  font-weight: 700;
+.footer-col-title, .footer-title {
+  font-family: var(--font-heading);
+  font-size: 1.05rem;
+  font-weight: 500; /* RETRO-86 Medium */
   color: var(--text-white);
   margin-bottom: 20px;
 }
@@ -1181,7 +1252,9 @@ button {
 }
 
 .footer-link {
+  font-family: var(--font-ui);
   font-size: 0.9rem;
+  font-weight: 400; /* DIN Pro Regular */
   color: var(--text-muted);
   transition: color var(--transition-fast);
 }
@@ -1192,6 +1265,7 @@ button {
 }
 
 .footer-bottom {
+  font-family: var(--font-ui);
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -1405,12 +1479,13 @@ button {
   }
 
   .btn-nav-cta-mobile {
+    font-family: var(--font-ui);
     display: inline-flex;
     align-items: center;
     justify-content: center;
     background: #0D63FC;
     color: #FFFFFF;
-    font-weight: 700;
+    font-weight: 500; /* DIN Pro Medium */
     font-size: 0.82rem;
     padding: 7px 16px;
     border-radius: var(--radius-pill);

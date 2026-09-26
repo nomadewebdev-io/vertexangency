@@ -1,0 +1,208 @@
+@font-face {
+    font-family: 'RETRO-86 Extralight shadow';
+    src: url('RETRO-86-Extralight-shadow.eot');
+    src: local('RETRO-86 Extralight shadow'), local('RETRO-86-Extralight-shadow'),
+        url('RETRO-86-Extralight-shadow.eot?#iefix') format('embedded-opentype'),
+        url('RETRO-86-Extralight-shadow.woff2') format('woff2'),
+        url('RETRO-86-Extralight-shadow.woff') format('woff'),
+        url('RETRO-86-Extralight-shadow.ttf') format('truetype');
+    font-weight: 200;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'RETRO-86';
+    src: url('RETRO-86-Bold.eot');
+    src: local('RETRO-86 Bold'), local('RETRO-86-Bold'),
+        url('RETRO-86-Bold.eot?#iefix') format('embedded-opentype'),
+        url('RETRO-86-Bold.woff2') format('woff2'),
+        url('RETRO-86-Bold.woff') format('woff'),
+        url('RETRO-86-Bold.ttf') format('truetype');
+    font-weight: bold;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'RETRO-86 Light shadow';
+    src: url('RETRO-86-Light-shadow.eot');
+    src: local('RETRO-86 Light shadow'), local('RETRO-86-Light-shadow'),
+        url('RETRO-86-Light-shadow.eot?#iefix') format('embedded-opentype'),
+        url('RETRO-86-Light-shadow.woff2') format('woff2'),
+        url('RETRO-86-Light-shadow.woff') format('woff'),
+        url('RETRO-86-Light-shadow.ttf') format('truetype');
+    font-weight: 300;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'RETRO-86';
+    src: url('RETRO-86-Extralight.eot');
+    src: local('RETRO-86 Extralight'), local('RETRO-86-Extralight'),
+        url('RETRO-86-Extralight.eot?#iefix') format('embedded-opentype'),
+        url('RETRO-86-Extralight.woff2') format('woff2'),
+        url('RETRO-86-Extralight.woff') format('woff'),
+        url('RETRO-86-Extralight.ttf') format('truetype');
+    font-weight: 200;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'RETRO-86 Bold shadow';
+    src: url('RETRO-86-Bold-shadow.eot');
+    src: local('RETRO-86 Bold shadow'), local('RETRO-86-Bold-shadow'),
+        url('RETRO-86-Bold-shadow.eot?#iefix') format('embedded-opentype'),
+        url('RETRO-86-Bold-shadow.woff2') format('woff2'),
+        url('RETRO-86-Bold-shadow.woff') format('woff'),
+        url('RETRO-86-Bold-shadow.ttf') format('truetype');
+    font-weight: bold;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'RETRO-86';
+    src: url('RETRO-86-Light.eot');
+    src: local('RETRO-86 Light'), local('RETRO-86-Light'),
+        url('RETRO-86-Light.eot?#iefix') format('embedded-opentype'),
+        url('RETRO-86-Light.woff2') format('woff2'),
+        url('RETRO-86-Light.woff') format('woff'),
+        url('RETRO-86-Light.ttf') format('truetype');
+    font-weight: 300;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'RETRO-86 Thin shadow';
+    src: url('RETRO-86-Thin-shadow.eot');
+    src: local('RETRO-86 Thin shadow'), local('RETRO-86-Thin-shadow'),
+        url('RETRO-86-Thin-shadow.eot?#iefix') format('embedded-opentype'),
+        url('RETRO-86-Thin-shadow.woff2') format('woff2'),
+        url('RETRO-86-Thin-shadow.woff') format('woff'),
+        url('RETRO-86-Thin-shadow.ttf') format('truetype');
+    font-weight: 100;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'RETRO-86 Medium shadow';
+    src: url('RETRO-86-Medium-shadow.eot');
+    src: local('RETRO-86 Medium shadow'), local('RETRO-86-Medium-shadow'),
+        url('RETRO-86-Medium-shadow.eot?#iefix') format('embedded-opentype'),
+        url('RETRO-86-Medium-shadow.woff2') format('woff2'),
+        url('RETRO-86-Medium-shadow.woff') format('woff'),
+        url('RETRO-86-Medium-shadow.ttf') format('truetype');
+    font-weight: 500;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'RETRO-86 Regular shadow';
+    src: url('RETRO-86-Regular-shadow.eot');
+    src: local('RETRO-86 Regular shadow'), local('RETRO-86-Regular-shadow'),
+        url('RETRO-86-Regular-shadow.eot?#iefix') format('embedded-opentype'),
+        url('RETRO-86-Regular-shadow.woff2') format('woff2'),
+        url('RETRO-86-Regular-shadow.woff') format('woff'),
+        url('RETRO-86-Regular-shadow.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'RETRO-86';
+    src: url('RETRO-86-Thin.eot');
+    src: local('RETRO-86 Thin'), local('RETRO-86-Thin'),
+        url('RETRO-86-Thin.eot?#iefix') format('embedded-opentype'),
+        url('RETRO-86-Thin.woff2') format('woff2'),
+        url('RETRO-86-Thin.woff') format('woff'),
+        url('RETRO-86-Thin.ttf') format('truetype');
+    font-weight: 100;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'RETRO-86';
+    src: url('RETRO-86-Semibold.eot');
+    src: local('RETRO-86 Semibold'), local('RETRO-86-Semibold'),
+        url('RETRO-86-Semibold.eot?#iefix') format('embedded-opentype'),
+        url('RETRO-86-Semibold.woff2') format('woff2'),
+        url('RETRO-86-Semibold.woff') format('woff'),
+        url('RETRO-86-Semibold.ttf') format('truetype');
+    font-weight: 600;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'RETRO-86 Semibold shadow';
+    src: url('RETRO-86-Semibold-shadow.eot');
+    src: local('RETRO-86 Semibold shadow'), local('RETRO-86-Semibold-shadow'),
+        url('RETRO-86-Semibold-shadow.eot?#iefix') format('embedded-opentype'),
+        url('RETRO-86-Semibold-shadow.woff2') format('woff2'),
+        url('RETRO-86-Semibold-shadow.woff') format('woff'),
+        url('RETRO-86-Semibold-shadow.ttf') format('truetype');
+    font-weight: 600;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'RETRO-86';
+    src: url('RETRO-86-Ultrabold.eot');
+    src: local('RETRO-86 Ultrabold'), local('RETRO-86-Ultrabold'),
+        url('RETRO-86-Ultrabold.eot?#iefix') format('embedded-opentype'),
+        url('RETRO-86-Ultrabold.woff2') format('woff2'),
+        url('RETRO-86-Ultrabold.woff') format('woff'),
+        url('RETRO-86-Ultrabold.ttf') format('truetype');
+    font-weight: bold;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'RETRO-86 Ultrabold shadow';
+    src: url('RETRO-86-Ultrabold-shadow.eot');
+    src: local('RETRO-86 Ultrabold shadow'), local('RETRO-86-Ultrabold-shadow'),
+        url('RETRO-86-Ultrabold-shadow.eot?#iefix') format('embedded-opentype'),
+        url('RETRO-86-Ultrabold-shadow.woff2') format('woff2'),
+        url('RETRO-86-Ultrabold-shadow.woff') format('woff'),
+        url('RETRO-86-Ultrabold-shadow.ttf') format('truetype');
+    font-weight: bold;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'RETRO-86';
+    src: url('RETRO-86-Regular.eot');
+    src: local('RETRO-86 Regular'), local('RETRO-86-Regular'),
+        url('RETRO-86-Regular.eot?#iefix') format('embedded-opentype'),
+        url('RETRO-86-Regular.woff2') format('woff2'),
+        url('RETRO-86-Regular.woff') format('woff'),
+        url('RETRO-86-Regular.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'RETRO-86';
+    src: url('RETRO-86-Medium.eot');
+    src: local('RETRO-86 Medium'), local('RETRO-86-Medium'),
+        url('RETRO-86-Medium.eot?#iefix') format('embedded-opentype'),
+        url('RETRO-86-Medium.woff2') format('woff2'),
+        url('RETRO-86-Medium.woff') format('woff'),
+        url('RETRO-86-Medium.ttf') format('truetype');
+    font-weight: 500;
+    font-style: normal;
+    font-display: swap;
+}
+
