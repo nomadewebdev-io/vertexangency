@@ -225,7 +225,7 @@ function initProjectModal() {
   function openModal(projectId) {
     const data = projects.find(p => String(p.id) === String(projectId)) || {
       title: "Nom du projet",
-      category: "Portfolio",
+      category: "Projets",
       image: "assets/images/project_saas.jpg",
       description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
       link: "#"
