@@ -34,23 +34,31 @@ function initProjects() {
 
 function renderProjectCards(container, list) {
   if (!container || !list || !list.length) return;
-  container.innerHTML = list.map(project => `
-    <div class="portfolio-card" data-id="${project.id}">
-      <div class="portfolio-preview" tabindex="0" role="button" aria-label="Aperçu de ${project.title}">
-        <img src="${project.image}" alt="${project.title}" class="portfolio-img" loading="lazy">
-      </div>
-      <div class="portfolio-content">
-        <h3 class="portfolio-title">${project.title}</h3>
-        <a href="${project.link || '#'}" class="btn-project-cta" target="_blank" rel="noopener noreferrer" aria-label="Voir le projet ${project.title}">
-          Voir le projet
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true">
-            <line x1="5" y1="12" x2="19" y2="12"></line>
-            <polyline points="12 5 19 12 12 19"></polyline>
-          </svg>
-        </a>
-      </div>
-    </div>
-  `).join('');
+  container.innerHTML = list.map(project => {
+    const title = project.title || project.name || project.nom || "Projet";
+    const sector = project.sector || project.secteur || project.category || "Digital";
+    const description = project.description || "";
+    const link = project.link || project.lien || "#";
+    const image = project.image || "";
+
+    return `
+      <a href="${link}" class="portfolio-card" data-id="${project.id}" target="_blank" rel="noopener noreferrer" aria-label="Découvrir le projet ${title}">
+        <div class="portfolio-mockup-wrapper">
+          <img src="assets/images/BG_Project.png" alt="Mockup ${title}" class="portfolio-mockup-bg" loading="lazy">
+          <div class="portfolio-screen">
+            ${image ? `<img src="${image}" alt="${title}" class="portfolio-screen-img" loading="lazy">` : `<div class="portfolio-screen-placeholder">IMAGE SITE WEB</div>`}
+          </div>
+        </div>
+        <div class="portfolio-content">
+          <div class="portfolio-info">
+            <h3 class="portfolio-title">${title}</h3>
+            ${description ? `<p class="portfolio-desc">${description}</p>` : ''}
+          </div>
+          <span class="portfolio-sector-badge">${sector}</span>
+        </div>
+      </a>
+    `;
+  }).join('');
 }
 
 /* ==========================================================================

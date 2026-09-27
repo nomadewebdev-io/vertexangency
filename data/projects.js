@@ -2,66 +2,75 @@
  * ==============================================================================
  * VERTEX AGENCY - FICHIER DE DONNÉES UNIQUE DES RÉALISATIONS / PROJETS
  * ==============================================================================
- * Pour ajouter un nouveau projet sans toucher au code HTML/CSS, ajoutez simplement
- * une nouvelle entrée dans le tableau `projects` ci-dessous avec la structure suivante :
- * {
- *   id: 7,                                    // Identifiant numérique unique
- *   title: "Nom du projet",                   // Titre affiché sur la carte
- *   category: "Application Web",              // Catégorie ou tag (ex: SaaS, E-commerce)
- *   image: "assets/images/nom_image.jpg",     // Chemin relatif de l'image
- *   description: "Description courte...",     // Présentation synthétique du projet
- *   link: "https://votre-projet.com"          // URL vers le projet réel ou page externe
- * }
+ * Structure finale de chaque entrée :
+ * - id: Identifiant numérique unique
+ * - nom / title: Nom du projet (en gras, aligné à gauche)
+ * - image: Image réelle du projet affichée au centre de l'écran du mockup laptop
+ * - description: Courte description synthétique (1 ligne max)
+ * - secteur / category: Secteur d'activité affiché en pilule bleue
+ * - lien / link: URL vers le projet réel ouverte dans un nouvel onglet
  * ==============================================================================
  */
 
 export const projects = [
   {
     id: 1,
-    title: "Nom du projet",
-    category: "Projet 01",
+    name: "Quantum Analytics",
+    title: "Quantum Analytics",
+    sector: "SaaS & IA",
+    category: "SaaS & IA",
     image: "assets/images/project_saas.jpg",
-    description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.",
+    description: "Plateforme SaaS d'analytique temps réel et visualisation de données.",
     link: "https://example.com"
   },
   {
     id: 2,
-    title: "Nom du projet",
-    category: "Projet 02",
+    name: "Aurelia Luxe",
+    title: "Aurelia Luxe",
+    sector: "E-Commerce",
+    category: "E-Commerce",
     image: "assets/images/project_ecommerce.jpg",
-    description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.",
+    description: "Boutique e-commerce haute joaillerie avec expérience d'achat immersive.",
     link: "https://example.com"
   },
   {
     id: 3,
-    title: "Nom du projet",
-    category: "Projet 03",
+    name: "Hexa Fintech",
+    title: "Hexa Fintech",
+    sector: "Fintech",
+    category: "Fintech",
     image: "assets/images/project_fintech.jpg",
-    description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.",
+    description: "Application bancaire mobile et gestion d'actifs crypto multi-devises.",
     link: "https://example.com"
   },
   {
     id: 4,
-    title: "Nom du projet",
-    category: "Projet 04",
+    name: "Emerald Estates",
+    title: "Emerald Estates",
+    sector: "Immobilier",
+    category: "Immobilier",
     image: "assets/images/project_realestate.jpg",
-    description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.",
+    description: "Portail immobilier de résidences de prestige avec visites interactives.",
     link: "https://example.com"
   },
   {
     id: 5,
-    title: "Nom du projet",
-    category: "Projet 05",
+    name: "Nova Pulse",
+    title: "Nova Pulse",
+    sector: "Productivité",
+    category: "Productivité",
     image: "assets/images/project_saas.jpg",
-    description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.",
+    description: "Suite logicielle collaborative et automatisation de flux de travail.",
     link: "https://example.com"
   },
   {
     id: 6,
-    title: "Nom du projet",
-    category: "Projet 06",
+    name: "Zenith Retail",
+    title: "Zenith Retail",
+    sector: "Retail & Mode",
+    category: "Retail & Mode",
     image: "assets/images/project_ecommerce.jpg",
-    description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.",
+    description: "Marketplace omnicanale internationale avec gestion intelligente des stocks.",
     link: "https://example.com"
   }
 ];

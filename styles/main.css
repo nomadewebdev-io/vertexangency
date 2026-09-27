@@ -707,17 +707,19 @@ section[id] {
 
 /* ==========================================================================
    PORTFOLIO (NOS RÉALISATIONS) SECTION
-   BACKGROUND BG_PROJECT.PNG & CARTES FIGMA EXACTES
+/* ==========================================================================
+   PORTFOLIO (NOS PROJETS) SECTION & CARTES MOCKUP FIGMA
    ========================================================================== */
 .portfolio-section {
   position: relative;
   z-index: 1;
   padding: 100px 0;
   background: 
-    linear-gradient(180deg, rgba(1, 15, 46, 0.82) 0%, rgba(1, 68, 208, 0.6) 50%, rgba(1, 15, 46, 0.92) 100%),
-    url('../assets/images/BG_Project.png') center/cover no-repeat;
-  border-top: 1px solid rgba(13, 99, 252, 0.3);
-  border-bottom: 1px solid rgba(13, 99, 252, 0.3);
+    radial-gradient(circle at 15% 25%, rgba(13, 99, 252, 0.16) 0%, transparent 55%),
+    radial-gradient(circle at 85% 75%, rgba(36, 206, 107, 0.14) 0%, transparent 55%),
+    linear-gradient(180deg, #010d29 0%, #020713 100%);
+  border-top: 1px solid rgba(13, 99, 252, 0.25);
+  border-bottom: 1px solid rgba(13, 99, 252, 0.25);
 }
 
 .portfolio-header-wrap {
@@ -750,54 +752,94 @@ section[id] {
   transform: translateX(4px);
 }
 
-/* Portfolio Grid : 2x2 cartes simples et fidèles au Figma */
+/* Portfolio Grid : 2 colonnes desktop, 1 colonne mobile */
 .portfolio-grid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  gap: 32px;
+  gap: 36px;
 }
 
+/* Carte Projet Complètement Cliquable */
 .portfolio-card {
-  border-radius: var(--radius-xl);
-  overflow: hidden;
-  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.6);
-  border: 1px solid rgba(255, 255, 255, 0.1);
   display: flex;
   flex-direction: column;
-  transition: transform var(--transition-normal), box-shadow var(--transition-normal);
-  background: #FFFFFF;
+  border-radius: 20px;
+  overflow: hidden;
+  text-decoration: none;
+  color: inherit;
+  background: #24CE6B;
+  box-shadow: 0 16px 36px rgba(0, 5, 20, 0.5), 0 2px 10px rgba(0, 0, 0, 0.3);
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  transition: transform 0.35s cubic-bezier(0.2, 0.8, 0.2, 1), box-shadow 0.35s cubic-bezier(0.2, 0.8, 0.2, 1), border-color 0.35s ease;
+  cursor: pointer;
+  position: relative;
 }
 
 .portfolio-card:hover {
-  transform: translateY(-6px);
-  box-shadow: 0 25px 50px rgba(0, 0, 0, 0.7), 0 0 30px rgba(36, 206, 107, 0.25);
+  transform: translateY(-8px) scale(1.015);
+  box-shadow: 0 24px 50px rgba(0, 0, 0, 0.65), 0 0 35px rgba(36, 206, 107, 0.35);
+  border-color: rgba(36, 206, 107, 0.6);
 }
 
-/* Zone supérieure de la carte : preview blanche / image comme dans Figma */
-.portfolio-preview {
+/* Zone Mockup (Image BG_Project.png) */
+.portfolio-mockup-wrapper {
   position: relative;
   width: 100%;
-  height: 270px;
-  background: #FFFFFF;
+  overflow: hidden;
+  background: #000000;
+}
+
+.portfolio-mockup-bg {
+  width: 100%;
+  height: auto;
+  display: block;
+  object-fit: cover;
+  transition: transform 0.5s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+.portfolio-card:hover .portfolio-mockup-bg {
+  transform: scale(1.02);
+}
+
+/* Écran du Laptop (Centré sur l'écran du mockup) */
+.portfolio-screen {
+  position: absolute;
+  top: 28.93%;
+  left: 24.51%;
+  width: 50.97%;
+  height: 46.37%;
+  overflow: hidden;
+  border-radius: 4px;
+  background: #0d1117;
   display: flex;
   align-items: center;
   justify-content: center;
-  overflow: hidden;
-  cursor: pointer;
+  box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.7);
 }
 
-.portfolio-img {
+.portfolio-screen-img {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  transition: transform 0.6s cubic-bezier(0.25, 1, 0.5, 1);
+  object-position: top center;
+  display: block;
+  transition: transform 0.5s cubic-bezier(0.2, 0.8, 0.2, 1);
 }
 
-.portfolio-card:hover .portfolio-img {
-  transform: scale(1.03);
+.portfolio-card:hover .portfolio-screen-img {
+  transform: scale(1.04);
 }
 
-/* Barre inférieure verte exacte Figma (#24CE6B) */
+.portfolio-screen-placeholder {
+  color: rgba(255, 255, 255, 0.7);
+  font-family: var(--font-heading);
+  font-size: clamp(0.75rem, 1.2vw, 1.1rem);
+  font-weight: 500;
+  text-align: center;
+  letter-spacing: 0.05em;
+}
+
+/* Bandeau d'infos vert sous le mockup (Figma exact #24CE6B) */
 .portfolio-content {
   padding: 16px 24px;
   background: #24CE6B;
@@ -806,41 +848,52 @@ section[id] {
   align-items: center;
   justify-content: space-between;
   gap: 16px;
+  border-top: 1px solid rgba(0, 0, 0, 0.08);
+}
+
+.portfolio-info {
+  flex: 1 1 auto;
+  min-width: 0;
 }
 
 .portfolio-title {
   font-family: var(--font-heading);
-  font-size: 20px; /* Exact Figma H3: 20px */
-  font-weight: 500; /* RETRO-86 Medium */
-  line-height: 1.2; /* 120% exact Figma */
-  letter-spacing: 0; /* 0% exact Figma */
+  font-size: 1.25rem;
+  font-weight: 600;
+  line-height: 1.2;
   color: #040914;
-  margin: 0;
-}
-
-/* Bouton bleu exact Figma (#0D63FC) */
-.btn-project-cta {
-  font-family: var(--font-ui);
-  background: #0D63FC;
-  color: #FFFFFF;
-  font-size: 0.85rem;
-  font-weight: 500; /* DIN Pro Medium */
-  padding: 9px 20px;
-  border-radius: var(--radius-pill);
-  box-shadow: 0 4px 15px rgba(13, 99, 252, 0.35);
-  transition: all var(--transition-fast);
+  margin: 0 0 3px 0;
   white-space: nowrap;
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-  text-decoration: none;
-  cursor: pointer;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
-.btn-project-cta:hover {
+.portfolio-desc {
+  font-family: var(--font-body);
+  font-size: 0.85rem;
+  color: rgba(4, 9, 20, 0.82);
+  margin: 0;
+  line-height: 1.35;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  font-weight: 400;
+}
+
+/* Badge Secteur d'activité : Pilule bleue (#0144D0) */
+.portfolio-sector-badge {
+  flex: 0 0 auto;
   background: #0144D0;
   color: #FFFFFF;
-  transform: scale(1.05);
+  font-family: var(--font-ui);
+  font-size: 0.78rem;
+  font-weight: 600;
+  padding: 6px 14px;
+  border-radius: var(--radius-pill);
+  box-shadow: 0 2px 8px rgba(1, 68, 208, 0.35);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  white-space: nowrap;
+  letter-spacing: 0.02em;
 }
 
 /* ==========================================================================
@@ -1449,7 +1502,8 @@ section[id] {
   }
 
   .portfolio-grid {
-    grid-template-columns: 1fr;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 28px;
   }
 
   .testimonials-grid {
@@ -1470,6 +1524,33 @@ section[id] {
 @media (max-width: 768px) {
   section[id] {
     scroll-margin-top: 95px;
+  }
+
+  .portfolio-grid {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+
+  .portfolio-card {
+    border-radius: 16px;
+  }
+
+  .portfolio-content {
+    padding: 14px 18px;
+    gap: 12px;
+  }
+
+  .portfolio-title {
+    font-size: 1.12rem;
+  }
+
+  .portfolio-desc {
+    font-size: 0.8rem;
+  }
+
+  .portfolio-sector-badge {
+    font-size: 0.72rem;
+    padding: 5px 12px;
   }
 
   .navbar {
@@ -1717,5 +1798,23 @@ section[id] {
   .bottom-nav-icon {
     width: 20px;
     height: 20px;
+  }
+
+  .portfolio-content {
+    padding: 12px 14px;
+    gap: 8px;
+  }
+
+  .portfolio-title {
+    font-size: 1.02rem;
+  }
+
+  .portfolio-desc {
+    font-size: 0.76rem;
+  }
+
+  .portfolio-sector-badge {
+    font-size: 0.68rem;
+    padding: 4px 10px;
   }
 }
