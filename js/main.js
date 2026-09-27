@@ -127,15 +127,14 @@ function initNavigation() {
       }
 
       // Hero is active when near page top
-      if (scrollY < 220) {
+      if (scrollY < 180) {
         setActiveSection('hero');
         return;
       }
 
       let currentSectionId = '';
-      const navOffset = navbar ? navbar.offsetHeight + 24 : 190;
       sections.forEach(section => {
-        const sectionTop = section.offsetTop - navOffset;
+        const sectionTop = section.offsetTop - 140;
         const sectionHeight = section.offsetHeight;
         if (scrollY >= sectionTop && scrollY < sectionTop + sectionHeight) {
           currentSectionId = section.getAttribute('id');
@@ -159,8 +158,7 @@ function initNavigation() {
         const targetSection = document.querySelector(targetHref);
         if (targetSection) {
           e.preventDefault();
-          const navOffset = navbar ? navbar.offsetHeight + 14 : 190;
-          const targetOffset = targetHref === '#hero' ? 0 : targetSection.offsetTop - navOffset;
+          const targetOffset = targetHref === '#hero' ? 0 : targetSection.offsetTop - 50;
           window.scrollTo({
             top: targetOffset,
             behavior: 'smooth'

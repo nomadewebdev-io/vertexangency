@@ -231,34 +231,29 @@ button {
    ========================================================================== */
 .navbar {
   position: fixed;
-  top: clamp(0.75rem, 1vw, 0.875rem); /* 14px à 1400px+ (0.875rem) */
+  top: 20px;
   left: 0;
   right: 0;
-  margin-left: auto;
-  margin-right: auto;
-  width: calc(100% - clamp(2rem, 6.53vw, 5.875rem)); /* 47px de marge gauche/droite (94px = 5.875rem) à 1440px */
-  max-width: 84.125rem; /* 1346px */
-  height: clamp(4.5rem, 12.5vw, 10.9375rem); /* 175px à 1400px+ (10.9375rem) */
-  min-height: clamp(4.5rem, 12.5vw, 10.9375rem);
+  margin: 0 auto;
+  width: calc(100% - 48px);
+  max-width: 1200px;
   z-index: 1000;
-  padding: 0 clamp(2.5rem, 4vw, 4rem);
+  padding: 10px 28px;
   background: rgba(1, 68, 208, 0.65);
   backdrop-filter: blur(14px);
   -webkit-backdrop-filter: blur(14px);
   border-radius: var(--radius-pill);
   border: 1px solid rgba(255, 255, 255, 0.15);
   box-shadow: 0 10px 32px rgba(0, 5, 20, 0.35), 0 0 20px rgba(1, 68, 208, 0.25), inset 0 1px 1px rgba(255, 255, 255, 0.15);
-  display: flex;
-  align-items: center;
-  justify-content: center;
   transition: all var(--transition-normal);
 }
 
 .navbar.scrolled {
-  top: clamp(0.75rem, 1vw, 0.875rem);
+  top: 20px;
+  padding: 8px 28px;
   background: rgba(1, 68, 208, 0.72);
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
   border-color: rgba(255, 255, 255, 0.22);
   box-shadow: 0 14px 40px rgba(0, 0, 0, 0.5), 0 0 25px rgba(1, 68, 208, 0.35), inset 0 1px 1px rgba(255, 255, 255, 0.2);
 }
@@ -266,7 +261,6 @@ button {
 .navbar .nav-container {
   width: 100%;
   max-width: 100%;
-  height: 100%;
   padding: 0;
   display: flex;
   align-items: center;
@@ -280,7 +274,6 @@ button {
   align-items: center;
   justify-content: flex-start;
   min-width: 0;
-  height: 100%;
 }
 
 .logo {
@@ -291,7 +284,7 @@ button {
 
 .logo-brand-img {
   display: block;
-  height: 46px;
+  height: 40px;
   width: auto;
   object-fit: contain;
   transition: transform var(--transition-fast);
@@ -311,7 +304,6 @@ button {
   list-style: none;
   margin: 0;
   padding: 0;
-  height: 100%;
 }
 
 .nav-link {
@@ -357,7 +349,6 @@ button {
   align-items: center;
   justify-content: flex-end;
   min-width: 0;
-  height: 100%;
 }
 
 .btn-nav-cta {
@@ -479,14 +470,10 @@ button {
 /* ==========================================================================
    HERO SECTION (Intégration fluide de l'illustration en arrière-plan)
    ========================================================================== */
-section[id] {
-  scroll-margin-top: clamp(12rem, 15vw, 13.5rem);
-}
-
 .hero-section {
   position: relative;
   z-index: 1;
-  padding: clamp(13.5rem, 16vw, 15rem) 0 6.5rem;
+  padding: 165px 0 105px;
   overflow: hidden;
   background: 
     radial-gradient(circle at 80% 45%, rgba(13, 99, 252, 0.35) 0%, transparent 60%),
@@ -854,7 +841,7 @@ section[id] {
 .portfolio-hero-section {
   position: relative;
   z-index: 1;
-  padding: clamp(13.5rem, 16vw, 15rem) 0 3.75rem;
+  padding: 170px 0 60px;
   text-align: center;
   overflow: hidden;
   background: 
@@ -1455,8 +1442,6 @@ section[id] {
   .navbar {
     top: 14px;
     width: calc(100% - 28px);
-    height: auto;
-    min-height: unset;
     padding: 8px 18px;
     background: rgba(1, 68, 208, 0.68);
     backdrop-filter: blur(14px);
