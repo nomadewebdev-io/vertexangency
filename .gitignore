@@ -4,3 +4,28 @@ dist/
 .DS_Store
 Thumbs.db
 *.log
+
+# Environment and secrets
+.env
+.env.local
+.env.*.local
+.env.development
+.env.test
+.env.production
+!.env.example
+
+# Certificates, keys and credentials
+*.pem
+*.key
+*.cert
+*.crt
+*.pfx
+*.p12
+
+# Editor directories and caches
+.vscode/
+.idea/
+*.swp
+*.swo
+.cache/
+

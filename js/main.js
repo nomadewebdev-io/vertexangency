@@ -16,6 +16,49 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 /* ==========================================================================
+   SECURITY HELPERS (ANTI-XSS & URL SANITIZATION)
+   ========================================================================== */
+function escapeHTML(str) {
+  if (str === null || str === undefined) return '';
+  return String(str).replace(/[&<>"'/]/g, (char) => {
+    switch (char) {
+      case '&': return '&amp;';
+      case '<': return '&lt;';
+      case '>': return '&gt;';
+      case '"': return '&quot;';
+      case "'": return '&#39;';
+      case '/': return '&#47;';
+      default: return char;
+    }
+  });
+}
+
+function sanitizeUrl(url) {
+  if (!url || typeof url !== 'string') return '#';
+  const trimmed = url.trim();
+  if (trimmed.startsWith('#') || trimmed.startsWith('/') || trimmed.startsWith('./') || trimmed.startsWith('assets/')) {
+    return trimmed;
+  }
+  try {
+    const parsed = new URL(trimmed, window.location.origin);
+    if (parsed.protocol === 'http:' || parsed.protocol === 'https:') {
+      return trimmed;
+    }
+  } catch {
+    return '#';
+  }
+  return '#';
+}
+
+function setSafeHTML(element, htmlString) {
+  if (!element || typeof htmlString !== 'string') return;
+  const parser = new DOMParser();
+  const parsedDoc = parser.parseFromString(htmlString, 'text/html');
+  parsedDoc.querySelectorAll('script, iframe, object, embed').forEach((el) => el.remove());
+  element.replaceChildren(...parsedDoc.body.childNodes);
+}
+
+/* ==========================================================================
    DYNAMIC PROJECTS RENDERING (CENTRALIZED DATA)
    ========================================================================== */
 function initProjects() {
@@ -34,19 +77,20 @@ function initProjects() {
 
 function renderProjectCards(container, list) {
   if (!container || !list || !list.length) return;
-  container.innerHTML = list.map(project => {
-    const title = project.title || project.name || project.nom || "Projet";
-    const sector = project.sector || project.secteur || project.category || "Digital";
-    const description = project.description || "";
-    const link = project.link || project.lien || "#";
-    const image = project.image || "";
+  const cardsHtml = list.map(project => {
+    const title = escapeHTML(project.title || project.name || project.nom || "Projet");
+    const sector = escapeHTML(project.sector || project.secteur || project.category || "Digital");
+    const description = escapeHTML(project.description || "");
+    const link = sanitizeUrl(project.link || project.lien || "#");
+    const image = sanitizeUrl(project.image || "");
+    const id = escapeHTML(project.id);
 
     return `
-      <a href="${link}" class="portfolio-card" data-id="${project.id}" target="_blank" rel="noopener noreferrer" aria-label="Découvrir le projet ${title}">
+      <a href="${link}" class="portfolio-card" data-id="${id}" target="_blank" rel="noopener noreferrer" aria-label="Découvrir le projet ${title}">
         <div class="portfolio-mockup-wrapper">
           <img src="assets/images/BG_Project.png" alt="Mockup ${title}" class="portfolio-mockup-bg" loading="lazy">
           <div class="portfolio-screen">
-            ${image ? `<img src="${image}" alt="${title}" class="portfolio-screen-img" loading="lazy">` : `<div class="portfolio-screen-placeholder">IMAGE SITE WEB</div>`}
+            ${image && image !== '#' ? `<img src="${image}" alt="${title}" class="portfolio-screen-img" loading="lazy">` : `<div class="portfolio-screen-placeholder">IMAGE SITE WEB</div>`}
           </div>
         </div>
         <div class="portfolio-content">
@@ -59,6 +103,8 @@ function renderProjectCards(container, list) {
       </a>
     `;
   }).join('');
+
+  setSafeHTML(container, cardsHtml);
 }
 
 /* ==========================================================================
@@ -231,7 +277,7 @@ function initProjectModal() {
   if (!modalBackdrop || !modalContent) return;
 
   function openModal(projectId) {
-    const data = projects.find(p => String(p.id) === String(projectId)) || {
+    const rawData = projects.find(p => String(p.id) === String(projectId)) || {
       title: "Nom du projet",
       category: "Projets",
       image: "assets/images/project_saas.jpg",
@@ -239,22 +285,35 @@ function initProjectModal() {
       link: "#"
     };
 
-    modalContent.innerHTML = `
+    const title = escapeHTML(rawData.title || rawData.nom || rawData.name || "Projet");
+    const category = escapeHTML(rawData.category || rawData.sector || rawData.secteur || "Digital");
+    const description = escapeHTML(rawData.description || "");
+    const image = sanitizeUrl(rawData.image || "");
+    const link = sanitizeUrl(rawData.link || rawData.lien || "#");
+
+    const modalHtml = `
       <div style="margin-bottom: 20px;">
-        <span class="section-badge badge-green">${data.category}</span>
-        <h2 style="font-size: 1.8rem; color: #FFF; margin: 10px 0;">${data.title}</h2>
+        <span class="section-badge badge-green">${category}</span>
+        <h2 style="font-size: 1.8rem; color: #FFF; margin: 10px 0;">${title}</h2>
       </div>
       <div style="border-radius: 14px; overflow: hidden; margin-bottom: 24px; border: 1px solid rgba(255,255,255,0.1); max-height: 320px; background: #0A1424;">
-        <img src="${data.image}" alt="${data.title}" style="width:100%; height:100%; object-fit:cover;">
+        <img src="${image}" alt="${title}" style="width:100%; height:100%; object-fit:cover;">
       </div>
       <p style="color: #CBD5E1; line-height: 1.6; margin-bottom: 24px; font-size: 0.95rem;">
-        ${data.description}
+        ${description}
       </p>
       <div style="display: flex; gap: 12px; flex-wrap: wrap;">
-        <a href="${data.link || '#'}" class="btn btn-primary" target="_blank" rel="noopener noreferrer">Visiter le site en direct →</a>
-        <button type="button" class="btn btn-secondary" onclick="closeProjectModal()">Fermer</button>
+        <a href="${link}" class="btn btn-primary" target="_blank" rel="noopener noreferrer">Visiter le site en direct →</a>
+        <button type="button" class="btn btn-secondary modal-close-action-btn">Fermer</button>
       </div>
     `;
+
+    setSafeHTML(modalContent, modalHtml);
+
+    const innerCloseBtn = modalContent.querySelector('.modal-close-action-btn');
+    if (innerCloseBtn) {
+      innerCloseBtn.addEventListener('click', window.closeProjectModal);
+    }
 
     modalBackdrop.classList.add('active');
     document.body.style.overflow = 'hidden';
@@ -298,44 +357,75 @@ function initContactForm() {
   const form = document.getElementById('contactForm');
   if (!form) return;
 
+  let lastSubmitTime = 0;
+  const SUBMIT_COOLDOWN_MS = 4000;
+
   form.addEventListener('submit', (e) => {
     e.preventDefault();
+
+    const now = Date.now();
+    if (now - lastSubmitTime < SUBMIT_COOLDOWN_MS) {
+      showToast("Veuillez patienter quelques instants avant de renvoyer un message.", "error");
+      return;
+    }
 
     const submitBtn = form.querySelector('.btn-form-submit');
     const nameInput = document.getElementById('fullName');
     const emailInput = document.getElementById('email');
     const messageInput = document.getElementById('message');
 
-    // Validation
-    if (!nameInput.value.trim() || !emailInput.value.trim() || !messageInput.value.trim()) {
+    const nameVal = nameInput ? nameInput.value.trim() : '';
+    const emailVal = emailInput ? emailInput.value.trim() : '';
+    const messageVal = messageInput ? messageInput.value.trim() : '';
+
+    // Validation des champs obligatoires
+    if (!nameVal || !emailVal || !messageVal) {
       showToast("Veuillez remplir tous les champs obligatoires.", "error");
       return;
     }
 
+    // Validation des limites de taille (prévention d'abus / DoS)
+    if (nameVal.length > 100) {
+      showToast("Le nom est trop long (maximum 100 caractères).", "error");
+      return;
+    }
+
+    if (emailVal.length > 150) {
+      showToast("L'adresse email est trop longue (maximum 150 caractères).", "error");
+      return;
+    }
+
+    if (messageVal.length > 2500) {
+      showToast("Le message est trop long (maximum 2500 caractères).", "error");
+      return;
+    }
+
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    if (!emailRegex.test(emailInput.value.trim())) {
+    if (!emailRegex.test(emailVal)) {
       showToast("Veuillez entrer une adresse email valide.", "error");
       return;
     }
 
+    lastSubmitTime = now;
+
     // Submit state animation
-    const originalText = submitBtn.innerHTML;
+    const originalChildren = Array.from(submitBtn.childNodes).map(n => n.cloneNode(true));
     submitBtn.disabled = true;
-    submitBtn.innerHTML = `
-      <svg style="animation: spin 1s linear infinite; width: 20px; height: 20px;" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+    setSafeHTML(submitBtn, `
+      <svg style="animation: spin 1s linear infinite; width: 20px; height: 20px;" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
         <circle cx="12" cy="12" r="10" stroke-opacity="0.25"></circle>
         <path d="M12 2a10 10 0 0 1 10 10" stroke="#040914"></path>
       </svg>
       Envoi en cours...
-    `;
+    `);
 
     // Simulated API response
     setTimeout(() => {
       submitBtn.disabled = false;
-      submitBtn.innerHTML = originalText;
+      submitBtn.replaceChildren(...originalChildren);
       form.reset();
 
-      showToast(`Merci ! Votre message a été transmis avec succès.`);
+      showToast("Merci ! Votre message a été transmis avec succès.");
       triggerConfetti();
     }, 1000);
   });
@@ -352,11 +442,37 @@ function showToast(message, type = "success") {
   const toast = document.createElement('div');
   toast.className = 'toast';
   toast.style.borderColor = type === 'error' ? '#EF4444' : 'var(--color-green)';
-  toast.innerHTML = `
-    <span style="font-size: 1.3rem;">${type === 'error' ? '⚠️' : '✅'}</span>
-    <span>${message}</span>
-  `;
 
+  // Icône vectorielle accessible conforme aux standards (pas d'emoji)
+  const iconSpan = document.createElement('span');
+  iconSpan.style.display = 'inline-flex';
+  iconSpan.style.alignItems = 'center';
+  iconSpan.style.justifyContent = 'center';
+  iconSpan.style.flexShrink = '0';
+
+  if (type === 'error') {
+    setSafeHTML(iconSpan, `
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#EF4444" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <circle cx="12" cy="12" r="10"></circle>
+        <line x1="12" y1="8" x2="12" y2="12"></line>
+        <line x1="12" y1="16" x2="12.01" y2="16"></line>
+      </svg>
+    `);
+  } else {
+    setSafeHTML(iconSpan, `
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--color-green)" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+        <polyline points="22 4 12 14.01 9 11.01"></polyline>
+      </svg>
+    `);
+  }
+
+  // Insertion sécurisée du message texte pour éliminer tout risque XSS
+  const textSpan = document.createElement('span');
+  textSpan.textContent = message;
+
+  toast.appendChild(iconSpan);
+  toast.appendChild(textSpan);
   toastContainer.appendChild(toast);
 
   setTimeout(() => {
