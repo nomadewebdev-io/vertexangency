@@ -7,30 +7,66 @@
   <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data: https:; font-src 'self' data:; connect-src 'self'; object-src 'none'; base-uri 'self'; form-action 'self';">
   <meta http-equiv="X-Content-Type-Options" content="nosniff">
   <meta name="referrer" content="strict-origin-when-cross-origin">
-  <title>Projets | Nos Réalisations sur mesure - Vertex Agency</title>
+  <title>Nos Réalisations & Projets Digitaux | Vertex Agency Dakar</title>
 
   <!-- SEO Meta Tags -->
   <meta name="description"
-    content="Découvrez l'ensemble des réalisations et projets de Vertex Agency : création de sites internet, applications web et mobiles, et plateformes SaaS sur mesure.">
+    content="Découvrez le portfolio de Vertex Agency : sites web vitrines, plateformes e-commerce et applications mobiles conçues avec succès au Sénégal.">
   <meta name="keywords"
-    content="portfolio vertex agency, réalisations web dakar, projets web, développement sur mesure, showcase digital">
+    content="portfolio vertex agency, réalisations web dakar, projets web sénégal, développement sur mesure, showcase digital dakar">
   <meta name="author" content="Vertex Agency">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://vertexagency.com/portfolio.html">
 
-  <!-- Open Graph / Social Media -->
-  <meta property="og:title" content="Projets | Nos Réalisations sur mesure - Vertex Agency">
-  <meta property="og:description"
-    content="Découvrez l'ensemble de nos réalisations : sites vitrines, applications web haute performance et plateformes sur mesure.">
-  <meta property="og:image" content="assets/images/hero_tech.jpg">
+  <!-- Open Graph / Facebook -->
   <meta property="og:type" content="website">
+  <meta property="og:locale" content="fr_SN">
+  <meta property="og:site_name" content="Vertex Agency">
+  <meta property="og:url" content="https://vertexagency.com/portfolio.html">
+  <meta property="og:title" content="Nos Réalisations & Projets Digitaux | Vertex Agency Dakar">
+  <meta property="og:description"
+    content="Découvrez nos réalisations digitales au Sénégal : plateformes SaaS, boutiques e-commerce et applications mobiles haute performance.">
+  <meta property="og:image" content="https://vertexagency.com/assets/images/project_saas.jpg">
+  <meta property="og:image:width" content="1376">
+  <meta property="og:image:height" content="768">
+  <meta property="og:image:alt" content="Portfolio des réalisations digitales de Vertex Agency">
+
+  <!-- Twitter Cards -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:url" content="https://vertexagency.com/portfolio.html">
+  <meta name="twitter:title" content="Nos Réalisations & Projets Digitaux | Vertex Agency Dakar">
+  <meta name="twitter:description"
+    content="Découvrez l'ensemble des plateformes web, applications mobiles et solutions SaaS propulsées par Vertex Agency à Dakar.">
+  <meta name="twitter:image" content="https://vertexagency.com/assets/images/project_saas.jpg">
 
   <!-- Favicon -->
   <link rel="icon" type="image/png" href="assets/icons/Favi_Bleu.png">
+
+  <!-- Schema.org Structured Data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "CollectionPage",
+    "name": "Portfolio des Réalisations Vertex Agency",
+    "description": "Catalogue complet des projets web, e-commerce, mobiles et SaaS réalisés par Vertex Agency au Sénégal.",
+    "url": "https://vertexagency.com/portfolio.html",
+    "publisher": {
+      "@type": "ProfessionalService",
+      "name": "Vertex Agency",
+      "url": "https://vertexagency.com/",
+      "logo": "https://vertexagency.com/assets/icons/Logo_Vertex_Agency_v2.png"
+    }
+  }
+  </script>
 
   <!-- Main Stylesheet -->
   <link rel="stylesheet" href="styles/main.css">
 </head>
 
 <body>
+
+  <!-- Accessibilité : Lien d'évitement au contenu -->
+  <a href="#main-content" class="skip-link">Aller au contenu principal</a>
 
   <div class="bg-grid-overlay"></div>
 
@@ -42,7 +78,7 @@
       <!-- Zone 1 : Logo (gauche) -->
       <div class="nav-logo-zone">
         <a href="index.html#hero" class="logo" id="navLogo" aria-label="Retour à l'accueil Vertex Agency">
-          <img src="assets/icons/Logo_Vertex_Agency_v2.png" alt="Vertex Agency" class="logo-brand-img" height="48">
+          <img src="assets/icons/Logo_Vertex_Agency_v2.png" alt="Vertex Agency" class="logo-brand-img" width="156" height="48" fetchpriority="high" decoding="async">
         </a>
       </div>
 
@@ -118,6 +154,11 @@
   </nav>
 
   <!-- ==========================================================================
+       MAIN CONTENT LANDMARK (Accessibilité WCAG 2.1 AA)
+       ========================================================================== -->
+  <main id="main-content">
+
+  <!-- ==========================================================================
        HERO BANNER - PORTFOLIO PAGE
        ========================================================================== -->
   <section class="portfolio-hero-section">
@@ -139,20 +180,21 @@
        ========================================================================== -->
   <section class="portfolio-page-section">
     <div class="container">
+      <h2 class="sr-only">Catalogue complet de nos projets digitaux</h2>
       <!-- Conteneur dynamique alimenté par data/projects.js -->
       <div class="portfolio-grid" id="portfolioAllGrid">
         <!-- Project 1 -->
         <a href="https://example.com" class="portfolio-card" data-id="1" target="_blank" rel="noopener noreferrer" aria-label="Découvrir le projet Quantum Analytics">
           <div class="portfolio-mockup-wrapper">
-            <img src="assets/images/BG_Project.png" alt="Mockup Quantum Analytics" class="portfolio-mockup-bg" loading="lazy">
+            <img src="assets/images/BG_Project.png" alt="Mockup Quantum Analytics" class="portfolio-mockup-bg" width="5038" height="3526" loading="lazy" decoding="async">
             <div class="portfolio-screen">
-              <img src="assets/images/project_saas.jpg" alt="Quantum Analytics" class="portfolio-screen-img" loading="lazy">
+              <img src="assets/images/project_saas.jpg" alt="Quantum Analytics" class="portfolio-screen-img" width="1376" height="768" loading="lazy" decoding="async">
             </div>
           </div>
           <div class="portfolio-content">
             <div class="portfolio-info">
               <h3 class="portfolio-title">Quantum Analytics</h3>
-              <p class="portfolio-desc">Plateforme SaaS d'analytique temps réel et visualisation de données.</p>
+              <p class="portfolio-desc">Plateforme SaaS d'analytique temps réel et tableaux de bord financiers pour entreprises.</p>
             </div>
             <span class="portfolio-sector-badge">SaaS & IA</span>
           </div>
@@ -161,15 +203,15 @@
         <!-- Project 2 -->
         <a href="https://example.com" class="portfolio-card" data-id="2" target="_blank" rel="noopener noreferrer" aria-label="Découvrir le projet Aurelia Luxe">
           <div class="portfolio-mockup-wrapper">
-            <img src="assets/images/BG_Project.png" alt="Mockup Aurelia Luxe" class="portfolio-mockup-bg" loading="lazy">
+            <img src="assets/images/BG_Project.png" alt="Mockup Aurelia Luxe" class="portfolio-mockup-bg" width="5038" height="3526" loading="lazy" decoding="async">
             <div class="portfolio-screen">
-              <img src="assets/images/project_ecommerce.jpg" alt="Aurelia Luxe" class="portfolio-screen-img" loading="lazy">
+              <img src="assets/images/project_ecommerce.jpg" alt="Aurelia Luxe" class="portfolio-screen-img" width="1376" height="768" loading="lazy" decoding="async">
             </div>
           </div>
           <div class="portfolio-content">
             <div class="portfolio-info">
               <h3 class="portfolio-title">Aurelia Luxe</h3>
-              <p class="portfolio-desc">Boutique e-commerce haute joaillerie avec expérience d'achat immersive.</p>
+              <p class="portfolio-desc">Boutique en ligne haut de gamme avec paiements sécurisés et catalogue immersif.</p>
             </div>
             <span class="portfolio-sector-badge">E-Commerce</span>
           </div>
@@ -178,15 +220,15 @@
         <!-- Project 3 -->
         <a href="https://example.com" class="portfolio-card" data-id="3" target="_blank" rel="noopener noreferrer" aria-label="Découvrir le projet Hexa Fintech">
           <div class="portfolio-mockup-wrapper">
-            <img src="assets/images/BG_Project.png" alt="Mockup Hexa Fintech" class="portfolio-mockup-bg" loading="lazy">
+            <img src="assets/images/BG_Project.png" alt="Mockup Hexa Fintech" class="portfolio-mockup-bg" width="5038" height="3526" loading="lazy" decoding="async">
             <div class="portfolio-screen">
-              <img src="assets/images/project_fintech.jpg" alt="Hexa Fintech" class="portfolio-screen-img" loading="lazy">
+              <img src="assets/images/project_fintech.jpg" alt="Hexa Fintech" class="portfolio-screen-img" width="1376" height="768" loading="lazy" decoding="async">
             </div>
           </div>
           <div class="portfolio-content">
             <div class="portfolio-info">
               <h3 class="portfolio-title">Hexa Fintech</h3>
-              <p class="portfolio-desc">Application bancaire mobile et gestion d'actifs crypto multi-devises.</p>
+              <p class="portfolio-desc">Application mobile bancaire et passerelle de paiements instantanés Wave & Orange Money.</p>
             </div>
             <span class="portfolio-sector-badge">Fintech</span>
           </div>
@@ -195,15 +237,15 @@
         <!-- Project 4 -->
         <a href="https://example.com" class="portfolio-card" data-id="4" target="_blank" rel="noopener noreferrer" aria-label="Découvrir le projet Emerald Estates">
           <div class="portfolio-mockup-wrapper">
-            <img src="assets/images/BG_Project.png" alt="Mockup Emerald Estates" class="portfolio-mockup-bg" loading="lazy">
+            <img src="assets/images/BG_Project.png" alt="Mockup Emerald Estates" class="portfolio-mockup-bg" width="5038" height="3526" loading="lazy" decoding="async">
             <div class="portfolio-screen">
-              <img src="assets/images/project_realestate.jpg" alt="Emerald Estates" class="portfolio-screen-img" loading="lazy">
+              <img src="assets/images/project_realestate.jpg" alt="Emerald Estates" class="portfolio-screen-img" width="1376" height="768" loading="lazy" decoding="async">
             </div>
           </div>
           <div class="portfolio-content">
             <div class="portfolio-info">
               <h3 class="portfolio-title">Emerald Estates</h3>
-              <p class="portfolio-desc">Portail immobilier de résidences de prestige avec visites interactives.</p>
+              <p class="portfolio-desc">Portail immobilier de résidences de prestige aux Almadies et Plateau avec visites 3D.</p>
             </div>
             <span class="portfolio-sector-badge">Immobilier</span>
           </div>
@@ -212,15 +254,15 @@
         <!-- Project 5 -->
         <a href="https://example.com" class="portfolio-card" data-id="5" target="_blank" rel="noopener noreferrer" aria-label="Découvrir le projet Nova Pulse">
           <div class="portfolio-mockup-wrapper">
-            <img src="assets/images/BG_Project.png" alt="Mockup Nova Pulse" class="portfolio-mockup-bg" loading="lazy">
+            <img src="assets/images/BG_Project.png" alt="Mockup Nova Pulse" class="portfolio-mockup-bg" width="5038" height="3526" loading="lazy" decoding="async">
             <div class="portfolio-screen">
-              <img src="assets/images/project_saas.jpg" alt="Nova Pulse" class="portfolio-screen-img" loading="lazy">
+              <img src="assets/images/project_saas.jpg" alt="Nova Pulse" class="portfolio-screen-img" width="1376" height="768" loading="lazy" decoding="async">
             </div>
           </div>
           <div class="portfolio-content">
             <div class="portfolio-info">
               <h3 class="portfolio-title">Nova Pulse</h3>
-              <p class="portfolio-desc">Suite logicielle collaborative et automatisation de flux de travail.</p>
+              <p class="portfolio-desc">Suite logicielle collaborative et automatisation de flux de travail pour équipes distribuées.</p>
             </div>
             <span class="portfolio-sector-badge">Productivité</span>
           </div>
@@ -229,17 +271,17 @@
         <!-- Project 6 -->
         <a href="https://example.com" class="portfolio-card" data-id="6" target="_blank" rel="noopener noreferrer" aria-label="Découvrir le projet Zenith Retail">
           <div class="portfolio-mockup-wrapper">
-            <img src="assets/images/BG_Project.png" alt="Mockup Zenith Retail" class="portfolio-mockup-bg" loading="lazy">
+            <img src="assets/images/BG_Project.png" alt="Mockup Zenith Retail" class="portfolio-mockup-bg" width="5038" height="3526" loading="lazy" decoding="async">
             <div class="portfolio-screen">
-              <img src="assets/images/project_ecommerce.jpg" alt="Zenith Retail" class="portfolio-screen-img" loading="lazy">
+              <img src="assets/images/project_ecommerce.jpg" alt="Zenith Retail" class="portfolio-screen-img" width="1376" height="768" loading="lazy" decoding="async">
             </div>
           </div>
           <div class="portfolio-content">
             <div class="portfolio-info">
               <h3 class="portfolio-title">Zenith Retail</h3>
-              <p class="portfolio-desc">Marketplace omnicanale internationale avec gestion intelligente des stocks.</p>
+              <p class="portfolio-desc">Marketplace omnicanale ouest-africaine avec gestion des stocks multi-entrepôts et suivi livreurs.</p>
             </div>
-            <span class="portfolio-sector-badge">Retail & Mode</span>
+            <span class="portfolio-sector-badge">Retail & Distribution</span>
           </div>
         </a>
       </div>
@@ -271,6 +313,7 @@
       </div>
     </div>
   </section>
+  </main>
 
   <!-- ==========================================================================
        FOOTER
@@ -280,7 +323,7 @@
       <div class="footer-top">
         <div class="footer-brand">
           <a href="index.html#hero" class="footer-logo">
-            <img src="assets/icons/Logo_Vertex_Agency_v2.png" alt="Vertex Agency Logo" class="logo-brand-img" height="36">
+            <img src="assets/icons/Logo_Vertex_Agency_v2.png" alt="Vertex Agency Logo" class="logo-brand-img" width="117" height="36" loading="lazy" decoding="async">
           </a>
           <p class="footer-desc">
             L'agence digitale de référence pour concevoir des sites web captivants, des applications mobiles agiles et
@@ -289,7 +332,7 @@
         </div>
 
         <div class="footer-col">
-          <h4 class="footer-title">Navigation</h4>
+          <h3 class="footer-title">Navigation</h3>
           <ul class="footer-links">
             <li><a href="index.html#hero" class="footer-link">Accueil</a></li>
             <li><a href="index.html#services" class="footer-link">Nos Services</a></li>
@@ -300,7 +343,7 @@
         </div>
 
         <div class="footer-col">
-          <h4 class="footer-title">Nos Services</h4>
+          <h3 class="footer-title">Nos Services</h3>
           <ul class="footer-links">
             <li><a href="index.html#services" class="footer-link">Création de sites web</a></li>
             <li><a href="index.html#services" class="footer-link">Design UI/UX sur mesure</a></li>
@@ -311,7 +354,7 @@
         </div>
 
         <div class="footer-col">
-          <h4 class="footer-title">Contact</h4>
+          <h3 class="footer-title">Contact</h3>
           <ul class="footer-contact-info">
             <li class="footer-icon-inline" style="color: var(--text-muted); font-size: 0.9rem;">
               <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>

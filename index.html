@@ -7,30 +7,85 @@
   <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data: https:; font-src 'self' data:; connect-src 'self'; object-src 'none'; base-uri 'self'; form-action 'self';">
   <meta http-equiv="X-Content-Type-Options" content="nosniff">
   <meta name="referrer" content="strict-origin-when-cross-origin">
-  <title>Vertex Agency | Sites web professionnels sur mesure & Solutions Digitales</title>
+  <title>Vertex Agency | Agence Web & Création de Sites sur Mesure à Dakar</title>
 
   <!-- SEO Meta Tags -->
   <meta name="description"
-    content="Vertex Agency conçoit et développe des sites web professionnels sur mesure, applications mobiles et solutions digitales haute performance pour propulser votre entreprise.">
+    content="Agence web à Dakar : création de sites internet sur mesure, applications mobiles et plateformes SaaS haute performance. Devis chiffré sous 24h.">
   <meta name="keywords"
-    content="agence web dakar, création site internet, développement web sur mesure, UI UX design, application mobile, SEO">
+    content="agence web dakar, création site internet dakar, développement web sénégal, UI UX design dakar, application mobile sénégal, refonte site web, SEO dakar">
   <meta name="author" content="Vertex Agency">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://vertexagency.com/">
 
-  <!-- Open Graph / Social Media -->
-  <meta property="og:title" content="Vertex Agency | Sites web professionnels sur mesure">
-  <meta property="og:description"
-    content="Agence digitale spécialisée dans la création de sites web haute performance, design UI/UX et applications sur mesure.">
-  <meta property="og:image" content="assets/images/hero_tech.jpg">
+  <!-- Open Graph / Facebook -->
   <meta property="og:type" content="website">
+  <meta property="og:locale" content="fr_SN">
+  <meta property="og:site_name" content="Vertex Agency">
+  <meta property="og:url" content="https://vertexagency.com/">
+  <meta property="og:title" content="Vertex Agency | Sites web professionnels sur mesure à Dakar">
+  <meta property="og:description"
+    content="Agence digitale d'excellence à Dakar : développement de plateformes web réactives, design UI/UX sur mesure et intégration Wave & Orange Money.">
+  <meta property="og:image" content="https://vertexagency.com/assets/images/project_saas.jpg">
+  <meta property="og:image:width" content="1376">
+  <meta property="og:image:height" content="768">
+  <meta property="og:image:alt" content="Aperçu des réalisations digitales de Vertex Agency à Dakar">
+
+  <!-- Twitter Cards -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:url" content="https://vertexagency.com/">
+  <meta name="twitter:title" content="Vertex Agency | Sites web professionnels sur mesure à Dakar">
+  <meta name="twitter:description"
+    content="Conception de sites internet d'élite, applications mobiles et solutions SaaS scalables au Sénégal.">
+  <meta name="twitter:image" content="https://vertexagency.com/assets/images/project_saas.jpg">
 
   <!-- Favicon -->
   <link rel="icon" type="image/png" href="assets/icons/Favi_Bleu.png">
+
+  <!-- Schema.org Structured Data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "ProfessionalService",
+    "name": "Vertex Agency",
+    "description": "Agence web et digitale spécialisée dans la création de sites internet professionnels sur mesure, applications mobiles et solutions SaaS.",
+    "url": "https://vertexagency.com/",
+    "logo": "https://vertexagency.com/assets/icons/Logo_Vertex_Agency_v2.png",
+    "image": "https://vertexagency.com/assets/images/hero_tech_illustration.png",
+    "telephone": "+221770000000",
+    "email": "contact@vertexagency.com",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "Point E / Fann Résidence",
+      "addressLocality": "Dakar",
+      "addressRegion": "Dakar",
+      "addressCountry": "SN"
+    },
+    "geo": {
+      "@type": "GeoCoordinates",
+      "latitude": 14.6937,
+      "longitude": -17.4441
+    },
+    "priceRange": "500 000 - 7 000 000 FCFA",
+    "currenciesAccepted": "XOF",
+    "paymentAccepted": "Wave, Orange Money, Free Money, Virement bancaire",
+    "openingHoursSpecification": {
+      "@type": "OpeningHoursSpecification",
+      "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+      "opens": "08:30",
+      "closes": "18:30"
+    }
+  }
+  </script>
 
   <!-- Main Stylesheet -->
   <link rel="stylesheet" href="styles/main.css">
 </head>
 
 <body>
+
+  <!-- Accessibilité : Lien d'évitement au contenu -->
+  <a href="#main-content" class="skip-link">Aller au contenu principal</a>
 
   <!-- Background Grid Pattern -->
   <div class="bg-grid-overlay"></div>
@@ -43,7 +98,7 @@
       <!-- Zone 1 : Logo (gauche) -->
       <div class="nav-logo-zone">
         <a href="#hero" class="logo" id="navLogo" aria-label="Accueil Vertex Agency">
-          <img src="assets/icons/Logo_Vertex_Agency_v2.png" alt="Vertex Agency" class="logo-brand-img" height="48">
+          <img src="assets/icons/Logo_Vertex_Agency_v2.png" alt="Vertex Agency" class="logo-brand-img" width="156" height="48" fetchpriority="high" decoding="async">
         </a>
       </div>
 
@@ -124,12 +179,17 @@
   </nav>
 
   <!-- ==========================================================================
+       MAIN CONTENT LANDMARK (Accessibilité WCAG 2.1 AA)
+       ========================================================================== -->
+  <main id="main-content">
+
+  <!-- ==========================================================================
        HERO SECTION (Intégration fluide de l'illustration en arrière-plan)
        ========================================================================== -->
   <section class="hero-section" id="hero">
     <!-- Ambient Background Illustration Layer (Fondue dans le dégradé) -->
     <div class="hero-bg-visual" aria-hidden="true">
-      <img src="assets/images/hero_tech_illustration.png" alt="" class="hero-bg-img" width="2527" height="1787">
+      <img src="assets/images/hero_tech_illustration.png" alt="" class="hero-bg-img" width="2527" height="1787" fetchpriority="high" decoding="async">
     </div>
 
     <div class="container hero-container">
@@ -187,8 +247,7 @@
         <!-- Service 1: Développement Web -->
         <div class="service-card">
           <div>
-            <img src="assets/icons/Creation_site_web.png" alt="Développement Web" class="service-icon-img" width="34"
-              height="34">
+            <img src="assets/icons/Creation_site_web.png" alt="" class="service-icon-img" width="34" height="34" loading="lazy" decoding="async">
             <h3 class="service-title">Création de sites web</h3>
             <p class="service-desc">
               Des sites sur mesure (vitrine, e-commerce ou réservation), rapides, responsives et pensés pour transformer
@@ -196,29 +255,28 @@
             </p>
           </div>
           <div class="service-thumb">
-            <img src="assets/images/service_card_1_thumb.png" alt="Développement Web" loading="lazy">
+            <img src="assets/images/service_card_1_thumb.png" alt="Aperçu projet Création de sites web" width="3129" height="4000" loading="lazy" decoding="async">
           </div>
         </div>
 
         <!-- Service 2: Design UI/UX -->
         <div class="service-card">
           <div>
-            <img src="assets/icons/Design_UIUX.png" alt="Design UI/UX" class="service-icon-img" width="34" height="34">
+            <img src="assets/icons/Design_UIUX.png" alt="" class="service-icon-img" width="34" height="34" loading="lazy" decoding="async">
             <h3 class="service-title">Design UI/UX</h3>
             <p class="service-desc">
               Des parcours simples et des interfaces soignées, conçus à partir des besoins réels de vos utilisateurs.
             </p>
           </div>
           <div class="service-thumb">
-            <img src="assets/images/service_card_2_thumb.png" alt="Design UI/UX" loading="lazy">
+            <img src="assets/images/service_card_2_thumb.png" alt="Aperçu interface Design UI/UX" width="4987" height="3325" loading="lazy" decoding="async">
           </div>
         </div>
 
         <!-- Service 3: Référencement SEO & Marketing -->
         <div class="service-card">
           <div>
-            <img src="assets/icons/Seo_Performance.png" alt="Référencement SEO & Marketing" class="service-icon-img"
-              width="34" height="34">
+            <img src="assets/icons/Seo_Performance.png" alt="" class="service-icon-img" width="34" height="34" loading="lazy" decoding="async">
             <h3 class="service-title">Référencement SEO & Marketing</h3>
             <p class="service-desc">
               Plus de visibilité sur Google et des pages qui chargent vite, pour mieux vous classer et convertir
@@ -226,30 +284,28 @@
             </p>
           </div>
           <div class="service-thumb">
-            <img src="assets/images/service_card_3_thumb.png" alt="Référencement SEO & Marketing" loading="lazy">
+            <img src="assets/images/service_card_3_thumb.png" alt="Aperçu tableau de bord SEO & Marketing" width="3648" height="5472" loading="lazy" decoding="async">
           </div>
         </div>
 
         <!-- Service 4: Création d'application mobile -->
         <div class="service-card">
           <div>
-            <img src="assets/icons/Application_Mobile.png" alt="Création d'application mobile" class="service-icon-img"
-              width="34" height="34">
+            <img src="assets/icons/Application_Mobile.png" alt="" class="service-icon-img" width="34" height="34" loading="lazy" decoding="async">
             <h3 class="service-title">Création d'application mobile</h3>
             <p class="service-desc">
               Des applications iOS et Android fluides, de la conception jusqu'à la publication sur les stores.
             </p>
           </div>
           <div class="service-thumb">
-            <img src="assets/images/service_card_4_thumb.png" alt="Création d'application mobile" loading="lazy">
+            <img src="assets/images/service_card_4_thumb.png" alt="Aperçu écran Application Mobile" width="6720" height="3780" loading="lazy" decoding="async">
           </div>
         </div>
 
         <!-- Service 5: Maintenance & Sécurité -->
         <div class="service-card">
           <div>
-            <img src="assets/icons/Saas.png" alt="Maintenance & Sécurité" class="service-icon-img" width="34"
-              height="34">
+            <img src="assets/icons/Saas.png" alt="" class="service-icon-img" width="34" height="34" loading="lazy" decoding="async">
             <h3 class="service-title">Création de Saas</h3>
             <p class="service-desc">
               De l'idée au MVP puis à une plateforme évolutive, avec les comptes, les abonnements et les tableaux de
@@ -257,7 +313,7 @@
             </p>
           </div>
           <div class="service-thumb">
-            <img src="assets/images/service_card_5_thumb.png" alt="Maintenance & Sécurité" loading="lazy">
+            <img src="assets/images/service_card_5_thumb.png" alt="Aperçu plateforme SaaS" width="3581" height="5371" loading="lazy" decoding="async">
           </div>
         </div>
       </div>
@@ -288,15 +344,15 @@
         <!-- Project 1 -->
         <a href="https://example.com" class="portfolio-card" data-id="1" target="_blank" rel="noopener noreferrer" aria-label="Découvrir le projet Quantum Analytics">
           <div class="portfolio-mockup-wrapper">
-            <img src="assets/images/BG_Project.png" alt="Mockup Quantum Analytics" class="portfolio-mockup-bg" loading="lazy">
+            <img src="assets/images/BG_Project.png" alt="Mockup Quantum Analytics" class="portfolio-mockup-bg" width="5038" height="3526" loading="lazy" decoding="async">
             <div class="portfolio-screen">
-              <img src="assets/images/project_saas.jpg" alt="Quantum Analytics" class="portfolio-screen-img" loading="lazy">
+              <img src="assets/images/project_saas.jpg" alt="Quantum Analytics" class="portfolio-screen-img" width="1376" height="768" loading="lazy" decoding="async">
             </div>
           </div>
           <div class="portfolio-content">
             <div class="portfolio-info">
               <h3 class="portfolio-title">Quantum Analytics</h3>
-              <p class="portfolio-desc">Plateforme SaaS d'analytique temps réel et visualisation de données.</p>
+              <p class="portfolio-desc">Plateforme SaaS d'analytique temps réel et tableaux de bord financiers pour entreprises.</p>
             </div>
             <span class="portfolio-sector-badge">SaaS & IA</span>
           </div>
@@ -305,15 +361,15 @@
         <!-- Project 2 -->
         <a href="https://example.com" class="portfolio-card" data-id="2" target="_blank" rel="noopener noreferrer" aria-label="Découvrir le projet Aurelia Luxe">
           <div class="portfolio-mockup-wrapper">
-            <img src="assets/images/BG_Project.png" alt="Mockup Aurelia Luxe" class="portfolio-mockup-bg" loading="lazy">
+            <img src="assets/images/BG_Project.png" alt="Mockup Aurelia Luxe" class="portfolio-mockup-bg" width="5038" height="3526" loading="lazy" decoding="async">
             <div class="portfolio-screen">
-              <img src="assets/images/project_ecommerce.jpg" alt="Aurelia Luxe" class="portfolio-screen-img" loading="lazy">
+              <img src="assets/images/project_ecommerce.jpg" alt="Aurelia Luxe" class="portfolio-screen-img" width="1376" height="768" loading="lazy" decoding="async">
             </div>
           </div>
           <div class="portfolio-content">
             <div class="portfolio-info">
               <h3 class="portfolio-title">Aurelia Luxe</h3>
-              <p class="portfolio-desc">Boutique e-commerce haute joaillerie avec expérience d'achat immersive.</p>
+              <p class="portfolio-desc">Boutique en ligne haut de gamme avec paiements sécurisés et catalogue immersif.</p>
             </div>
             <span class="portfolio-sector-badge">E-Commerce</span>
           </div>
@@ -322,15 +378,15 @@
         <!-- Project 3 -->
         <a href="https://example.com" class="portfolio-card" data-id="3" target="_blank" rel="noopener noreferrer" aria-label="Découvrir le projet Hexa Fintech">
           <div class="portfolio-mockup-wrapper">
-            <img src="assets/images/BG_Project.png" alt="Mockup Hexa Fintech" class="portfolio-mockup-bg" loading="lazy">
+            <img src="assets/images/BG_Project.png" alt="Mockup Hexa Fintech" class="portfolio-mockup-bg" width="5038" height="3526" loading="lazy" decoding="async">
             <div class="portfolio-screen">
-              <img src="assets/images/project_fintech.jpg" alt="Hexa Fintech" class="portfolio-screen-img" loading="lazy">
+              <img src="assets/images/project_fintech.jpg" alt="Hexa Fintech" class="portfolio-screen-img" width="1376" height="768" loading="lazy" decoding="async">
             </div>
           </div>
           <div class="portfolio-content">
             <div class="portfolio-info">
               <h3 class="portfolio-title">Hexa Fintech</h3>
-              <p class="portfolio-desc">Application bancaire mobile et gestion d'actifs crypto multi-devises.</p>
+              <p class="portfolio-desc">Application mobile bancaire et passerelle de paiements instantanés Wave & Orange Money.</p>
             </div>
             <span class="portfolio-sector-badge">Fintech</span>
           </div>
@@ -339,15 +395,15 @@
         <!-- Project 4 -->
         <a href="https://example.com" class="portfolio-card" data-id="4" target="_blank" rel="noopener noreferrer" aria-label="Découvrir le projet Emerald Estates">
           <div class="portfolio-mockup-wrapper">
-            <img src="assets/images/BG_Project.png" alt="Mockup Emerald Estates" class="portfolio-mockup-bg" loading="lazy">
+            <img src="assets/images/BG_Project.png" alt="Mockup Emerald Estates" class="portfolio-mockup-bg" width="5038" height="3526" loading="lazy" decoding="async">
             <div class="portfolio-screen">
-              <img src="assets/images/project_realestate.jpg" alt="Emerald Estates" class="portfolio-screen-img" loading="lazy">
+              <img src="assets/images/project_realestate.jpg" alt="Emerald Estates" class="portfolio-screen-img" width="1376" height="768" loading="lazy" decoding="async">
             </div>
           </div>
           <div class="portfolio-content">
             <div class="portfolio-info">
               <h3 class="portfolio-title">Emerald Estates</h3>
-              <p class="portfolio-desc">Portail immobilier de résidences de prestige avec visites interactives.</p>
+              <p class="portfolio-desc">Portail immobilier de résidences de prestige aux Almadies et Plateau avec visites 3D.</p>
             </div>
             <span class="portfolio-sector-badge">Immobilier</span>
           </div>
@@ -384,7 +440,7 @@
           </p>
           <div class="testimonial-author">
             <div class="author-avatar">
-              <img src="assets/icons/avatar_placeholder.svg" alt="Aïssatou Diallo" loading="lazy">
+              <img src="assets/icons/avatar_placeholder.svg" alt="Photo de profil de Aïssatou Diallo" width="48" height="48" loading="lazy" decoding="async">
             </div>
             <div class="author-details">
               <span class="author-name">Aïssatou Diallo</span>
@@ -407,7 +463,7 @@
           </p>
           <div class="testimonial-author">
             <div class="author-avatar">
-              <img src="assets/icons/avatar_placeholder.svg" alt="Cheikh Tidiane Ndiaye" loading="lazy">
+              <img src="assets/icons/avatar_placeholder.svg" alt="Photo de profil de Cheikh Tidiane Ndiaye" width="48" height="48" loading="lazy" decoding="async">
             </div>
             <div class="author-details">
               <span class="author-name">Cheikh Tidiane Ndiaye</span>
@@ -430,7 +486,7 @@
           </p>
           <div class="testimonial-author">
             <div class="author-avatar">
-              <img src="assets/icons/avatar_placeholder.svg" alt="Mariama Bâ" loading="lazy">
+              <img src="assets/icons/avatar_placeholder.svg" alt="Photo de profil de Mariama Bâ" width="48" height="48" loading="lazy" decoding="async">
             </div>
             <div class="author-details">
               <span class="author-name">Mariama Bâ</span>
@@ -453,7 +509,7 @@
           </p>
           <div class="testimonial-author">
             <div class="author-avatar">
-              <img src="assets/icons/avatar_placeholder.svg" alt="Ibrahima Sow" loading="lazy">
+              <img src="assets/icons/avatar_placeholder.svg" alt="Photo de profil de Ibrahima Sow" width="48" height="48" loading="lazy" decoding="async">
             </div>
             <div class="author-details">
               <span class="author-name">Ibrahima Sow</span>
@@ -476,7 +532,7 @@
           </p>
           <div class="testimonial-author">
             <div class="author-avatar">
-              <img src="assets/icons/avatar_placeholder.svg" alt="Dr. Abdoulaye Fall" loading="lazy">
+              <img src="assets/icons/avatar_placeholder.svg" alt="Photo de profil du Dr. Abdoulaye Fall" width="48" height="48" loading="lazy" decoding="async">
             </div>
             <div class="author-details">
               <span class="author-name">Dr. Abdoulaye Fall</span>
@@ -499,7 +555,7 @@
           </p>
           <div class="testimonial-author">
             <div class="author-avatar">
-              <img src="assets/icons/avatar_placeholder.svg" alt="Fatou Kiné Seck" loading="lazy">
+              <img src="assets/icons/avatar_placeholder.svg" alt="Photo de profil de Fatou Kiné Seck" width="48" height="48" loading="lazy" decoding="async">
             </div>
             <div class="author-details">
               <span class="author-name">Fatou Kiné Seck</span>
@@ -530,7 +586,7 @@
             <!-- Location -->
             <div class="contact-item">
               <div class="contact-item-icon">
-                <img src="assets/icons/Adresse.png" alt="Adresse" class="contact-icon-img" width="22" height="22">
+                <img src="assets/icons/Adresse.png" alt="" class="contact-icon-img" width="22" height="22" loading="lazy" decoding="async">
               </div>
               <div>
                 <div class="contact-item-label">Adresse</div>
@@ -541,7 +597,7 @@
             <!-- Phone -->
             <div class="contact-item">
               <div class="contact-item-icon">
-                <img src="assets/icons/Téléphone.png" alt="Téléphone" class="contact-icon-img" width="22" height="22">
+                <img src="assets/icons/Téléphone.png" alt="" class="contact-icon-img" width="22" height="22" loading="lazy" decoding="async">
               </div>
               <div>
                 <div class="contact-item-label">Téléphone direct</div>
@@ -552,7 +608,7 @@
             <!-- Email -->
             <div class="contact-item">
               <div class="contact-item-icon">
-                <img src="assets/icons/Email.png" alt="Email" class="contact-icon-img" width="22" height="22">
+                <img src="assets/icons/Email.png" alt="" class="contact-icon-img" width="22" height="22" loading="lazy" decoding="async">
               </div>
               <div>
                 <div class="contact-item-label">Email direct</div>
@@ -652,6 +708,7 @@
       </div>
     </div>
   </section>
+  </main>
 
   <!-- ==========================================================================
        FOOTER
@@ -662,8 +719,7 @@
         <!-- Brand Info -->
         <div class="footer-brand">
           <a href="#hero" class="logo">
-            <img src="assets/icons/Logo_Vertex_Agency_v2.png" alt="Vertex Agency Logo" class="logo-brand-img"
-              height="36">
+            <img src="assets/icons/Logo_Vertex_Agency_v2.png" alt="Vertex Agency Logo" class="logo-brand-img" width="117" height="36" loading="lazy" decoding="async">
           </a>
           <p class="footer-desc">
             L'agence digitale de référence à Dakar pour concevoir des sites web captivants, des applications mobiles agiles et
@@ -673,7 +729,7 @@
 
         <!-- Navigation Links -->
         <div>
-          <h4 class="footer-col-title">Navigation</h4>
+          <h3 class="footer-col-title">Navigation</h3>
           <ul class="footer-links">
             <li><a href="#hero" class="footer-link">Accueil</a></li>
             <li><a href="#services" class="footer-link">Nos Services</a></li>
@@ -685,7 +741,7 @@
 
         <!-- Services Links -->
         <div>
-          <h4 class="footer-col-title">Services</h4>
+          <h3 class="footer-col-title">Services</h3>
           <ul class="footer-links">
             <li><a href="#services" class="footer-link">Développement Web</a></li>
             <li><a href="#services" class="footer-link">Design UI/UX</a></li>
@@ -697,7 +753,7 @@
 
         <!-- Contact / Info -->
         <div>
-          <h4 class="footer-col-title">Contact</h4>
+          <h3 class="footer-col-title">Contact</h3>
           <ul class="footer-links">
             <li class="footer-icon-inline">
               <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>

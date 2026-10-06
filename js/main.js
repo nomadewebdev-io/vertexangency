@@ -118,7 +118,7 @@ function buildProjectCardMarkup(project) {
   const safeId = escapeHTML(project.id);
 
   const screenMedia = (project.image && project.image !== '#')
-    ? `<img src="${project.image}" alt="${safeTitle}" class="portfolio-screen-img" loading="lazy">`
+    ? `<img src="${project.image}" alt="${safeTitle}" class="portfolio-screen-img" loading="lazy" decoding="async" width="1376" height="768">`
     : `<div class="portfolio-screen-placeholder">IMAGE SITE WEB</div>`;
 
   const descriptionBlock = safeDescription
@@ -128,7 +128,7 @@ function buildProjectCardMarkup(project) {
   return `
     <a href="${project.link}" class="portfolio-card" data-id="${safeId}" target="_blank" rel="noopener noreferrer" aria-label="Découvrir le projet ${safeTitle}">
       <div class="portfolio-mockup-wrapper">
-        <img src="assets/images/BG_Project.png" alt="Mockup ${safeTitle}" class="portfolio-mockup-bg" loading="lazy">
+        <img src="assets/images/BG_Project.png" alt="Mockup ${safeTitle}" class="portfolio-mockup-bg" loading="lazy" decoding="async" width="5038" height="3526">
         <div class="portfolio-screen">
           ${screenMedia}
         </div>
