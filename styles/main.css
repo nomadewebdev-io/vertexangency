@@ -1818,3 +1818,161 @@ section[id] {
     padding: 4px 10px;
   }
 }
+
+/* ==========================================================================
+   LOCAL CONTEXT & UI ENHANCEMENTS (SÉNÉGAL / AFRIQUE DE L'OUEST)
+   ========================================================================== */
+
+.btn-whatsapp {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  background: #25D366;
+  color: #040914;
+  font-weight: 600;
+  padding: 12px 24px;
+  min-height: 44px;
+  border-radius: var(--radius-pill);
+  transition: all var(--transition-normal);
+  text-decoration: none;
+  font-family: var(--font-ui);
+  font-size: 0.95rem;
+  border: none;
+  cursor: pointer;
+}
+
+.btn-whatsapp:hover {
+  background: #20BA5A;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(37, 211, 102, 0.35);
+  color: #040914;
+}
+
+.btn-whatsapp-direct {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  background: rgba(37, 211, 102, 0.12);
+  border: 1px solid rgba(37, 211, 102, 0.45);
+  color: #25D366;
+  font-weight: 600;
+  padding: 12px 20px;
+  min-height: 44px;
+  border-radius: 12px;
+  text-decoration: none;
+  font-size: 0.92rem;
+  transition: all var(--transition-normal);
+  margin-top: 14px;
+}
+
+.btn-whatsapp-direct:hover {
+  background: #25D366;
+  color: #040914;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(37, 211, 102, 0.25);
+}
+
+.local-trust-strip {
+  margin-top: 26px;
+  padding: 16px 20px;
+  background: rgba(8, 18, 36, 0.7);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 14px;
+}
+
+.trust-title {
+  font-size: 0.78rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--text-muted);
+  margin-bottom: 10px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-weight: 600;
+}
+
+.payment-badges-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  align-items: center;
+}
+
+.payment-badge {
+  display: inline-flex;
+  align-items: center;
+  padding: 5px 12px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  border-radius: 6px;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  color: #E2E8F0;
+  letter-spacing: 0.02em;
+}
+
+.payment-badge.wave {
+  background: rgba(27, 169, 233, 0.15);
+  border-color: rgba(27, 169, 233, 0.45);
+  color: #38BDF8;
+}
+
+.payment-badge.orange {
+  background: rgba(255, 102, 0, 0.15);
+  border-color: rgba(255, 102, 0, 0.45);
+  color: #FB923C;
+}
+
+.payment-badge.free {
+  background: rgba(229, 10, 56, 0.15);
+  border-color: rgba(229, 10, 56, 0.45);
+  color: #F87171;
+}
+
+.payment-badge.bank {
+  background: rgba(36, 206, 107, 0.12);
+  border-color: rgba(36, 206, 107, 0.35);
+  color: #4ADE80;
+}
+
+.status-indicator-dot {
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #24CE6B;
+  box-shadow: 0 0 8px #24CE6B;
+  margin-right: 8px;
+  vertical-align: middle;
+  animation: pulseDot 2s infinite ease-in-out;
+}
+
+@keyframes pulseDot {
+  0% { transform: scale(1); opacity: 1; }
+  50% { transform: scale(1.35); opacity: 0.65; }
+  100% { transform: scale(1); opacity: 1; }
+}
+
+.star-icon {
+  display: inline-block;
+  color: #F59E0B;
+  width: 15px;
+  height: 15px;
+  margin-right: 2px;
+  fill: currentColor;
+}
+
+.footer-icon-inline {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--text-muted);
+}
+
+.footer-icon-inline svg {
+  flex-shrink: 0;
+  color: #94A3B8;
+}
+
