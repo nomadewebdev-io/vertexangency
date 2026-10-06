@@ -1,80 +1,50 @@
 [
   {
     "id": 1,
-    "nom": "Quantum Analytics",
     "title": "Quantum Analytics",
-    "name": "Quantum Analytics",
-    "secteur": "SaaS & IA",
-    "sector": "SaaS & IA",
     "category": "SaaS & IA",
     "image": "assets/images/project_saas.jpg",
     "description": "Plateforme SaaS d'analytique temps réel et visualisation de données.",
-    "lien": "https://example.com",
     "link": "https://example.com"
   },
   {
     "id": 2,
-    "nom": "Aurelia Luxe",
     "title": "Aurelia Luxe",
-    "name": "Aurelia Luxe",
-    "secteur": "E-Commerce",
-    "sector": "E-Commerce",
     "category": "E-Commerce",
     "image": "assets/images/project_ecommerce.jpg",
     "description": "Boutique e-commerce haute joaillerie avec expérience d'achat immersive.",
-    "lien": "https://example.com",
     "link": "https://example.com"
   },
   {
     "id": 3,
-    "nom": "Hexa Fintech",
     "title": "Hexa Fintech",
-    "name": "Hexa Fintech",
-    "secteur": "Fintech",
-    "sector": "Fintech",
     "category": "Fintech",
     "image": "assets/images/project_fintech.jpg",
     "description": "Application bancaire mobile et gestion d'actifs crypto multi-devises.",
-    "lien": "https://example.com",
     "link": "https://example.com"
   },
   {
     "id": 4,
-    "nom": "Emerald Estates",
     "title": "Emerald Estates",
-    "name": "Emerald Estates",
-    "secteur": "Immobilier",
-    "sector": "Immobilier",
     "category": "Immobilier",
     "image": "assets/images/project_realestate.jpg",
     "description": "Portail immobilier de résidences de prestige avec visites interactives.",
-    "lien": "https://example.com",
     "link": "https://example.com"
   },
   {
     "id": 5,
-    "nom": "Nova Pulse",
     "title": "Nova Pulse",
-    "name": "Nova Pulse",
-    "secteur": "Productivité",
-    "sector": "Productivité",
     "category": "Productivité",
     "image": "assets/images/project_saas.jpg",
     "description": "Suite logicielle collaborative et automatisation de flux de travail.",
-    "lien": "https://example.com",
     "link": "https://example.com"
   },
   {
     "id": 6,
-    "nom": "Zenith Retail",
     "title": "Zenith Retail",
-    "name": "Zenith Retail",
-    "secteur": "Retail & Mode",
-    "sector": "Retail & Mode",
     "category": "Retail & Mode",
     "image": "assets/images/project_ecommerce.jpg",
     "description": "Marketplace omnicanale internationale avec gestion intelligente des stocks.",
-    "lien": "https://example.com",
     "link": "https://example.com"
   }
 ]
